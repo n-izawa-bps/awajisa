@@ -303,12 +303,12 @@ if(isset($_POST['gender'])) {
 						</div>
                         <div class="input-box">
                             <p>
-								<input type="checkbox" name="course" value="1" class="right-space">県立淡路島公園（ニジゲンノモリ）<br>
-								<input type="checkbox" name="course" value="2" class="right-space">淡路夢舞台<br>
-								<input type="checkbox" name="course" value="3" class="right-space">淡路島国営明石海峡公園<br>
-								<input type="checkbox" name="course" value="4" class="right-space">あわじ花さじき<br>
-								<input type="checkbox" name="course" value="5" class="right-space">道の駅あわじ<br>
-								<input type="checkbox" name="course" value="6" class="right-space">その他
+								<input type="checkbox" name="course[]" value="1" class="right-space">県立淡路島公園（ニジゲンノモリ）<br>
+								<input type="checkbox" name="course[]" value="2" class="right-space">淡路夢舞台<br>
+								<input type="checkbox" name="course[]" value="3" class="right-space">淡路島国営明石海峡公園<br>
+								<input type="checkbox" name="course[]" value="4" class="right-space">あわじ花さじき<br>
+								<input type="checkbox" name="course[]" value="5" class="right-space">道の駅あわじ<br>
+								<input type="checkbox" name="course[]" value="6" class="right-space">その他
                             </p>
                         </div>
                     </div>
@@ -340,10 +340,10 @@ if(isset($_POST['gender'])) {
 						</div>
                         <div class="input-box">
                             <p>
-								<input type="checkbox" name="reason" value="1" class="right-space">淡路SAに立ち寄るため<br>
-								<input type="checkbox" name="reason" value="2" class="right-space">淡路ハイウェイオアシスに立ち寄るため<br>
-								<input type="checkbox" name="reason" value="3" class="right-space">近くのICだったため<br>
-								<input type="checkbox" name="reason" value="4" class="right-space">その他
+								<input type="checkbox" name="reason[]" value="1" class="right-space">淡路SAに立ち寄るため<br>
+								<input type="checkbox" name="reason[]" value="2" class="right-space">淡路ハイウェイオアシスに立ち寄るため<br>
+								<input type="checkbox" name="reason[]" value="3" class="right-space">近くのICだったため<br>
+								<input type="checkbox" name="reason[]" value="4" class="right-space">その他
                             </p>
                         </div>
                     </div>
@@ -376,18 +376,18 @@ if(isset($_POST['gender'])) {
 						</div>
                         <div class="input-box">
                             <p>
-								<input type="checkbox" name="purpose" value="1" class="right-space">お土産の購入<br>
-								<input type="checkbox" name="purpose" value="2" class="right-space">食事<br>
-								<input type="checkbox" name="purpose" value="3" class="right-space">トイレ<br>
-								<input type="checkbox" name="purpose" value="4" class="right-space">休憩<br>
-								<input type="checkbox" name="purpose" value="5" class="right-space">大観覧車<br>
-								<input type="checkbox" name="purpose" value="6" class="right-space">ドッグラン<br>
-								<input type="checkbox" name="purpose" value="7" class="right-space">蓄光石<br>
-								<input type="checkbox" name="purpose" value="8" class="right-space">恋人の聖地<br>
-								<input type="checkbox" name="purpose" value="9" class="right-space">橋の見える丘ギャラリー<br>
-								<input type="checkbox" name="purpose" value="10" class="right-space">ベビールームの利用<br>
-								<input type="checkbox" name="purpose" value="11" class="right-space">観光情報の入手<br>
-								<input type="checkbox" name="purpose" value="12" class="right-space">その他
+								<input type="checkbox" name="purpose[]" value="1" class="right-space">お土産の購入<br>
+								<input type="checkbox" name="purpose[]" value="2" class="right-space">食事<br>
+								<input type="checkbox" name="purpose[]" value="3" class="right-space">トイレ<br>
+								<input type="checkbox" name="purpose[]" value="4" class="right-space">休憩<br>
+								<input type="checkbox" name="purpose[]" value="5" class="right-space">大観覧車<br>
+								<input type="checkbox" name="purpose[]" value="6" class="right-space">ドッグラン<br>
+								<input type="checkbox" name="purpose[]" value="7" class="right-space">蓄光石<br>
+								<input type="checkbox" name="purpose[]" value="8" class="right-space">恋人の聖地<br>
+								<input type="checkbox" name="purpose[]" value="9" class="right-space">橋の見える丘ギャラリー<br>
+								<input type="checkbox" name="purpose[]" value="10" class="right-space">ベビールームの利用<br>
+								<input type="checkbox" name="purpose[]" value="11" class="right-space">観光情報の入手<br>
+								<input type="checkbox" name="purpose[]" value="12" class="right-space">その他
                             </p>
                         </div>
                     </div>
@@ -402,17 +402,17 @@ if(isset($_POST['gender'])) {
 						</div>
                         <div class="input-box">
                             <p>
-								<input type="checkbox" name="shop" value="1" class="right-space">ロイヤル<br>
-								<input type="checkbox" name="shop" value="2" class="right-space">フードコート<br>
-								<input type="checkbox" name="shop" value="3" class="right-space">ラーメン尊<br>
-								<input type="checkbox" name="shop" value="4" class="right-space">カフェ a-too<br>
-								<input type="checkbox" name="shop" value="5" class="right-space">売店<br>
-								<input type="checkbox" name="shop" value="6" class="right-space">外売店<br>
-								<input type="checkbox" name="shop" value="7" class="right-space">ミスタードーナッツ<br>
-								<input type="checkbox" name="shop" value="8" class="right-space">ザ・丼<br>
-								<input type="checkbox" name="shop" value="9" class="right-space">神戸ベル<br>
-								<input type="checkbox" name="shop" value="10" class="right-space">スターバックス<br>
-								<input type="checkbox" name="shop" value="11" class="right-space">店舗は利用していない
+								<input type="checkbox" name="shop[]" value="1" class="right-space">ロイヤル<br>
+								<input type="checkbox" name="shop[]" value="2" class="right-space">フードコート<br>
+								<input type="checkbox" name="shop[]" value="3" class="right-space">ラーメン尊<br>
+								<input type="checkbox" name="shop[]" value="4" class="right-space">カフェ a-too<br>
+								<input type="checkbox" name="shop[]" value="5" class="right-space">売店<br>
+								<input type="checkbox" name="shop[]" value="6" class="right-space">外売店<br>
+								<input type="checkbox" name="shop[]" value="7" class="right-space">ミスタードーナッツ<br>
+								<input type="checkbox" name="shop[]" value="8" class="right-space">ザ・丼<br>
+								<input type="checkbox" name="shop[]" value="9" class="right-space">神戸ベル<br>
+								<input type="checkbox" name="shop[]" value="10" class="right-space">スターバックス<br>
+								<input type="checkbox" name="shop[]" value="11" class="right-space">店舗は利用していない
                             </p>
                         </div>
                     </div>
@@ -524,12 +524,12 @@ if(isset($_POST['gender'])) {
 						</div>
                         <div class="input-box">
                             <p>
-								<input type="checkbox" name="purpose" value="1" class="right-space">お土産の購入<br>
-								<input type="checkbox" name="purpose" value="2" class="right-space">食事<br>
-								<input type="checkbox" name="purpose" value="3" class="right-space">休憩<br>
-								<input type="checkbox" name="purpose" value="4" class="right-space">観光<br>
-								<input type="checkbox" name="purpose" value="5" class="right-space">トイレ<br>
-								<input type="checkbox" name="purpose" value="6" class="right-space">その他
+								<input type="checkbox" name="purpose3[]" value="1" class="right-space">お土産の購入<br>
+								<input type="checkbox" name="purpose3[]" value="2" class="right-space">食事<br>
+								<input type="checkbox" name="purpose3[]" value="3" class="right-space">休憩<br>
+								<input type="checkbox" name="purpose3[]" value="4" class="right-space">観光<br>
+								<input type="checkbox" name="purpose3[]" value="5" class="right-space">トイレ<br>
+								<input type="checkbox" name="purpose3[]" value="6" class="right-space">その他
                             </p>
                         </div>
                     </div>
@@ -544,11 +544,11 @@ if(isset($_POST['gender'])) {
 						</div>
                         <div class="input-box">
                             <p>
-								<input type="checkbox" name="facility" value="1" class="right-space">オアシス館（物産館、フードコート、レストラン）<br>
-								<input type="checkbox" name="facility" value="2" class="right-space">トレピチ（パスタ＆ピザ）<br>
-								<input type="checkbox" name="facility" value="3" class="right-space">大富（鯛料理＆洋食）<br>
-								<input type="checkbox" name="facility" value="4" class="right-space">県立淡路島公園（ニジゲンノモリ）<br>
-								<input type="checkbox" name="facility" value="5" class="right-space">利用していない
+								<input type="checkbox" name="facility[]" value="1" class="right-space">オアシス館（物産館、フードコート、レストラン）<br>
+								<input type="checkbox" name="facility[]" value="2" class="right-space">トレピチ（パスタ＆ピザ）<br>
+								<input type="checkbox" name="facility[]" value="3" class="right-space">大富（鯛料理＆洋食）<br>
+								<input type="checkbox" name="facility[]" value="4" class="right-space">県立淡路島公園（ニジゲンノモリ）<br>
+								<input type="checkbox" name="facility[]" value="5" class="right-space">利用していない
                             </p>
                         </div>
                     </div>
