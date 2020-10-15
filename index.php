@@ -1,4 +1,7 @@
 <?php
+
+date_default_timezone_set ('Asia/Tokyo');
+
 define('HEADER',
     array(
         'gender' => '性別',
@@ -6,10 +9,21 @@ define('HEADER',
     )
 );
 
+function createRandomString($length){
+    $str = array_merge(range('a', 'z'), range('0', '9'));
+
+    for ($i = 0; $i < $length; $i++) {
+        $result .= $str[rand(0, count($str)-1)];
+    }
+
+    return $result;
+}
+
 // データ作成
 
+
 // csv準備
-$file_path = getcwd() . "/csv/" . "aaab" . ".csv";
+$file_path = getcwd() . "/csv/" . date('YmdHis') . createRandomString(4) . ".csv";
 if (!file_exists($file_path)) {
     touch($file_path);
 }
