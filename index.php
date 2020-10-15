@@ -26,6 +26,7 @@ define('HEADER',
         'purpose3'          => 'オアシス利用目的',
         'facility'          => '利用施設',
         'request'           => '要望',
+        'user_agent'        => 'user-agent',
     )
 );
 
@@ -41,9 +42,15 @@ function createRandomString($length)
     return $result;
 }
 
-// post情報からデータを取得
+// データを取得
 function getCsvData($key)
 {
+    // 個別処理
+    if ($key == "user_agent") {
+        return $_SERVER['HTTP_USER_AGENT'] ?? "";
+    }
+
+    // POSTデータ処理
     if (!isset($_POST[$key])) {
         return "";
     }
