@@ -9,7 +9,8 @@ define('HEADER',
     )
 );
 
-function createRandomString($length){
+function createRandomString($length)
+{
     $str = array_merge(range('a', 'z'), range('0', '9'));
 
     for ($i = 0; $i < $length; $i++) {
@@ -19,7 +20,23 @@ function createRandomString($length){
     return $result;
 }
 
+function getCsvData($key)
+{
+    if (!isset($_POST[$key])) {
+        return "";
+    }
+
+    if (is_array($_POST[$key])) {
+        $tmp = "\"" . implode(",", $_POST[$key]) . "\"";
+        return $tmp;
+    }
+
+    return htmlspecialchars($_POST[$key], ENT_QUOTES, 'UTF-8');
+}
+
 // データ作成
+$header_keys = array_keys(HEADER);
+$data = array_map('getCsvData', $header_keys);
 
 
 // csv準備
@@ -35,7 +52,7 @@ $header = mb_convert_encoding($header, "SJIS-WIN", "UTF-8");
 fputcsv($file, $header);
 
 // データセット
-$data = [];
+$data = mb_convert_encoding($data, "SJIS-WIN", "UTF-8");
 fputcsv($file, $data);
 
 fclose($file);
