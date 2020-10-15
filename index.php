@@ -29,6 +29,7 @@ define('HEADER',
     )
 );
 
+// ランダムな英数字を生成
 function createRandomString($length)
 {
     $str = array_merge(range('a', 'z'), range('0', '9'));
@@ -40,6 +41,7 @@ function createRandomString($length)
     return $result;
 }
 
+// post情報からデータを取得
 function getCsvData($key)
 {
     if (!isset($_POST[$key])) {
