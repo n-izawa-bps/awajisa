@@ -54,6 +54,11 @@ function getCsvData($key)
     return htmlspecialchars($_POST[$key], ENT_QUOTES, 'UTF-8');
 }
 
+// 翌日のタイムスタンプ取得
+function getTomorrowTimeStamp()
+{
+    return mktime(0, 0, 0, date('n'), date('j')+1, date('Y'));
+}
 
 if(!empty($_POST)) {
     // データ作成
@@ -78,9 +83,14 @@ if(!empty($_POST)) {
 
     fclose($file);
 
+    // cokkie
+    setcookie('shown_thanks', '');
+    setcookie('answered', 1, getTomorrowTimeStamp());
+
+    // ページ遷移
+    header("location: thanks.php");
 }
 
-// ページ遷移
 ?>
 
 <!DOCTYPE html>
