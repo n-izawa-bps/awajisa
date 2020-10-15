@@ -78,11 +78,6 @@ fputcsv($file, $data);
 fclose($file);
 
 // ページ遷移
-
-if(isset($_POST['gender'])) {
-    $gender = $_POST['gender'];
-    echo HEADER['gender'] . ":" . $gender;
-}
 ?>
 
 <!DOCTYPE html>
