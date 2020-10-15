@@ -280,7 +280,7 @@ if(isset($_POST['gender'])) {
 							</div>
 						</div>
                         <div class="input-box">
-                            <select name="purpose"  id="purpose2" onchange="entryChange2();">
+                            <select name="purpose2"  id="purpose2" onchange="entryChange2();">
                                 <option value="">選択してください</option>
                                 <option value="1">淡路島島内の観光</option>
                                 <option value="2">淡路島島外の観光</option>
