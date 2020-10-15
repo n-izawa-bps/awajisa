@@ -1,3 +1,39 @@
+<?php
+define('HEADER',
+    array(
+        'gender' => '性別',
+        'age'    => '年齢'
+    )
+);
+
+// データ作成
+
+// csv準備
+$file_path = getcwd() . "/csv/" . "aaab" . ".csv";
+if (!file_exists($file_path)) {
+    touch($file_path);
+}
+$file = fopen($file_path, "w");
+
+// ヘッダーセット
+$header = array_values(HEADER);
+$header = mb_convert_encoding($header, "SJIS-WIN", "UTF-8");
+fputcsv($file, $header);
+
+// データセット
+$data = [];
+fputcsv($file, $data);
+
+fclose($file);
+
+// ページ遷移
+
+if(isset($_POST['gender'])) {
+    $gender = $_POST['gender'];
+    echo HEADER['gender'] . ":" . $gender;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -28,7 +64,7 @@
 			※プレゼントはお一人様１回限りとさせていただきます。<br>（アンケートは３分程度で終わります）</p>
 		</div>
         <div class="container_bk">
-            <form name="questionnaire_form" id="questionnaire_form" method="POST" action="thanks.html">
+            <form name="questionnaire_form" id="questionnaire_form" method="POST">
                 <div class="box">
 					<div class="form-group">
                     	<div class="row mb-2 title-box">
@@ -516,7 +552,7 @@
                         </div>
                     </div>
                     <div class="form-group text-center">
-						<input type="submit" value="送信" class="btn btn-info w-50" onclick="top.location.href='thanks.html'">
+						<input type="submit" value="送信" class="btn btn-info w-50">
 					</div>
                 </div>
             </form>
