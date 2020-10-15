@@ -4,8 +4,28 @@ date_default_timezone_set ('Asia/Tokyo');
 
 define('HEADER',
     array(
-        'gender' => '性別',
-        'age'    => '年齢'
+        'gender'            => '性別',
+        'age'               => '年齢',
+        'address-level1'    => '都道府県',
+        'address-level2'    => '市町村',
+        'transportation'    => '交通手段',
+        'companion'         => '利用人数',
+        'smart-ic'          => 'スマートIC利用',
+        'purpose2'          => '外出理由',
+        'course'            => '訪問先',
+        'highway'           => '高速道路利用',
+        'reason'            => '高速道路利用理由',
+        'sa'                => 'サービスエリア',
+        'purpose'           => '目的',
+        'shop'              => '店舗',
+        'price'             => '金額',
+        'place'             => 'お土産場所',
+        'timezone'          => '時間帯',
+        'staying-time'      => '滞在時間',
+        'oasis'             => 'オアシス利用',
+        'purpose3'          => 'オアシス利用目的',
+        'facility'          => '利用施設',
+        'request'           => '要望',
     )
 );
 
