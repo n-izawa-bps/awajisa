@@ -562,7 +562,7 @@ if(isset($_POST['gender'])) {
 							</div>
 						</div>
                         <div class="input-box">
-                            <textarea></textarea>
+                            <textarea name="request"></textarea>
                         </div>
                     </div>
                     <div class="form-group text-center">
