@@ -56,7 +56,7 @@ function getCsvData($key)
             return "";
         }
 
-        return htmlspecialchars($_GET[$key], ENT_QUOTES, 'UTF-8');
+        return $_GET[$key];
     }
 
     // POSTデータ処理
@@ -69,7 +69,7 @@ function getCsvData($key)
         return $tmp;
     }
 
-    return htmlspecialchars($_POST[$key], ENT_QUOTES, 'UTF-8');
+    return $_POST[$key];
 }
 
 // 翌日のタイムスタンプ取得
