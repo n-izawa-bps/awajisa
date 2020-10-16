@@ -341,7 +341,7 @@ if (!empty($_POST)) {
                                 </select>
                             </div>  
                         </div>
-                        <div class="form-group" id="purpose">
+                        <div class="form-group">
                             <div class="row mb-2 title-box">
                                 <div class="col-2  content-title">
                                     <span class="question">7-1</span>
@@ -373,7 +373,7 @@ if (!empty($_POST)) {
                                 </div>
                             </div>
                             <div class="input-box">
-                                <p>
+                                <p id="course">
                                     <input type="checkbox" name="course[]" value="1" class="right-space">県立淡路島公園（ニジゲンノモリ）<br>
                                     <input type="checkbox" name="course[]" value="2" class="right-space">淡路夢舞台<br>
                                     <input type="checkbox" name="course[]" value="3" class="right-space">淡路島国営明石海峡公園<br>
@@ -383,7 +383,7 @@ if (!empty($_POST)) {
                                 </p>
                             </div>
                         </div>
-                        <div class="form-group" id="highway">
+                        <div class="form-group">
                             <div class="row mb-2 title-box">
                                 <div class="col-2  content-title">
                                     <span class="question">7-2</span>
@@ -393,14 +393,14 @@ if (!empty($_POST)) {
                                 </div>
                             </div>
                             <div class="input-box">
-                                <select name="highway">
+                                <select name="highway" id="highway">
                                     <option value="">選択してください</option>
                                     <option value="yes">はい</option>
                                     <option value="no">いいえ</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group" id="reason">
+                        <div class="form-group">
                             <div class="row mb-2 title-box">
                                 <div class="col-2  content-title">
                                     <span class="question">7-3</span>
@@ -410,7 +410,7 @@ if (!empty($_POST)) {
                                 </div>
                             </div>
                             <div class="input-box">
-                                <p>
+                                <p id="reason">
                                     <input type="checkbox" name="reason[]" value="1" class="right-space">淡路SAに立ち寄るため<br>
                                     <input type="checkbox" name="reason[]" value="2" class="right-space">淡路ハイウェイオアシスに立ち寄るため<br>
                                     <input type="checkbox" name="reason[]" value="3" class="right-space">近くのICだったため<br>
@@ -446,7 +446,7 @@ if (!empty($_POST)) {
                                 </div>
                             </div>
                             <div class="input-box">
-                                <p>
+                                <p id="purpose">
                                     <input type="checkbox" name="purpose[]" value="1" class="right-space">お土産の購入<br>
                                     <input type="checkbox" name="purpose[]" value="2" class="right-space">食事<br>
                                     <input type="checkbox" name="purpose[]" value="3" class="right-space">トイレ<br>
@@ -472,7 +472,7 @@ if (!empty($_POST)) {
                                 </div>
                             </div>
                             <div class="input-box">
-                                <p>
+                                <p id="shop">
                                     <input type="checkbox" name="shop[]" value="1" class="right-space">ロイヤル<br>
                                     <input type="checkbox" name="shop[]" value="2" class="right-space">フードコート<br>
                                     <input type="checkbox" name="shop[]" value="3" class="right-space">ラーメン尊<br>
@@ -507,7 +507,7 @@ if (!empty($_POST)) {
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group" id="place">
+                        <div class="form-group">
                             <div class="row mb-2 title-box">
                                 <div class="col-2  content-title">
                                     <span class="question">11-1</span>
@@ -517,7 +517,7 @@ if (!empty($_POST)) {
                                 </div>
                             </div>
                             <div class="input-box">
-                                <select name="place">
+                                <select name="place" id="place">
                                     <option value="">選択してください</option>
                                     <option value="1">淡路</option>
                                     <option value="2">神戸</option>
@@ -538,7 +538,7 @@ if (!empty($_POST)) {
                                 </div>
                             </div>
                             <div class="input-box">
-                                <select name="timeZone" id="timeZzone">
+                                <select name="timeZone" id="timeZone">
                                     <option value="">選択してください</option>
                                     <option value="1">午前中</option>
                                     <option value="2">お昼時</option>
@@ -584,7 +584,7 @@ if (!empty($_POST)) {
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group" id="purpose3">
+                        <div class="form-group">
                             <div class="row mb-2 title-box">
                                 <div class="col-2  content-title">
                                     <span class="question">14-1</span>
@@ -594,7 +594,7 @@ if (!empty($_POST)) {
                                 </div>
                             </div>
                             <div class="input-box">
-                                <p>
+                                <p id="purpose3">
                                     <input type="checkbox" name="purpose3[]" value="1" class="right-space">お土産の購入<br>
                                     <input type="checkbox" name="purpose3[]" value="2" class="right-space">食事<br>
                                     <input type="checkbox" name="purpose3[]" value="3" class="right-space">休憩<br>
@@ -604,7 +604,7 @@ if (!empty($_POST)) {
                                 </p>
                             </div>
                         </div>
-                        <div class="form-group" id="facility">
+                        <div class="form-group">
                             <div class="row mb-2 title-box">
                                 <div class="col-2  content-title">
                                     <span class="question">14-2</span>
@@ -614,7 +614,7 @@ if (!empty($_POST)) {
                                 </div>
                             </div>
                             <div class="input-box">
-                                <p>
+                                <p id="facility">
                                     <input type="checkbox" name="facility[]" value="1" class="right-space">オアシス館（物産館、フードコート、レストラン）<br>
                                     <input type="checkbox" name="facility[]" value="2" class="right-space">トレピチ（パスタ＆ピザ）<br>
                                     <input type="checkbox" name="facility[]" value="3" class="right-space">大富（鯛料理＆洋食）<br>
@@ -637,7 +637,7 @@ if (!empty($_POST)) {
                             </div>
                         </div>
                         <div class="form-group text-center">
-                            <input type="submit" value="送信" class="btn btn-info w-50">
+                            <input type="submit" value="送信" class="btn btn-info w-50" onclick="return check();">
                         </div>
                     </div>
                 </form>
