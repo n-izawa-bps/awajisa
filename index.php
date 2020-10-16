@@ -35,6 +35,7 @@ define(
 // ランダムな英数字を生成
 function createRandomString($length)
 {
+    $result = "";
     $str = array_merge(range('a', 'z'), range('0', '9'));
 
     for ($i = 0; $i < $length; $i++) {
