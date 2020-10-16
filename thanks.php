@@ -9,13 +9,13 @@ function getTomorrowTimeStamp()
 }
 
 // 回答判定
-if(!isset($_COOKIE['answered'])) {
+if (!isset($_COOKIE['answered'])) {
 	header("location: .");
 }
 
 // 初回表示判定
 $first_show = false;
-if(!isset($_COOKIE['shown_thanks'])) {
+if (!isset($_COOKIE['shown_thanks'])) {
 	$first_show = true;
 }
 
