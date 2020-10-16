@@ -1,8 +1,9 @@
 <?php
 
-date_default_timezone_set ('Asia/Tokyo');
+date_default_timezone_set('Asia/Tokyo');
 
-define('HEADER',
+define(
+    'HEADER',
     array(
         'gender'            => '性別',
         'age'               => '年齢',
@@ -37,7 +38,7 @@ function createRandomString($length)
     $str = array_merge(range('a', 'z'), range('0', '9'));
 
     for ($i = 0; $i < $length; $i++) {
-        $result .= $str[rand(0, count($str)-1)];
+        $result .= $str[rand(0, count($str) - 1)];
     }
 
     return $result;
@@ -52,7 +53,7 @@ function getCsvData($key)
     }
 
     if ($key == "p") {
-        if(!isset($_GET[$key])) {
+        if (!isset($_GET[$key])) {
             return "";
         }
 
@@ -75,10 +76,10 @@ function getCsvData($key)
 // 翌日のタイムスタンプ取得
 function getTomorrowTimeStamp()
 {
-    return mktime(0, 0, 0, date('n'), date('j')+1, date('Y'));
+    return mktime(0, 0, 0, date('n'), date('j') + 1, date('Y'));
 }
 
-if(!empty($_POST)) {
+if (!empty($_POST)) {
     // データ作成
     $header_keys = array_keys(HEADER);
     $data = array_map('getCsvData', $header_keys);
