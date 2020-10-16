@@ -159,6 +159,7 @@ function check() {
 	}
 
 	if (is_error) {
+		scrollTo(0, 0);
 		alert("必須項目を入力してください");
 		return false;
 	}
