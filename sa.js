@@ -3,7 +3,9 @@
 timerID = setInterval('clock()',500);
 
 function clock() {
-	document.getElementById("time").innerHTML = getNow();
+	if (document.getElementById("time")) {
+		document.getElementById("time").innerHTML = getNow();
+	}
 }
 
 function getNow() {
