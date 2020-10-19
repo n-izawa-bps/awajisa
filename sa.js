@@ -1,4 +1,4 @@
-﻿// thanks.htmlの時間 
+// thanks.htmlの時間 
 
 timerID = setInterval('clock()',500);
 
