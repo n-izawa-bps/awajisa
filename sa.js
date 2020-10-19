@@ -112,6 +112,7 @@ window.onload = entryChange4;
 function check() {
 	// エラーフラグ
 	let is_error = false;
+	window.first_error_top = 0;
 
 	// 必須項目
 	const gender = document.getElementById("gender");
@@ -163,7 +164,7 @@ function check() {
 	}
 
 	if (is_error) {
-		scrollTo(0, 0);
+		document.documentElement.scrollTop = first_error_top;
 		alert("必須項目を入力してください");
 		return false;
 	}
@@ -182,6 +183,9 @@ function checkRequire(target, is_error) {
 	}
 
 	title_box.classList.add("invalid");
+	if (first_error_top == 0) {
+		first_error_top = title_box.getBoundingClientRect().top + window.pageYOffset;
+	}
 	return true;
 }
 
@@ -199,5 +203,8 @@ function checkRequireForCheckbox(target, is_error) {
 	}
 
 	title_box.classList.add("invalid");
+	if (first_error_top == 0) {
+		first_error_top = title_box.getBoundingClientRect().top + window.pageYOffset;
+	}
 	return true;
 }
