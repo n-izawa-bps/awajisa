@@ -141,7 +141,11 @@ function check() {
 
 	if (smart_ic.value == "" || smart_ic.value == "yes") {
 		is_error = checkRequire(purpose2, is_error);
-		is_error = checkRequireForCheckbox(course, is_error);
+
+		if (purpose2.value == "" || purpose2.value == "1") {
+			is_error = checkRequireForCheckbox(course, is_error);
+		}
+
 		is_error = checkRequire(highway, is_error);
 		is_error = checkRequireForCheckbox(reason, is_error);
 	}
