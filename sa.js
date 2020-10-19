@@ -33,15 +33,15 @@ function entryChange1(){
 		id = document.getElementById('smart-ic').value;
 		 
 		if(id == 'yes'){
-			document.getElementById('purpose').style.display = "";
+			document.getElementById('go-out').style.display = "";
 			document.getElementById('island').style.display = "";
-			document.getElementById('highway').style.display = "";
-			document.getElementById('reason').style.display = "";
+			document.getElementById('awaji-highway').style.display = "";
+			document.getElementById('awaji-reason').style.display = "";
 		}else if(id == 'no'){
-			document.getElementById('purpose').style.display = "none";
+			document.getElementById('go-out').style.display = "none";
 			document.getElementById('island').style.display = "none";
-			document.getElementById('highway').style.display = "none";
-			document.getElementById('reason').style.display = "none";
+			document.getElementById('awaji-highway').style.display = "none";
+			document.getElementById('awaji-reason').style.display = "none";
 		}
 	}
 }
@@ -75,9 +75,9 @@ function entryChange3(){
 		id = document.getElementById('price').value;
 		 
 		if(id == '5'){
-			document.getElementById('place').style.display = "none";
+			document.getElementById('from-souvenir').style.display = "none";
 		}else{
-			document.getElementById('place').style.display = "";
+			document.getElementById('from-souvenir').style.display = "";
 		}
 	}
 }
@@ -93,11 +93,11 @@ function entryChange4(){
 		id = document.getElementById('oasis').value;
 		 
 		if(id == 'yes'){
-			document.getElementById('purpose3').style.display = "";
-			document.getElementById('facility').style.display = "";
+			document.getElementById('oasis-purpose').style.display = "";
+			document.getElementById('oasis-facility').style.display = "";
 		}else if(id == 'no'){
-			document.getElementById('purpose3').style.display = "none";
-			document.getElementById('facility').style.display = "none";
+			document.getElementById('oasis-purpose').style.display = "none";
+			document.getElementById('oasis-facility').style.display = "none";
 		}
 	}
 }

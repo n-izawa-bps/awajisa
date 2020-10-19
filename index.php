@@ -341,7 +341,7 @@ if (!empty($_POST)) {
                                 </select>
                             </div>  
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" id="go-out">
                             <div class="row mb-2 title-box">
                                 <div class="col-2  content-title">
                                     <span class="question">7-1</span>
@@ -383,7 +383,7 @@ if (!empty($_POST)) {
                                 </p>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" id="awaji-highway">
                             <div class="row mb-2 title-box">
                                 <div class="col-2  content-title">
                                     <span class="question">7-2</span>
@@ -400,7 +400,7 @@ if (!empty($_POST)) {
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" id="awaji-reason">
                             <div class="row mb-2 title-box">
                                 <div class="col-2  content-title">
                                     <span class="question">7-3</span>
@@ -507,7 +507,7 @@ if (!empty($_POST)) {
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" id="from-souvenir">
                             <div class="row mb-2 title-box">
                                 <div class="col-2  content-title">
                                     <span class="question">11-1</span>
@@ -584,7 +584,7 @@ if (!empty($_POST)) {
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" id="oasis-purpose">
                             <div class="row mb-2 title-box">
                                 <div class="col-2  content-title">
                                     <span class="question">14-1</span>
@@ -604,7 +604,7 @@ if (!empty($_POST)) {
                                 </p>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" id="oasis-facility">
                             <div class="row mb-2 title-box">
                                 <div class="col-2  content-title">
                                     <span class="question">14-2</span>
