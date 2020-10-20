@@ -44,9 +44,9 @@ setcookie('shown_thanks', 1, strtotime("+1 days"));
 			<div class="my-3">
 				<span id="time" STYLE="font-size: small;"></span>
 			</div></h1>
-			<div class="info">
-				<p class="mt-2">アンケートにご協力いただいたお礼に粗品を用意しております。</p>
-				<p class="mb-2"><strong>この画面を閉じずに、</strong>インフォメーションにて係員にご提示ください。</p>
+			<div class="info py-2">
+				<p>アンケートにご協力いただいたお礼に粗品を用意しております。</p>
+				<p><strong>この画面を閉じずに、</strong>インフォメーションにて係員にご提示ください。</p>
 			</div>
 			<input type="button" onclick="location.href='http://www.jb-highway.co.jp/index.php'" value="本画面を閉じる">
 		<?php else : ?>
