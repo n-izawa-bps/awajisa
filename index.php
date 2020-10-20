@@ -386,12 +386,36 @@ if (!empty($_POST)) {
                             </div>
                             <div class="input-box">
                                 <p id="course">
-                                    <input type="checkbox" name="course[]" value="1" class="right-space">県立淡路島公園（ニジゲンノモリ）<br>
-                                    <input type="checkbox" name="course[]" value="2" class="right-space">淡路夢舞台<br>
-                                    <input type="checkbox" name="course[]" value="3" class="right-space">淡路島国営明石海峡公園<br>
-                                    <input type="checkbox" name="course[]" value="4" class="right-space">あわじ花さじき<br>
-                                    <input type="checkbox" name="course[]" value="5" class="right-space">道の駅あわじ<br>
-                                    <input type="checkbox" name="course[]" value="6" class="right-space">その他
+                                    <div class="py-2">
+                                        <label for="course1">
+                                            <input type="checkbox" id="course1" name="course[]" value="1" class="right-space">県立淡路島公園（ニジゲンノモリ）
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="course2">
+                                            <input type="checkbox" id="course2" name="course[]" value="2" class="right-space">淡路夢舞台
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="course3">
+                                            <input type="checkbox" id="course3" name="course[]" value="3" class="right-space">淡路島国営明石海峡公園
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="course4">
+                                            <input type="checkbox" id="course4" name="course[]" value="4" class="right-space">あわじ花さじき
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="course5">
+                                            <input type="checkbox" id="course5" name="course[]" value="5" class="right-space">道の駅あわじ
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="course6">
+                                            <input type="checkbox" id="course6" name="course[]" value="6" class="right-space">その他
+                                        </label>
+                                    </div>
                                 </p>
                             </div>
                         </div>
@@ -423,10 +447,26 @@ if (!empty($_POST)) {
                             </div>
                             <div class="input-box">
                                 <p id="reason">
-                                    <input type="checkbox" name="reason[]" value="1" class="right-space">淡路SAに立ち寄るため<br>
-                                    <input type="checkbox" name="reason[]" value="2" class="right-space">淡路ハイウェイオアシスに立ち寄るため<br>
-                                    <input type="checkbox" name="reason[]" value="3" class="right-space">近くのICだったため<br>
-                                    <input type="checkbox" name="reason[]" value="4" class="right-space">その他
+                                    <div class="py-2">
+                                        <label for="reason1">
+                                            <input type="checkbox" id="reason1" name="reason[]" value="1" class="right-space">淡路SAに立ち寄るため
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="reason2">
+                                            <input type="checkbox" id="reason2" name="reason[]" value="2" class="right-space">淡路ハイウェイオアシスに立ち寄るため
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="reason3">
+                                            <input type="checkbox" id="reason3" name="reason[]" value="3" class="right-space">近くのICだったため
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="reason4">
+                                            <input type="checkbox" id="reason4" name="reason[]" value="4" class="right-space">その他
+                                        </label>
+                                    </div>
                                 </p>
                             </div>
                         </div>
@@ -459,18 +499,66 @@ if (!empty($_POST)) {
                             </div>
                             <div class="input-box">
                                 <p id="purpose">
-                                    <input type="checkbox" name="purpose[]" value="1" class="right-space">お土産の購入<br>
-                                    <input type="checkbox" name="purpose[]" value="2" class="right-space">食事<br>
-                                    <input type="checkbox" name="purpose[]" value="3" class="right-space">トイレ<br>
-                                    <input type="checkbox" name="purpose[]" value="4" class="right-space">休憩<br>
-                                    <input type="checkbox" name="purpose[]" value="5" class="right-space">大観覧車<br>
-                                    <input type="checkbox" name="purpose[]" value="6" class="right-space">ドッグラン<br>
-                                    <input type="checkbox" name="purpose[]" value="7" class="right-space">蓄光石<br>
-                                    <input type="checkbox" name="purpose[]" value="8" class="right-space">恋人の聖地<br>
-                                    <input type="checkbox" name="purpose[]" value="9" class="right-space">橋の見える丘ギャラリー<br>
-                                    <input type="checkbox" name="purpose[]" value="10" class="right-space">ベビールームの利用<br>
-                                    <input type="checkbox" name="purpose[]" value="11" class="right-space">観光情報の入手<br>
-                                    <input type="checkbox" name="purpose[]" value="12" class="right-space">その他
+                                    <div class="py-2">
+                                        <label for="purpose-1">
+                                            <input type="checkbox" id="purpose-1" name="purpose[]" value="1" class="right-space">お土産の購入
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="purpose-2">
+                                            <input type="checkbox" id="purpose-2" name="purpose[]" value="2" class="right-space">食事
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="purpose-3">
+                                            <input type="checkbox" id="purpose-3" name="purpose[]" value="3" class="right-space">トイレ
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="purpose-4">
+                                            <input type="checkbox" id="purpose-4" name="purpose[]" value="4" class="right-space">休憩
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="purpose-5">
+                                            <input type="checkbox" id="purpose-5" name="purpose[]" value="5" class="right-space">大観覧車
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="purpose-6">
+                                            <input type="checkbox" id="purpose-6" name="purpose[]" value="6" class="right-space">ドッグラン
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="purpose-7">
+                                            <input type="checkbox" id="purpose-7" name="purpose[]" value="7" class="right-space">蓄光石
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="purpose-8">
+                                            <input type="checkbox" id="purpose-8" name="purpose[]" value="8" class="right-space">恋人の聖地
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="purpose-9">
+                                            <input type="checkbox" id="purpose-9" name="purpose[]" value="9" class="right-space">橋の見える丘ギャラリー
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="purpose-10">
+                                            <input type="checkbox" id="purpose-10" name="purpose[]" value="10" class="right-space">ベビールームの利用
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="purpose-11">
+                                            <input type="checkbox" id="purpose-11" name="purpose[]" value="11" class="right-space">観光情報の入手
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="purpose-12">
+                                            <input type="checkbox" id="purpose-12" name="purpose[]" value="12" class="right-space">その他
+                                        </label>
+                                    </div>
                                 </p>
                             </div>
                         </div>
@@ -485,17 +573,61 @@ if (!empty($_POST)) {
                             </div>
                             <div class="input-box">
                                 <p id="shop">
-                                    <input type="checkbox" name="shop[]" value="1" class="right-space">ロイヤル<br>
-                                    <input type="checkbox" name="shop[]" value="2" class="right-space">フードコート<br>
-                                    <input type="checkbox" name="shop[]" value="3" class="right-space">ラーメン尊<br>
-                                    <input type="checkbox" name="shop[]" value="4" class="right-space">カフェ a-too<br>
-                                    <input type="checkbox" name="shop[]" value="5" class="right-space">売店<br>
-                                    <input type="checkbox" name="shop[]" value="6" class="right-space">外売店<br>
-                                    <input type="checkbox" name="shop[]" value="7" class="right-space">ミスタードーナッツ<br>
-                                    <input type="checkbox" name="shop[]" value="8" class="right-space">ザ・丼<br>
-                                    <input type="checkbox" name="shop[]" value="9" class="right-space">神戸ベル<br>
-                                    <input type="checkbox" name="shop[]" value="10" class="right-space">スターバックス<br>
-                                    <input type="checkbox" name="shop[]" value="11" class="right-space">店舗は利用していない
+                                    <div class="py-2">
+                                        <label for="shop1">
+                                            <input type="checkbox" id="shop1" name="shop[]" value="1" class="right-space">ロイヤル
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="shop2">
+                                            <input type="checkbox" id="shop2" name="shop[]" value="2" class="right-space">フードコート
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="shop3">
+                                            <input type="checkbox" id="shop3" name="shop[]" value="3" class="right-space">ラーメン尊
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="shop4">
+                                            <input type="checkbox" id="shop4" name="shop[]" value="4" class="right-space">カフェ a-too
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="shop5">
+                                            <input type="checkbox" id="shop5" name="shop[]" value="5" class="right-space">売店
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="shop6">
+                                            <input type="checkbox" id="shop6" name="shop[]" value="6" class="right-space">外売店
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="shop7">
+                                            <input type="checkbox" id="shop7" name="shop[]" value="7" class="right-space">ミスタードーナッツ
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="shop8">
+                                            <input type="checkbox" id="shop8" name="shop[]" value="8" class="right-space">ザ・丼
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="shop9">
+                                            <input type="checkbox" id="shop9" name="shop[]" value="9" class="right-space">神戸ベル
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="shop10">
+                                            <input type="checkbox" id="shop10" name="shop[]" value="10" class="right-space">スターバックス
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="shop11">
+                                            <input type="checkbox" id="shop11" name="shop[]" value="11" class="right-space">店舗を利用していない
+                                        </label>
+                                    </div>
                                 </p>
                             </div>
                         </div>
@@ -607,12 +739,36 @@ if (!empty($_POST)) {
                             </div>
                             <div class="input-box">
                                 <p id="purpose3">
-                                    <input type="checkbox" name="purpose3[]" value="1" class="right-space">お土産の購入<br>
-                                    <input type="checkbox" name="purpose3[]" value="2" class="right-space">食事<br>
-                                    <input type="checkbox" name="purpose3[]" value="3" class="right-space">休憩<br>
-                                    <input type="checkbox" name="purpose3[]" value="4" class="right-space">観光<br>
-                                    <input type="checkbox" name="purpose3[]" value="5" class="right-space">トイレ<br>
-                                    <input type="checkbox" name="purpose3[]" value="6" class="right-space">その他
+                                    <div class="py-2">
+                                        <label for="purpose3-1">
+                                            <input type="checkbox" id="purpose3-1" name="purpose3[]" value="1" class="right-space">お土産の購入
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="purpose3-2">
+                                            <input type="checkbox" id="purpose3-2" name="purpose3[]" value="2" class="right-space">食事
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="purpose3-3">
+                                            <input type="checkbox" id="purpose3-3" name="purpose3[]" value="3" class="right-space">休憩
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="purpose3-4">
+                                            <input type="checkbox" id="purpose3-4" name="purpose3[]" value="4" class="right-space">観光
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="purpose3-5">
+                                            <input type="checkbox" id="purpose3-5" name="purpose3[]" value="5" class="right-space">トイレ
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="purpose3-6">
+                                            <input type="checkbox" id="purpose3-6" name="purpose3[]" value="6" class="right-space">その他
+                                        </label>
+                                    </div>
                                 </p>
                             </div>
                         </div>
@@ -627,11 +783,31 @@ if (!empty($_POST)) {
                             </div>
                             <div class="input-box">
                                 <p id="facility">
-                                    <input type="checkbox" name="facility[]" value="1" class="right-space">オアシス館（物産館、フードコート、レストラン）<br>
-                                    <input type="checkbox" name="facility[]" value="2" class="right-space">トレピチ（パスタ＆ピザ）<br>
-                                    <input type="checkbox" name="facility[]" value="3" class="right-space">大富（鯛料理＆洋食）<br>
-                                    <input type="checkbox" name="facility[]" value="4" class="right-space">県立淡路島公園（ニジゲンノモリ）<br>
-                                    <input type="checkbox" name="facility[]" value="5" class="right-space">利用していない
+                                    <div class="py-2">
+                                        <label for="facility1">
+                                            <input type="checkbox" id="facility1" name="facility[]" value="1" class="right-space">オアシス館（物産館、フードコート、レストラン）
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="facility2">
+                                            <input type="checkbox" id="facility2" name="facility[]" value="2" class="right-space">トレピチ（パスタ＆ピザ）
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="facility3">
+                                            <input type="checkbox" id="facility3" name="facility[]" value="3" class="right-space">大富（鯛料理＆洋食）
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="facility4">
+                                            <input type="checkbox" id="facility4" name="facility[]" value="4" class="right-space">県立淡路島公園（ニジゲンノモリ）
+                                        </label>
+                                    </div>
+                                    <div class="py-2">
+                                        <label for="facility5">
+                                            <input type="checkbox" id="facility5" name="facility[]" value="5" class="right-space">利用していない
+                                        </label>
+                                    </div>
                                 </p>
                             </div>
                         </div>

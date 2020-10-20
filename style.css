@@ -87,3 +87,6 @@ input[type='text']:first-child{
 	background-color:#fff;
 }
 
+label, input[type='checkbox'] {
+	cursor: pointer;
+}
