@@ -81,11 +81,11 @@ function exportCsv($row, $file_option)
 
     // ヘッダーセット
     $header = array_values(HEADER);
-    $header = mb_convert_encoding($header, "SJIS-WIN", "UTF-8");
+    $header = mb_convert_encoding($header, "UTF-8");
     fputcsv($file, $header);
 
     // データセット
-    $row = mb_convert_encoding($row, "SJIS-WIN", "UTF-8");
+    $row = mb_convert_encoding($row, "UTF-8");
     fputcsv($file, $row);
 
     fclose($file);
