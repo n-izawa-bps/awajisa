@@ -81,11 +81,11 @@ function exportCsv($row, $file_option)
 
     // ヘッダーセット
     $header = array_values(HEADER);
-    $header = mb_convert_encoding($header, "SJIS-WIN", "UTF-8");
+    $header = mb_convert_encoding($header, "UTF-8");
     fputcsv($file, $header);
 
     // データセット
-    $row = mb_convert_encoding($row, "SJIS-WIN", "UTF-8");
+    $row = mb_convert_encoding($row, "UTF-8");
     fputcsv($file, $row);
 
     fclose($file);
@@ -294,7 +294,7 @@ if (!empty($_POST)) {
                                 </div>
                             </div>
                             <div class="input-box">
-                                <input type="text" name="address-level2" placeholder="市区町村">
+                                <input type="text" name="address-level2" placeholder="市区町村" maxlength="20">
                             </div>
                         </div>
                         <div class="form-group">
@@ -645,7 +645,7 @@ if (!empty($_POST)) {
                                 </div>
                             </div>
                             <div class="input-box">
-                                <textarea name="request"></textarea>
+                                <textarea name="request" maxlength="400"></textarea>
                             </div>
                         </div>
                         <div class="form-group text-center">
