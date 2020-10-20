@@ -99,9 +99,9 @@ function exportJson($date, $rand_str)
     }
 
     $file = fopen($dir_name . $date . $rand_str . ".txt", "w");
-    fwrite($file, json_encode($_POST, JSON_UNESCAPED_UNICODE));
-    fwrite($file, json_encode($_GET, JSON_UNESCAPED_UNICODE));
-    fwrite($file, json_encode($_SERVER['HTTP_USER_AGENT'], JSON_UNESCAPED_UNICODE));
+    fwrite($file, json_encode($_POST, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+    fwrite($file, json_encode($_GET, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+    fwrite($file, json_encode($_SERVER['HTTP_USER_AGENT'], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
     fclose($file);
 }
 
