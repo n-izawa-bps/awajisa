@@ -86,7 +86,6 @@ function checkRequire(target) {
 	let title_box = parent.prev();
 
 	if (target.val() != "") {
-		title_box.removeClass("invalid");
 		return true;
 	}
 
@@ -100,7 +99,6 @@ function checkRequireForCheckbox(target) {
 	let target_array = target.children();
 	for (let checkbox of target_array) {
 		if (checkbox.checked) {
-			title_box.removeClass("invalid");
 			return true;
 		}
 	}
