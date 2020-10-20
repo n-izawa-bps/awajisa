@@ -81,13 +81,54 @@ function entryChange4(){
 	}
 }
 
+class ErrorInfo {
+	constructor() {
+		this.is_error = false;
+		this.first_error_top = 0;
+	}
 
+	checkRequire(target) {
+		// title-boxのinvalidを削除
+		let parent = target.parentElement;
+		let title_box = parent.previousElementSibling;
+
+		if (target.value != "") {
+			title_box.classList.remove("invalid");
+			return true;
+		}
+
+		title_box.classList.add("invalid");
+		if (this.first_error_top == 0) {
+			this.first_error_top = title_box.getBoundingClientRect().top + window.pageYOffset;
+		}
+		this.is_error = true;
+	}
+
+	checkRequireForCheckbox(target) {
+		// title-boxのinvalidを削除
+		let parent = target.parentElement;
+		let title_box = parent.previousElementSibling;
+
+		let target_array = target.children;
+		for (let checkbox of target_array) {
+			if (checkbox.checked) {
+				title_box.classList.remove("invalid");
+				return true;
+			}
+		}
+
+		title_box.classList.add("invalid");
+		if (this.first_error_top == 0) {
+			this.first_error_top = title_box.getBoundingClientRect().top + window.pageYOffset;
+		}
+		this.is_error = true;
+	}
+}
 
 // 送信前必須チェック
 function check() {
-	// エラーフラグ
-	let is_error = false;
-	window.first_error_top = 0;
+	// エラークラス生成
+	let errorObj = new ErrorInfo();
 
 	// 必須項目
 	const gender = document.getElementById("gender");
@@ -109,37 +150,38 @@ function check() {
 	const facility = document.getElementById("facility");
 
 	// 必須チェック
-	is_error = checkRequire(gender, is_error);
-	is_error = checkRequire(age, is_error);
-	is_error = checkRequire(address_level2, is_error);
-	is_error = checkRequire(transportation, is_error);
-	is_error = checkRequire(smart_ic, is_error);
+	errorObj.checkRequire(gender);
+	errorObj.checkRequire(age);
+	errorObj.checkRequire(address_level2);
+	errorObj.checkRequire(transportation);
+	errorObj.checkRequire(smart_ic);
 
 	if (smart_ic.value == "" || smart_ic.value == "yes") {
-		is_error = checkRequire(purpose2, is_error);
+		errorObj.checkRequire(purpose2);
 
 		if (purpose2.value == "" || purpose2.value == "1") {
-			is_error = checkRequireForCheckbox(course, is_error);
+			errorObj.checkRequireForCheckbox(course);
 		}
 
-		is_error = checkRequire(highway, is_error);
-		is_error = checkRequireForCheckbox(reason, is_error);
+		errorObj.checkRequire(highway);
+		errorObj.checkRequireForCheckbox(reason);
 	}
 
-	is_error = checkRequire(sa, is_error);
-	is_error = checkRequireForCheckbox(purpose, is_error);
-	is_error = checkRequireForCheckbox(shop, is_error);
-	is_error = checkRequire(timeZone, is_error);
-	is_error = checkRequire(staying_time, is_error);
-	is_error = checkRequire(oasis, is_error);
+		errorObj.checkRequire(sa);
+		errorObj.checkRequireForCheckbox(purpose);
+		errorObj.checkRequireForCheckbox(shop);
+		errorObj.checkRequire(timeZone);
+		errorObj.checkRequire(staying_time);
+		errorObj.checkRequire(oasis);
 
 	if (oasis.value == "" || oasis.value == "yes") {
-		is_error = checkRequireForCheckbox(purpose3, is_error);
-		is_error = checkRequireForCheckbox(facility, is_error);
+		errorObj.checkRequireForCheckbox(purpose3);
+		errorObj.checkRequireForCheckbox(facility);
 	}
 
-	if (is_error) {
-		document.documentElement.scrollTop = first_error_top;
+	// 最終チェック
+	if (errorObj.is_error) {
+		document.documentElement.scrollTop = errorObj.first_error_top;
 		alert("必須項目を入力してください");
 		return false;
 	}
@@ -147,42 +189,7 @@ function check() {
 	return true;
 }
 
-function checkRequire(target, is_error) {
-	// title-boxのinvalidを削除
-	let parent = target.parentElement;
-	let title_box = parent.previousElementSibling;
-	title_box.classList.remove("invalid");
-
-	if (target.value != "") {
-		return is_error;
-	}
-
-	title_box.classList.add("invalid");
-	if (first_error_top == 0) {
-		first_error_top = title_box.getBoundingClientRect().top + window.pageYOffset;
-	}
-	return true;
-}
-
-function checkRequireForCheckbox(target, is_error) {
-	// title-boxのinvalidを削除
-	let parent = target.parentElement;
-	let title_box = parent.previousElementSibling;
-	title_box.classList.remove("invalid");
-
-	target_array = target.children;
-	for (checkbox of target_array) {
-		if (checkbox.checked) {
-			return is_error;
-		}
-	}
-
-	title_box.classList.add("invalid");
-	if (first_error_top == 0) {
-		first_error_top = title_box.getBoundingClientRect().top + window.pageYOffset;
-	}
-	return true;
-}}window.addEventListener('load', (event) => {
+window.addEventListener('load', (event) => {
 	setTimer();
 	entryChange1();
 	entryChange2();
