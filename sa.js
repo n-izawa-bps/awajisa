@@ -96,11 +96,8 @@ function checkRequireForCheckbox(target) {
 	let parent = target.parent();
 	let title_box = parent.prev();
 
-	let target_array = target.children();
-	for (let checkbox of target_array) {
-		if (checkbox.checked) {
-			return true;
-		}
+	if (target.find(":checked").length) {
+		return true;
 	}
 
 	title_box.addClass('invalid');
