@@ -21,17 +21,11 @@ function getNow() {
 	return s;
 }
 
-// ここまでthanks.htmlの時間
-
-
-// ここから表示切替
-
-//   ここからquestion7
-
+// question7
 function entryChange1(){
 	if(document.getElementById('smart-ic')){
 		id = document.getElementById('smart-ic').value;
-		 
+
 		if(id == 'yes'){
 			document.getElementById('go-out').style.display = "";
 			document.getElementById('island').style.display = "";
@@ -88,7 +82,6 @@ function entryChange4(){
 }
 
 
-/* ここまで表示切替 */
 
 // 送信前必須チェック
 function check() {
