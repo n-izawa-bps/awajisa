@@ -1,5 +1,5 @@
 function setTimer() {
-	setInterval('clock()',1000);
+	setInterval(clock, 1000);
 }
 
 function clock() {
