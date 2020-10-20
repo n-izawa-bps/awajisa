@@ -48,7 +48,7 @@ setcookie('shown_thanks', 1, strtotime("+1 days"));
 				<p>アンケートにご協力いただいたお礼に粗品を用意しております。</p>
 				<p><strong>この画面を閉じずに、</strong>インフォメーションにて係員にご提示ください。</p>
 			</div>
-			<input type="button" onclick="location.href='http://www.jb-highway.co.jp/index.php'" value="本画面を閉じる">
+			<input type="button" onclick="location.replace('http://www.jb-highway.co.jp/index.php')" value="本画面を閉じる">
 		<?php else : ?>
 			<h1 class="p-4">大変申し訳ございません。<br>本ページの再表示は、行えません。</h1>
 		<?php endif; ?>
