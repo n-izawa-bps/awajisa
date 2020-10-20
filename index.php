@@ -131,10 +131,10 @@ if (!empty($_POST)) {
 
     <!----- main ----->
     <div class="main_bk">
-        <h1>淡路サービスエリアに関する<br>ＷＥＢアンケート</h1>
+        <h1 class="p-4">淡路サービスエリアに関する<br>ＷＥＢアンケート</h1>
         <?php if (isset($_COOKIE['answered'])) : ?>
             <div class="info">
-                <p>アンケートの回答にご協力いただき、ありがとうございます。<br>
+                <p class="my-2">アンケートの回答にご協力いただき、ありがとうございます。<br>
                 本アンケートは、お一人様１回限りとなっております。</p>
             </div>
         <?php else : ?>

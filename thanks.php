@@ -39,18 +39,18 @@ setcookie('shown_thanks', 1, strtotime("+1 days"));
 <body>
 	<div class="main_bk">
 		<?php if ($first_show) : ?>
-			<h1><br>淡路サービスエリアに関する<br>ＷＥＢアンケート<br><br></h1>
-			<h1>アンケートにご回答頂きまして、誠にありがとうございます。<br><br>
-			<div>
+			<h1 class="p-4">淡路サービスエリアに関する<br>ＷＥＢアンケート</h1>
+			<h1 class="pt-4">アンケートにご回答頂きまして、誠にありがとうございます。
+			<div class="my-3">
 				<span id="time" STYLE="font-size: small;"></span>
 			</div></h1>
 			<div class="info">
-				<p><br><br>アンケートにご協力いただいたお礼に粗品を用意しております。<br><br>
-				<strong>この画面を閉じずに、</strong>インフォメーションにて係員にご提示ください。<br><br><br></p>
+				<p class="mt-2">アンケートにご協力いただいたお礼に粗品を用意しております。</p>
+				<p class="mb-2"><strong>この画面を閉じずに、</strong>インフォメーションにて係員にご提示ください。</p>
 			</div>
 			<input type="button" onclick="location.href='http://www.jb-highway.co.jp/index.php'" value="本画面を閉じる">
 		<?php else : ?>
-			<h1>大変申し訳ございません。<br>本ページの再表示は、行えません。</h1>
+			<h1 class="p-4">大変申し訳ございません。<br>本ページの再表示は、行えません。</h1>
 		<?php endif; ?>
 	</div>
 </body>
