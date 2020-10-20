@@ -1,6 +1,6 @@
-// thanks.htmlの時間 
-
-timerID = setInterval('clock()',500);
+function setTimer() {
+	setInterval('clock()',1000);
+}
 
 function clock() {
 	if (document.getElementById("time")) {
@@ -45,17 +45,12 @@ function entryChange1(){
 		}
 	}
 }
- 
-window.onload = entryChange1;
 
-// ここまでquestion7
-
-// ここからquestion7-2
-
+// question7-2
 function entryChange2(){
 	if(document.getElementById('purpose2')){
 		id = document.getElementById('purpose2').value;
-		 
+
 		if(id == '1'){
 			document.getElementById('island').style.display = "";
 		}else{
@@ -63,17 +58,12 @@ function entryChange2(){
 		}
 	}
 }
- 
-window.onload = entryChange2;
 
-// ここまでquestion7-2
-
-// ここからquestion11
-
+// question11
 function entryChange3(){
 	if(document.getElementById('price')){
 		id = document.getElementById('price').value;
-		 
+
 		if(id == '5'){
 			document.getElementById('from-souvenir').style.display = "none";
 		}else{
@@ -81,17 +71,12 @@ function entryChange3(){
 		}
 	}
 }
- 
-window.onload = entryChange3;
 
-// ここまでquestion11
-
-// ここからquestion14
-
+// question14
 function entryChange4(){
 	if(document.getElementById('oasis')){
 		id = document.getElementById('oasis').value;
-		 
+
 		if(id == 'yes'){
 			document.getElementById('oasis-purpose').style.display = "";
 			document.getElementById('oasis-facility').style.display = "";
@@ -101,10 +86,7 @@ function entryChange4(){
 		}
 	}
 }
- 
-window.onload = entryChange4;
 
-// ここまでquestion14
 
 /* ここまで表示切替 */
 
@@ -207,4 +189,10 @@ function checkRequireForCheckbox(target, is_error) {
 		first_error_top = title_box.getBoundingClientRect().top + window.pageYOffset;
 	}
 	return true;
-}
+}}window.addEventListener('load', (event) => {
+	setTimer();
+	entryChange1();
+	entryChange2();
+	entryChange3();
+	entryChange4();
+});
