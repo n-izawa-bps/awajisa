@@ -33,7 +33,7 @@ define(
 );
 
 // ランダムな英数字を生成
-function createRandomString($length)
+function createRandomString($length = 4)
 {
     $result = "";
     $str = array_merge(range('a', 'z'), range('0', '9'));
@@ -74,22 +74,9 @@ function getCsvData($key)
     return $_POST[$key];
 }
 
-// 翌日のタイムスタンプ取得
-function getTomorrowTimeStamp()
+function exportCsv($row, $file_option)
 {
-    return mktime(0, 0, 0, date('n'), date('j') + 1, date('Y'));
-}
-
-if (!empty($_POST)) {
-    // データ作成
-    $header_keys = array_keys(HEADER);
-    $data = array_map('getCsvData', $header_keys);
-
-    // csv準備
-    $file_path = getcwd() . "/csv/" . date('YmdHis') . createRandomString(4) . ".csv";
-    if (!file_exists($file_path)) {
-        touch($file_path);
-    }
+    $file_path = getcwd() . "/csv/" . $file_option . ".csv";
     $file = fopen($file_path, "w");
 
     // ヘッダーセット
@@ -98,21 +85,48 @@ if (!empty($_POST)) {
     fputcsv($file, $header);
 
     // データセット
-    $data = mb_convert_encoding($data, "SJIS-WIN", "UTF-8");
-    fputcsv($file, $data);
+    $row = mb_convert_encoding($row, "SJIS-WIN", "UTF-8");
+    fputcsv($file, $row);
 
     fclose($file);
+}
+
+function exportJson($file_option)
+{
+    $dir_name = getcwd() . "/json/" . date("Ymd") . "/";
+    if (!is_dir($dir_name)) {
+        mkdir($dir_name, 0777, true);
+    }
+
+    $file = fopen($dir_name . $file_option . ".txt", "w");
+    fwrite($file, json_encode($_POST, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+    fwrite($file, json_encode($_GET, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+    fwrite($file, json_encode($_SERVER['HTTP_USER_AGENT'], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+    fclose($file);
+}
+
+if (!empty($_POST)) {
+    // データ作成
+    $header_keys = array_keys(HEADER);
+    $data = array_map('getCsvData', $header_keys);
+
+    $file_option = date('YmdHis') . createRandomString(4);
+
+    // CSV出力
+    exportCsv($data, $file_option);
+
+    // Json出力（予備）
+    exportJson($file_option);
 
     // cokkie
     setcookie('shown_thanks', '');
-    setcookie('answered', 1, getTomorrowTimeStamp());
+    setcookie('answered', 1, strtotime("+1 days"));
 
     // ページ遷移
     header("location: thanks.php");
 }
 
 ?>
-
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -129,19 +143,16 @@ if (!empty($_POST)) {
 </head>
 
 <body>
-
-
-
     <!----- header----->
     <header></header>
     <!----- /header ----->
 
     <!----- main ----->
     <div class="main_bk">
-        <h1>淡路サービスエリアに関する<br>ＷＥＢアンケート</h1>
+        <h1 class="p-4">淡路サービスエリアに関する<br>ＷＥＢアンケート</h1>
         <?php if (isset($_COOKIE['answered'])) : ?>
             <div class="info">
-                <p>アンケートの回答にご協力いただき、ありがとうございます。<br>
+                <p class="my-2">アンケートの回答にご協力いただき、ありがとうございます。<br>
                 本アンケートは、お一人様１回限りとなっております。</p>
             </div>
         <?php else : ?>
