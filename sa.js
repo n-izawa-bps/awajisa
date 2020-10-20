@@ -1,10 +1,10 @@
-// thanks.htmlの時間 
-
-timerID = setInterval('clock()',500);
+function setTimer() {
+	setInterval(clock, 1000);
+}
 
 function clock() {
-	if (document.getElementById("time")) {
-		document.getElementById("time").innerHTML = getNow();
+	if (document.getElementById('time')) {
+		document.getElementById('time').innerHTML = getNow();
 	}
 }
 
@@ -21,17 +21,11 @@ function getNow() {
 	return s;
 }
 
-// ここまでthanks.htmlの時間
-
-
-// ここから表示切替
-
-//   ここからquestion7
-
+// question7
 function entryChange1(){
 	if(document.getElementById('smart-ic')){
 		id = document.getElementById('smart-ic').value;
-		 
+
 		if(id == 'yes'){
 			document.getElementById('go-out').style.display = "";
 			document.getElementById('island').style.display = "";
@@ -45,17 +39,12 @@ function entryChange1(){
 		}
 	}
 }
- 
-window.onload = entryChange1;
 
-// ここまでquestion7
-
-// ここからquestion7-2
-
+// question7-2
 function entryChange2(){
 	if(document.getElementById('purpose2')){
 		id = document.getElementById('purpose2').value;
-		 
+
 		if(id == '1'){
 			document.getElementById('island').style.display = "";
 		}else{
@@ -63,17 +52,12 @@ function entryChange2(){
 		}
 	}
 }
- 
-window.onload = entryChange2;
 
-// ここまでquestion7-2
-
-// ここからquestion11
-
+// question11
 function entryChange3(){
 	if(document.getElementById('price')){
 		id = document.getElementById('price').value;
-		 
+
 		if(id == '5'){
 			document.getElementById('from-souvenir').style.display = "none";
 		}else{
@@ -81,17 +65,12 @@ function entryChange3(){
 		}
 	}
 }
- 
-window.onload = entryChange3;
 
-// ここまでquestion11
-
-// ここからquestion14
-
+// question14
 function entryChange4(){
 	if(document.getElementById('oasis')){
 		id = document.getElementById('oasis').value;
-		 
+
 		if(id == 'yes'){
 			document.getElementById('oasis-purpose').style.display = "";
 			document.getElementById('oasis-facility').style.display = "";
@@ -101,70 +80,92 @@ function entryChange4(){
 		}
 	}
 }
- 
-window.onload = entryChange4;
 
-// ここまでquestion14
+function checkRequire(target) {
+	let parent = target.parent();
+	let title_box = parent.prev();
 
-/* ここまで表示切替 */
+	if (target.val() != "") {
+		return true;
+	}
+
+	title_box.addClass('invalid');
+}
+
+function checkRequireForCheckbox(target) {
+	let parent = target.parent();
+	let title_box = parent.prev();
+
+	let target_array = target.children();
+	for (let checkbox of target_array) {
+		if (checkbox.checked) {
+			return true;
+		}
+	}
+
+	title_box.addClass('invalid');
+}
 
 // 送信前必須チェック
 function check() {
-	// エラーフラグ
-	let is_error = false;
-	window.first_error_top = 0;
+	$('.invalid').each(function() {
+		$(this).removeClass('invalid');
+	});
 
 	// 必須項目
-	const gender = document.getElementById("gender");
-	const age = document.getElementById("age");
-	const address_level2 = document.getElementById("address-level2");
-	const transportation = document.getElementById("transportation");
-	const smart_ic = document.getElementById("smart-ic");
-	const purpose2 = document.getElementById("purpose2");
-	const course = document.getElementById("course");
-	const highway = document.getElementById("highway");
-	const reason = document.getElementById("reason");
-	const sa = document.getElementById("sa");
-	const purpose = document.getElementById("purpose");
-	const shop = document.getElementById("shop");
-	const timeZone = document.getElementById("timeZone");
-	const staying_time = document.getElementById("staying-time");
-	const oasis = document.getElementById("oasis");
-	const purpose3 = document.getElementById("purpose3");
-	const facility = document.getElementById("facility");
+	const gender = $('#gender');
+	const age = $('#age');
+	const address_level2 = $('#address-level2');
+	const transportation = $('#transportation');
+	const smart_ic = $('#smart-ic');
+	const purpose2 = $('#purpose2');
+	const course = $('#course');
+	const highway = $('#highway');
+	const reason = $('#reason');
+	const sa = $('#sa');
+	const purpose = $('#purpose');
+	const shop = $('#shop');
+	const timeZone = $('#timeZone');
+	const staying_time = $('#staying-time');
+	const oasis = $('#oasis');
+	const purpose3 = $('#purpose3');
+	const facility = $('#facility');
 
 	// 必須チェック
-	is_error = checkRequire(gender, is_error);
-	is_error = checkRequire(age, is_error);
-	is_error = checkRequire(address_level2, is_error);
-	is_error = checkRequire(transportation, is_error);
-	is_error = checkRequire(smart_ic, is_error);
+	checkRequire(gender);
+	checkRequire(age);
+	checkRequire(address_level2);
+	checkRequire(transportation);
+	checkRequire(smart_ic);
 
-	if (smart_ic.value == "" || smart_ic.value == "yes") {
-		is_error = checkRequire(purpose2, is_error);
+	if (smart_ic.val() == "" || smart_ic.val() == "yes") {
+		checkRequire(purpose2);
 
-		if (purpose2.value == "" || purpose2.value == "1") {
-			is_error = checkRequireForCheckbox(course, is_error);
+		if (purpose2.val() == "" || purpose2.val() == "1") {
+			checkRequireForCheckbox(course);
 		}
 
-		is_error = checkRequire(highway, is_error);
-		is_error = checkRequireForCheckbox(reason, is_error);
+		checkRequire(highway);
+		checkRequireForCheckbox(reason);
 	}
 
-	is_error = checkRequire(sa, is_error);
-	is_error = checkRequireForCheckbox(purpose, is_error);
-	is_error = checkRequireForCheckbox(shop, is_error);
-	is_error = checkRequire(timeZone, is_error);
-	is_error = checkRequire(staying_time, is_error);
-	is_error = checkRequire(oasis, is_error);
+		checkRequire(sa);
+		checkRequireForCheckbox(purpose);
+		checkRequireForCheckbox(shop);
+		checkRequire(timeZone);
+		checkRequire(staying_time);
+		checkRequire(oasis);
 
-	if (oasis.value == "" || oasis.value == "yes") {
-		is_error = checkRequireForCheckbox(purpose3, is_error);
-		is_error = checkRequireForCheckbox(facility, is_error);
+	if (oasis.val() == "" || oasis.val() == "yes") {
+		checkRequireForCheckbox(purpose3);
+		checkRequireForCheckbox(facility);
 	}
 
-	if (is_error) {
-		document.documentElement.scrollTop = first_error_top;
+	// 最終チェック
+	if ($('.invalid').length) {
+		let top = $('.invalid').first().offset().top;
+		$(window).scrollTop(top);
+
 		alert("必須項目を入力してください");
 		return false;
 	}
@@ -172,39 +173,10 @@ function check() {
 	return true;
 }
 
-function checkRequire(target, is_error) {
-	// title-boxのinvalidを削除
-	let parent = target.parentElement;
-	let title_box = parent.previousElementSibling;
-	title_box.classList.remove("invalid");
-
-	if (target.value != "") {
-		return is_error;
-	}
-
-	title_box.classList.add("invalid");
-	if (first_error_top == 0) {
-		first_error_top = title_box.getBoundingClientRect().top + window.pageYOffset;
-	}
-	return true;
-}
-
-function checkRequireForCheckbox(target, is_error) {
-	// title-boxのinvalidを削除
-	let parent = target.parentElement;
-	let title_box = parent.previousElementSibling;
-	title_box.classList.remove("invalid");
-
-	target_array = target.children;
-	for (checkbox of target_array) {
-		if (checkbox.checked) {
-			return is_error;
-		}
-	}
-
-	title_box.classList.add("invalid");
-	if (first_error_top == 0) {
-		first_error_top = title_box.getBoundingClientRect().top + window.pageYOffset;
-	}
-	return true;
-}
+window.addEventListener('load', (event) => {
+	setTimer();
+	entryChange1();
+	entryChange2();
+	entryChange3();
+	entryChange4();
+});
