@@ -74,12 +74,6 @@ function getCsvData($key)
     return $_POST[$key];
 }
 
-// 翌日のタイムスタンプ取得
-function getTomorrowTimeStamp()
-{
-    return mktime(0, 0, 0, date('n'), date('j') + 1, date('Y'));
-}
-
 if (!empty($_POST)) {
     // データ作成
     $header_keys = array_keys(HEADER);
@@ -105,14 +99,13 @@ if (!empty($_POST)) {
 
     // cokkie
     setcookie('shown_thanks', '');
-    setcookie('answered', 1, getTomorrowTimeStamp());
+    setcookie('answered', 1, strtotime("+1 days"));
 
     // ページ遷移
     header("location: thanks.php");
 }
 
 ?>
-
 <!DOCTYPE html>
 <html lang="ja">
 

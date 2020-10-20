@@ -20,9 +20,8 @@ if (!isset($_COOKIE['shown_thanks'])) {
 }
 
 // cokkie
-setcookie('shown_thanks', 1, getTomorrowTimeStamp());
+setcookie('shown_thanks', 1, strtotime("+1 days"));
 ?>
-
 <!DOCTYPE html>
 <html lang="ja">
 
