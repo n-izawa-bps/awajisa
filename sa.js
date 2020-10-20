@@ -3,8 +3,8 @@ function setTimer() {
 }
 
 function clock() {
-	if (document.getElementById("time")) {
-		document.getElementById("time").innerHTML = getNow();
+	if (document.getElementById('time')) {
+		document.getElementById('time').innerHTML = getNow();
 	}
 }
 
@@ -89,7 +89,7 @@ function checkRequire(target) {
 		return true;
 	}
 
-	title_box.addClass("invalid");
+	title_box.addClass('invalid');
 }
 
 function checkRequireForCheckbox(target) {
@@ -103,33 +103,33 @@ function checkRequireForCheckbox(target) {
 		}
 	}
 
-	title_box.addClass("invalid");
+	title_box.addClass('invalid');
 }
 
 // 送信前必須チェック
 function check() {
 	$('.invalid').each(function() {
-		$(this).removeClass("invalid");
+		$(this).removeClass('invalid');
 	});
 
 	// 必須項目
 	const gender = $('#gender');
-	const age = $("#age");
-	const address_level2 = $("#address-level2");
-	const transportation = $("#transportation");
-	const smart_ic = $("#smart-ic");
-	const purpose2 = $("#purpose2");
-	const course = $("#course");
-	const highway = $("#highway");
-	const reason = $("#reason");
-	const sa = $("#sa");
-	const purpose = $("#purpose");
-	const shop = $("#shop");
-	const timeZone = $("#timeZone");
-	const staying_time = $("#staying-time");
-	const oasis = $("#oasis");
-	const purpose3 = $("#purpose3");
-	const facility = $("#facility");
+	const age = $('#age');
+	const address_level2 = $('#address-level2');
+	const transportation = $('#transportation');
+	const smart_ic = $('#smart-ic');
+	const purpose2 = $('#purpose2');
+	const course = $('#course');
+	const highway = $('#highway');
+	const reason = $('#reason');
+	const sa = $('#sa');
+	const purpose = $('#purpose');
+	const shop = $('#shop');
+	const timeZone = $('#timeZone');
+	const staying_time = $('#staying-time');
+	const oasis = $('#oasis');
+	const purpose3 = $('#purpose3');
+	const facility = $('#facility');
 
 	// 必須チェック
 	checkRequire(gender);
