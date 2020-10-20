@@ -33,7 +33,7 @@ define(
 );
 
 // ランダムな英数字を生成
-function createRandomString($length)
+function createRandomString($length = 4)
 {
     $result = "";
     $str = array_merge(range('a', 'z'), range('0', '9'));
@@ -74,16 +74,9 @@ function getCsvData($key)
     return $_POST[$key];
 }
 
-if (!empty($_POST)) {
-    // データ作成
-    $header_keys = array_keys(HEADER);
-    $data = array_map('getCsvData', $header_keys);
-
-    // csv準備
-    $file_path = getcwd() . "/csv/" . date('YmdHis') . createRandomString(4) . ".csv";
-    if (!file_exists($file_path)) {
-        touch($file_path);
-    }
+function exportCsv($row, $date, $rand_str)
+{
+    $file_path = getcwd() . "/csv/" . $date . $rand_str . ".csv";
     $file = fopen($file_path, "w");
 
     // ヘッダーセット
@@ -92,10 +85,39 @@ if (!empty($_POST)) {
     fputcsv($file, $header);
 
     // データセット
-    $data = mb_convert_encoding($data, "SJIS-WIN", "UTF-8");
-    fputcsv($file, $data);
+    $row = mb_convert_encoding($row, "SJIS-WIN", "UTF-8");
+    fputcsv($file, $row);
 
     fclose($file);
+}
+
+function exportJson($date, $rand_str)
+{
+    $dir_name = getcwd() . "/json/" . date("Ymd") . "/";
+    if (!is_dir($dir_name)) {
+        mkdir($dir_name, 0777, true);
+    }
+
+    $file = fopen($dir_name . $date . $rand_str . ".txt", "w");
+    fwrite($file, json_encode($_POST, JSON_UNESCAPED_UNICODE));
+    fwrite($file, json_encode($_GET, JSON_UNESCAPED_UNICODE));
+    fwrite($file, json_encode($_SERVER['HTTP_USER_AGENT'], JSON_UNESCAPED_UNICODE));
+    fclose($file);
+}
+
+if (!empty($_POST)) {
+    // データ作成
+    $header_keys = array_keys(HEADER);
+    $data = array_map('getCsvData', $header_keys);
+
+    $answer_date = date('YmdHis');
+    $rand_str = createRandomString(4);
+
+    // CSV出力
+    exportCsv($data, $answer_date, $rand_str);
+
+    // Json出力（予備）
+    exportJson($answer_date, $rand_str);
 
     // cokkie
     setcookie('shown_thanks', '');
@@ -122,9 +144,6 @@ if (!empty($_POST)) {
 </head>
 
 <body>
-
-
-
     <!----- header----->
     <header></header>
     <!----- /header ----->
