@@ -645,7 +645,7 @@ if (!empty($_POST)) {
                                 </div>
                             </div>
                             <div class="input-box">
-                                <textarea name="request"></textarea>
+                                <textarea name="request" maxlength="400"></textarea>
                             </div>
                         </div>
                         <div class="form-group text-center">
