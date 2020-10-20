@@ -294,7 +294,7 @@ if (!empty($_POST)) {
                                 </div>
                             </div>
                             <div class="input-box">
-                                <input type="text" name="address-level2" placeholder="市区町村">
+                                <input type="text" name="address-level2" placeholder="市区町村" maxlength="20">
                             </div>
                         </div>
                         <div class="form-group">
