@@ -74,9 +74,9 @@ function getCsvData($key)
     return $_POST[$key];
 }
 
-function exportCsv($row, $date, $rand_str)
+function exportCsv($row, $file_option)
 {
-    $file_path = getcwd() . "/csv/" . $date . $rand_str . ".csv";
+    $file_path = getcwd() . "/csv/" . $file_option . ".csv";
     $file = fopen($file_path, "w");
 
     // ヘッダーセット
@@ -91,14 +91,14 @@ function exportCsv($row, $date, $rand_str)
     fclose($file);
 }
 
-function exportJson($date, $rand_str)
+function exportJson($file_option)
 {
     $dir_name = getcwd() . "/json/" . date("Ymd") . "/";
     if (!is_dir($dir_name)) {
         mkdir($dir_name, 0777, true);
     }
 
-    $file = fopen($dir_name . $date . $rand_str . ".txt", "w");
+    $file = fopen($dir_name . $file_option . ".txt", "w");
     fwrite($file, json_encode($_POST, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
     fwrite($file, json_encode($_GET, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
     fwrite($file, json_encode($_SERVER['HTTP_USER_AGENT'], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
@@ -110,14 +110,13 @@ if (!empty($_POST)) {
     $header_keys = array_keys(HEADER);
     $data = array_map('getCsvData', $header_keys);
 
-    $answer_date = date('YmdHis');
-    $rand_str = createRandomString(4);
+    $file_option = date('YmdHis') . createRandomString(4);
 
     // CSV出力
-    exportCsv($data, $answer_date, $rand_str);
+    exportCsv($data, $file_option);
 
     // Json出力（予備）
-    exportJson($answer_date, $rand_str);
+    exportJson($file_option);
 
     // cokkie
     setcookie('shown_thanks', '');
