@@ -164,11 +164,11 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                 <form name="questionnaire_form" id="questionnaire_form" method="POST">
                     <div class="box">
                         <div class="form-group">
-                            <div class="row mb-2 title-box">
-                                <div class="col-1  content-title">
+                            <div class="mb-2 title-box">
+                                <div class="content-title">
                                     <span class="question">1</span>
                                 </div>
-                                <div class="col-11 pr-0">
+                                <div class="pr-0 content-text">
                                     性別を教えてください。<br><span class="required-box">※必須</span>
                                 </div>
                             </div>
@@ -181,11 +181,11 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="row mb-2 title-box">
-                                <div class="col-1  content-title">
+                            <div class="mb-2 title-box">
+                                <div class="content-title">
                                     <span class="question">2</span>
                                 </div>
-                                <div class="col-11 pr-0">
+                                <div class="pr-0 content-text">
                                     年齢を教えてください。<br><span class="required-box">※必須</span>
                                 </div>
                             </div>
@@ -203,11 +203,11 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="row mb-2 title-box">
-                                <div class="col-1 content-title">
+                            <div class="mb-2 title-box">
+                                <div class="content-title">
                                     <span class="question">3</span>
                                 </div>
-                                <div class="col-11 pr-0">
+                                <div class="pr-0 content-text">
                                     お住まいのエリアを教えてください。<br><span class="required-box">※必須</span>
                                 </div>
                             </div>
@@ -285,11 +285,11 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="row mb-2 title-box">
-                                <div class="col-1  content-title">
+                            <div class="mb-2 title-box">
+                                <div class="content-title">
                                     <span class="question">4</span>
                                 </div>
-                                <div class="col-11 pr-0">
+                                <div class="pr-0 content-text">
                                     お住まいの市町村を教えてください。
                                 </div>
                             </div>
@@ -298,11 +298,11 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="row mb-2 title-box">
-                                <div class="col-1  content-title">
+                            <div class="mb-2 title-box">
+                                <div class="content-title">
                                     <span class="question">5</span>
                                 </div>
-                                <div class="col-11 pr-0">
+                                <div class="pr-0 content-text">
                                     当日の交通手段は何ですか。<br><span class="required-box">※必須</span>
                                 </div>
                             </div>
@@ -317,11 +317,11 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="row mb-2 title-box">
-                                <div class="col-1  content-title">
+                            <div class="mb-2 title-box">
+                                <div class="content-title">
                                     <span class="question">6</span>
                                 </div>
-                                <div class="col-11 pr-0">
+                                <div class="pr-0 content-text">
                                     どなたとご利用でしたか。
                                 </div>
                             </div>
@@ -337,11 +337,11 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="row mb-2 title-box">
-                                <div class="col-1  content-title">
+                            <div class="mb-2 title-box">
+                                <div class="content-title">
                                     <span class="question">7</span>
                                 </div>
-                                <div class="col-11 pr-0">
+                                <div class="pr-0 content-text">
                                     淡路北スマートICをご利用になりましたか。<br><span class="required-box">※必須</span>
                                 </div>
                             </div>
@@ -354,11 +354,11 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                             </div>  
                         </div>
                         <div class="form-group" id="go-out">
-                            <div class="row mb-2 title-box">
-                                <div class="col-2  content-title">
+                            <div class="mb-2 title-box">
+                                <div class="content-title">
                                     <span class="question">7-1</span>
                                 </div>
-                                <div class="col-10 p-0">
+                                <div class="pr-0 content-text">
                                     淡路北スマートICをご利用になった外出の主な目的を教えてください。<br><span class="required-box">※必須</span>
                                 </div>
                             </div>
@@ -376,11 +376,11 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                             </div>
                         </div>
                         <div class="form-group" id="island">
-                            <div class="row mb-2 pl-1 title-box">
-                                <div class="col-2  content-title">
+                            <div class="mb-2 title-box">
+                                <div class="content-title">
                                     <span class="question">7-1-1</span>
                                 </div>
-                                <div class="col-10 p-0">
+                                <div class="pr-0 content-text">
                                     淡路島島内を観光された方にお伺いします。淡路島島内で訪れた場所を教えてください。<br>（複数回答可）<span class="required-box">※必須</span>
                                 </div>
                             </div>
@@ -420,11 +420,11 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                             </div>
                         </div>
                         <div class="form-group" id="awaji-highway">
-                            <div class="row mb-2 title-box">
-                                <div class="col-2  content-title">
+                            <div class="mb-2 title-box">
+                                <div class="content-title">
                                     <span class="question">7-2</span>
                                 </div>
-                                <div class="col-10 p-0">
+                                <div class="pr-0 content-text">
                                     淡路北スマートICをご利用後、高速道路を利用して本州や四国などの淡路島島外へ向かわれましたか。<br><span class="required-box">※必須</span>
                                 </div>
                             </div>
@@ -437,11 +437,11 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                             </div>
                         </div>
                         <div class="form-group" id="awaji-reason">
-                            <div class="row mb-2 title-box">
-                                <div class="col-2  content-title">
+                            <div class="mb-2 title-box">
+                                <div class="content-title">
                                     <span class="question">7-3</span>
                                 </div>
-                                <div class="col-10 p-0">
+                                <div class="pr-0 content-text">
                                     その際、淡路北スマートICをご利用になった理由を教えてください。<br>（複数回答可）<span class="required-box">※必須</span>
                                 </div>
                             </div>
@@ -471,11 +471,11 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="row mb-2 title-box">
-                                <div class="col-1  content-title">
+                            <div class="mb-2 title-box">
+                                <div class="content-title">
                                     <span class="question">8</span>
                                 </div>
-                                <div class="col-11 pr-0">
+                                <div class="pr-0 content-text">
                                     淡路SA上り・淡路SA下りのどちらにお立ち寄りになりましたか。<br><span class="required-box">※必須</span>
                                 </div>
                             </div>
@@ -489,11 +489,11 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="row mb-2 title-box">
-                                <div class="col-1  content-title">
+                            <div class="mb-2 title-box">
+                                <div class="content-title">
                                     <span class="question">9</span>
                                 </div>
-                                <div class="col-11 pr-0">
+                                <div class="pr-0 content-text">
                                     何を目的にお立ち寄りになりましたか。<br>（複数回答可）<span class="required-box">※必須</span>
                                 </div>
                             </div>
@@ -563,11 +563,11 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="row mb-2 title-box">
-                                <div class="col-1  content-title">
+                            <div class="mb-2 title-box">
+                                <div class="content-title">
                                     <span class="question">10</span>
                                 </div>
-                                <div class="col-11 pr-0">
+                                <div class="pr-0 content-text">
                                     ご利用になったお店を教えてください。<br>（複数回答可）<span class="required-box">※必須</span>
                                 </div>
                             </div>
@@ -632,11 +632,11 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="row mb-2 title-box">
-                                <div class="col-1  content-title">
+                            <div class="mb-2 title-box">
+                                <div class="content-title">
                                     <span class="question">11</span>
                                 </div>
-                                <div class="col-11 pr-0">
+                                <div class="pr-0 content-text">
                                     お土産を購入された方にお伺いします。お土産の購入に総額でおいくら程度お使いになりましたか。
                                 </div>
                             </div>
@@ -652,11 +652,11 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                             </div>
                         </div>
                         <div class="form-group" id="from-souvenir">
-                            <div class="row mb-2 title-box">
-                                <div class="col-2  content-title">
+                            <div class="mb-2 title-box">
+                                <div class="content-title">
                                     <span class="question">11-1</span>
                                 </div>
-                                <div class="col-10 p-0">
+                                <div class="pr-0 content-text">
                                     どちらのお土産を買われましたか。
                                 </div>
                             </div>
@@ -673,11 +673,11 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="row mb-2 title-box">
-                                <div class="col-1  content-title">
+                            <div class="mb-2 title-box">
+                                <div class="content-title">
                                     <span class="question">12</span>
                                 </div>
-                                <div class="col-11 pr-0">
+                                <div class="pr-0 content-text">
                                     立ち寄った時間帯を教えてください。<br><span class="required-box">※必須</span>
                                 </div>
                             </div>
@@ -693,11 +693,11 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="row mb-2 title-box">
-                                <div class="col-1  content-title">
+                            <div class="mb-2 title-box">
+                                <div class="content-title">
                                     <span class="question">13</span>
                                 </div>
-                                <div class="col-11 pr-0">
+                                <div class="pr-0 content-text">
                                     およその滞在時間を教えてください。<br><span class="required-box">※必須</span>
                                 </div>
                             </div>
@@ -712,11 +712,11 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="row mb-2 title-box">
-                                <div class="col-1  content-title">
+                            <div class="mb-2 title-box">
+                                <div class="content-title">
                                     <span class="question">14</span>
                                 </div>
-                                <div class="col-11 pr-0">
+                                <div class="pr-0 content-text">
                                     淡路ハイウェイオアシスにはお立ち寄りになりましたか。<br><span class="required-box">※必須</span>
                                 </div>
                             </div>
@@ -729,11 +729,11 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                             </div>
                         </div>
                         <div class="form-group" id="oasis-purpose">
-                            <div class="row mb-2 title-box">
-                                <div class="col-2  content-title">
+                            <div class="mb-2 title-box">
+                                <div class="content-title">
                                     <span class="question">14-1</span>
                                 </div>
-                                <div class="col-10 p-0">
+                                <div class="pr-0 content-text">
                                     お立ち寄りになった場合、お立ち寄りの目的を教えてください。<br>（複数回答可）<span class="required-box">※必須</span>
                                 </div>
                             </div>
@@ -773,11 +773,11 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                             </div>
                         </div>
                         <div class="form-group" id="oasis-facility">
-                            <div class="row mb-2 title-box">
-                                <div class="col-2  content-title">
+                            <div class="mb-2 title-box">
+                                <div class="content-title">
                                     <span class="question">14-2</span>
                                 </div>
-                                <div class="col-10 p-0">
+                                <div class="pr-0 content-text">
                                     ご利用になった施設を教えてください。<br>（複数回答可）<span class="required-box">※必須</span>
                                 </div>
                             </div>
@@ -812,11 +812,11 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="row mb-2 title-box">
-                                <div class="col-1  content-title">
+                            <div class="mb-2 title-box">
+                                <div class="content-title">
                                     <span class="question">15</span>
                                 </div>
-                                <div class="col-11 pr-0">
+                                <div class="pr-0 content-text">
                                     今後、どんな施設やサービスがあれば、淡路SAを訪れたいと思いますか。
                                 </div>
                             </div>
