@@ -160,7 +160,7 @@ function check() {
 
 	// 最終チェック
 	if ($('.invalid').length) {
-		let top = $('.invalid').first().offset().top;
+		let top = $('.invalid').first().offset().top - $('.invalid').first().height();
 		$(window).scrollTop(top);
 
 		alert("必須項目を入力してください");
