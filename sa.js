@@ -177,3 +177,9 @@ window.addEventListener('load', (event) => {
 	entryChange3();
 	entryChange4();
 });
+
+window.addEventListener('pageshow', (event) => {
+	if (event.persisted) {
+		window.location.reload(true);
+	}
+});
