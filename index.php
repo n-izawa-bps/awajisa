@@ -105,7 +105,7 @@ function exportJson($file_option)
     fclose($file);
 }
 
-if (!empty($_POST)) {
+if (!empty($_POST) && !$_COOKIE['answered']) {
     // データ作成
     $header_keys = array_keys(HEADER);
     $data = array_map('getCsvData', $header_keys);
@@ -821,7 +821,7 @@ if (!empty($_POST)) {
                                 </div>
                             </div>
                             <div class="input-box">
-                                <textarea name="request" maxlength="400"></textarea>
+                                <textarea name="request" maxlength="400" rows="5"></textarea>
                             </div>
                         </div>
                         <div class="form-group text-center">
