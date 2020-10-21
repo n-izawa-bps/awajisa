@@ -28,10 +28,10 @@ function entryChange1(){
 
 		if(id == 'yes'){
 			document.getElementById('go-out').style.display = "";
-			document.getElementById('island').style.display = "";
+			entryChange2();
 			document.getElementById('awaji-highway').style.display = "";
 			document.getElementById('awaji-reason').style.display = "";
-		}else if(id == 'no'){
+		}else{
 			document.getElementById('go-out').style.display = "none";
 			document.getElementById('island').style.display = "none";
 			document.getElementById('awaji-highway').style.display = "none";
@@ -58,7 +58,7 @@ function entryChange3(){
 	if(document.getElementById('price')){
 		id = document.getElementById('price').value;
 
-		if(id == '5'){
+		if(id == '' || id == '5'){
 			document.getElementById('from-souvenir').style.display = "none";
 		}else{
 			document.getElementById('from-souvenir').style.display = "";
@@ -74,7 +74,7 @@ function entryChange4(){
 		if(id == 'yes'){
 			document.getElementById('oasis-purpose').style.display = "";
 			document.getElementById('oasis-facility').style.display = "";
-		}else if(id == 'no'){
+		}else{
 			document.getElementById('oasis-purpose').style.display = "none";
 			document.getElementById('oasis-facility').style.display = "none";
 		}
