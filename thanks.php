@@ -8,7 +8,7 @@ define('TIME_S', "09:00:00");	// 記入例：09:00:00
 define('TIME_E', "18:00:00");
 
 // アンケート規定回答数
-define('REGULATION_CNT', "100");
+define('REGULATION_CNT', "1000");
 
 // 翌日のタイムスタンプ取得
 function getTomorrowTimeStamp()

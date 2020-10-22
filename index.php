@@ -5,7 +5,7 @@ date_default_timezone_set('Asia/Tokyo');
 define('DAY_S', '2020-10-22 09:00:00'); // 記入例：2020-10-23 09:00:00
 
 // アンケート終了日
-define('DAY_E', '2020-10-23 12:00:00');
+define('DAY_E', '2020-10-31 12:00:00');
 
 define(
     'HEADER',
