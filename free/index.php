@@ -105,7 +105,7 @@ function exportJson($file_option)
     fclose($file);
 }
 
-if (!empty($_POST) && !$_COOKIE['answered']) {
+if (!empty($_POST)) {
     // データ作成
     $header_keys = array_keys(HEADER);
     $data = array_map('getCsvData', $header_keys);
@@ -150,12 +150,6 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
     <!----- main ----->
     <div class="main_bk">
         <h1 class="p-4">淡路サービスエリアに関する<br>ＷＥＢアンケート</h1>
-        <?php if (isset($_COOKIE['answered'])) : ?>
-            <div class="info">
-                <p class="my-2">アンケートの回答にご協力いただき、ありがとうございます。<br>
-                本アンケートは、お一人様１回限りとなっております。</p>
-            </div>
-        <?php else : ?>
             <div class="info">
                 <p>ご回答いただいた方全員に淡路ＳＡ（上り・下り）インフォメーションにて「○○○○」をプレゼント。<br>
                 ※プレゼントはお一人様１回限りとさせていただきます。<br>（アンケートは３分程度で終わります）</p>
@@ -830,7 +824,6 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                     </div>
                 </form>
             </div>
-        <?php endif; ?>
     </div>
     <!----- /main ----->
 
