@@ -1,11 +1,30 @@
 <?php
-
 date_default_timezone_set ('Asia/Tokyo');
+
+// アンケート開始時刻
+define('TIME_S', "09:00:00");	// 記入例：09:00:00
+
+// アンケート終了時刻
+define('TIME_E', "18:00:00");
+
+// アンケート規定回答数
+define('REGULATION_CNT', "1000");
 
 // 翌日のタイムスタンプ取得
 function getTomorrowTimeStamp()
 {
     return mktime(0, 0, 0, date('n'), date('j')+1, date('Y'));
+}
+
+function getCntOfCsv()
+{
+    $dir = './csv/';
+    $files = glob($dir . '{*.csv}', GLOB_BRACE);
+
+    if (!$files) {
+        return 0;
+    }
+    return count($files);
 }
 
 // 回答判定
@@ -18,6 +37,12 @@ $first_show = false;
 if (!isset($_COOKIE['shown_thanks'])) {
 	$first_show = true;
 }
+
+// アンケート回答数取得
+$answer_count = getCntOfCsv();
+
+// 現在時刻取得
+$time_now = date('H:i:s');
 
 // cokkie
 setcookie('shown_thanks', 1, strtotime("+1 days"));
@@ -44,10 +69,14 @@ setcookie('shown_thanks', 1, strtotime("+1 days"));
 			<div class="my-3">
 				<span id="time" STYLE="font-size: small;"></span>
 			</div></h1>
-			<div class="info py-2">
-				<p>アンケートにご協力いただいたお礼に粗品を用意しております。</p>
-				<p><strong>この画面を閉じずに、</strong>インフォメーションにて係員にご提示ください。</p>
-			</div>
+
+			<?php if (strtotime($time_now) >= strtotime(TIME_S) && strtotime($time_now) < strtotime(TIME_E) && $answer_count < REGULATION_CNT) : ?>
+				<div class="info py-2">
+					<p>アンケートにご協力いただいたお礼に粗品を用意しております。</p>
+					<p><strong>この画面を閉じずに、</strong>インフォメーションにて係員にご提示ください。</p>
+				</div>
+			<?php endif; ?>
+
 			<input type="button" onclick="location.replace('http://www.jb-highway.co.jp/index.php')" value="本画面を閉じる">
 		<?php else : ?>
 			<h1 class="p-4">大変申し訳ございません。<br>本ページの再表示は、行えません。</h1>
