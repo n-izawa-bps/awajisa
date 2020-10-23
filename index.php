@@ -1,11 +1,20 @@
 <?php
 date_default_timezone_set('Asia/Tokyo');
 
-// アンケート開始日
-define('DAY_S', '2020-10-22 09:00:00'); // 記入例：2020-10-23 09:00:00
+// アンケート開始日程
+define('START_UP',   '2020-10-31 09:00:00');  // 記入例：2020-10-23 09:00:00
+define('START_DOWN', '2020-10-31 08:00:00');
+define('START_ETC',  '2020-10-31 08:00:00');
 
-// アンケート終了日
-define('DAY_E', '2020-10-31 12:00:00');
+// アンケート終了日程
+define('END_UP',   '2020-11-23 19:00:00');
+define('END_DOWN', '2020-11-23 17:00:00');
+define('END_ETC',  '2020-11-23 19:00:00');
+
+// アンケート表示状態
+define('BEFORE', 1);
+define('NOW', 2);
+define('AFTER', 3);
 
 define(
     'HEADER',
@@ -110,19 +119,73 @@ function exportJson($file_option)
     fclose($file);
 }
 
-function getPlace()
+// アンケート表示判定
+function isShowQuestion($p, $date)
 {
-    if ($_GET['p'] == 'up') {
+    if ($p == 'up') {
+        if (strtotime($date) < strtotime(START_UP)) {
+            return BEFORE;
+        }
+
+        if (strtotime($date) >= strtotime(END_UP)) {
+            return AFTER;
+        }
+
+        return NOW;
+    }
+
+    if ($p == 'dwn') {
+        if (strtotime($date) < strtotime(START_DOWN)) {
+            return BEFORE;
+        }
+
+        if (strtotime($date) >= strtotime(END_DOWN)) {
+            return AFTER;
+        }
+
+        return NOW;
+    }
+
+    if (strtotime($date) < strtotime(START_ETC)) {
+        return BEFORE;
+    }
+
+    if (strtotime($date) >= strtotime(END_ETC)) {
+        return AFTER;
+    }
+
+    return NOW;
+}
+
+// 開始時刻取得
+function getStartTime($p)
+{
+    if ($p == "up") {
+        return START_UP;
+    }
+
+    if ($p == "dwn") {
+        return START_DOWN;
+    }
+
+    return START_ETC;
+}
+
+// 場所取得
+function getPlace($p)
+{
+    if ($p == 'up') {
         return "上り線";
     }
 
-    if ($_GET['p'] == 'dwn') {
+    if ($p == 'dwn') {
         return "下り線";
     }
 
     return "－";
 }
 
+// アンケート出力
 if (!empty($_POST) && !$_COOKIE['answered']) {
     // データ作成
     $header_keys = array_keys(HEADER);
@@ -148,9 +211,8 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
     }
 }
 
-// 現在日付取得
-$date_now = date('Y-m-d H:i:s');
-
+// アンケート表示ステート取得
+$is_show_state = isShowQuestion($_GET['p'], date('Y-m-d H:i:s'));
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -174,12 +236,12 @@ $date_now = date('Y-m-d H:i:s');
 
     <!----- main ----->
     <div class="main_bk">
-        <h1 class="p-4">淡路サービスエリアに関する<br>ＷＥＢアンケート（<?php echo getPlace() ?>）</h1>
-        <?php if (strtotime($date_now) < strtotime(DAY_S)) : ?>
+        <h1 class="p-4">淡路サービスエリアに関する<br>ＷＥＢアンケート（<?php echo getPlace($_GET['p']) ?>）</h1>
+        <?php if ($is_show_state == BEFORE) : ?>
             <div class="info">
-                <p class="my-2"><?php echo date('Y年m月d日 H時', strtotime(DAY_S)) ?>よりアンケート開始</p>
+                <p class="my-2"><?php echo date('Y年m月d日 H時', strtotime(getStartTime($_GET['p']))) ?>よりアンケート開始</p>
             </div>
-        <?php elseif (strtotime($date_now) > strtotime(DAY_E)) : ?>
+        <?php elseif ($is_show_state == AFTER) : ?>
             <div class="info">
                 <p class="my-2">アンケート終了しました。ご協力ありがとうございました。</p>
             </div>
