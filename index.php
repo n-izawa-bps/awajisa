@@ -120,39 +120,37 @@ function exportJson($file_option)
 }
 
 // アンケート表示判定
-function isShowQuestion()
+function isShowQuestion($p, $date)
 {
-    $date_now = date('Y-m-d H:i:s');
-
-    if ($_GET['p'] == 'up') {
-        if (strtotime($date_now) < strtotime(START_UP)) {
+    if ($p == 'up') {
+        if (strtotime($date) < strtotime(START_UP)) {
             return BEFORE;
         }
 
-        if (strtotime($date_now) >= strtotime(END_UP)) {
+        if (strtotime($date) >= strtotime(END_UP)) {
             return AFTER;
         }
 
         return NOW;
     }
 
-    if ($_GET['p'] == 'down') {
-        if (strtotime($date_now) < strtotime(START_DOWN)) {
+    if ($p == 'down') {
+        if (strtotime($date) < strtotime(START_DOWN)) {
             return BEFORE;
         }
 
-        if (strtotime($date_now) >= strtotime(END_DOWN)) {
+        if (strtotime($date) >= strtotime(END_DOWN)) {
             return AFTER;
         }
 
         return NOW;
     }
 
-    if (strtotime($date_now) < strtotime(START_ETC)) {
+    if (strtotime($date) < strtotime(START_ETC)) {
         return BEFORE;
     }
 
-    if (strtotime($date_now) >= strtotime(END_ETC)) {
+    if (strtotime($date) >= strtotime(END_ETC)) {
         return AFTER;
     }
 
@@ -214,7 +212,7 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
 }
 
 // アンケート表示ステート取得
-$is_show_state = isShowQuestion();
+$is_show_state = isShowQuestion($_GET['p'], date('Y-m-d H:i:s'));
 ?>
 <!DOCTYPE html>
 <html lang="ja">
