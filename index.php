@@ -174,13 +174,13 @@ function getStartTime()
 }
 
 // 場所取得
-function getPlace()
+function getPlace($p)
 {
-    if ($_GET['p'] == 'up') {
+    if ($p == 'up') {
         return "上り線";
     }
 
-    if ($_GET['p'] == 'dwn') {
+    if ($p == 'dwn') {
         return "下り線";
     }
 
@@ -242,7 +242,7 @@ $start_time = getStartTime();
 
     <!----- main ----->
     <div class="main_bk">
-        <h1 class="p-4">淡路サービスエリアに関する<br>ＷＥＢアンケート（<?php echo getPlace() ?>）</h1>
+        <h1 class="p-4">淡路サービスエリアに関する<br>ＷＥＢアンケート（<?php echo getPlace($_GET['p']) ?>）</h1>
         <?php if ($is_show_state == BEFORE) : ?>
             <div class="info">
                 <p class="my-2"><?php echo date('Y年m月d日 H時', strtotime($start_time)) ?>よりアンケート開始</p>
