@@ -141,7 +141,7 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
     setcookie('answered', 1, strtotime("+1 days"));
 
     // ページ遷移
-    if ($_GET["p"] == "up" || $_GET["p"] == "down") {
+    if ($_GET["p"] == "up" || $_GET["p"] == "dwn") {
         header("location: thanks.php?p=" . $_GET["p"]);
     } else {
         header("location: thanks.php");

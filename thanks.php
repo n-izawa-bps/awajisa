@@ -3,12 +3,12 @@ date_default_timezone_set ('Asia/Tokyo');
 
 // アンケート開始時刻
 define('TIME_S_UP',	  "09:00:00");	// 記入例：09:00:00
-define('TIME_S_DOWN', "08:00:00");
+define('TIME_S_DWN', "08:00:00");
 
 // アンケート終了時刻
 define('TIME_E_UP_WEEKDAYS', "18:00:00");
 define('TIME_E_UP_HOLIDAYS', "19:00:00");
-define('TIME_E_DOWN',		 "17:00:00");
+define('TIME_E_DWN',		 "17:00:00");
 
 // 祝日リスト
 define(
@@ -89,8 +89,8 @@ function isShowPresentMessage($p, $date)
 		return isJudgeOpen(TIME_S_UP, getEndTimeOfUp($date), $date);
 	}
 
-	if ($p == 'down') {
-		return isJudgeOpen(TIME_S_DOWN, TIME_E_DOWN, $date);
+	if ($p == 'dwn') {
+		return isJudgeOpen(TIME_S_DWN, TIME_E_DWN, $date);
 	}
 
 	return false;
