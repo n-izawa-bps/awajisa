@@ -242,13 +242,8 @@ $start_time = getStartTime();
 
     <!----- main ----->
     <div class="main_bk">
-<<<<<<< HEAD
-        <h1 class="p-4">淡路サービスエリアに関する<br>ＷＥＢアンケート</h1>
-        <?php if ($is_show_state == BEFORE) : ?>
-=======
         <h1 class="p-4">淡路サービスエリアに関する<br>ＷＥＢアンケート（<?php echo getPlace() ?>）</h1>
-        <?php if (strtotime($date_now) < strtotime(DAY_S)) : ?>
->>>>>>> master
+        <?php if ($is_show_state == BEFORE) : ?>
             <div class="info">
                 <p class="my-2"><?php echo date('Y年m月d日 H時', strtotime($start_time)) ?>よりアンケート開始</p>
             </div>
