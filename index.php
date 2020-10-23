@@ -128,7 +128,7 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
     setcookie('answered', 1, strtotime("+1 days"));
 
     // ページ遷移
-    header("location: thanks.php");
+    header("location: thanks.php?p=" . $_GET["p"]);
 }
 
 // 現在日付取得
