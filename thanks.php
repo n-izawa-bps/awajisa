@@ -2,10 +2,22 @@
 date_default_timezone_set ('Asia/Tokyo');
 
 // アンケート開始時刻
-define('TIME_S', "09:00:00");	// 記入例：09:00:00
+define('TIME_S_UP',	  "09:00:00");	// 記入例：09:00:00
+define('TIME_S_DOWN', "08:00:00");
 
 // アンケート終了時刻
-define('TIME_E', "18:00:00");
+define('TIME_E_UP_WEEKDAYS', "18:00:00");
+define('TIME_E_UP_HOLIDAYS', "19:00:00");
+define('TIME_E_DOWN',		 "17:00:00");
+
+// 祝日リスト (期間延びるようだったら自動取得検討)
+define(
+	'HOLIDAYS',
+	array(
+		'2020-11-03',
+		'2020-11-23',
+	)
+);
 
 // アンケート規定回答数
 define('REGULATION_CNT', "1000");
@@ -27,6 +39,47 @@ function getCntOfCsv()
     return count($files);
 }
 
+// 進呈メッセージ表示判定
+function isShowPresentMessage()
+{
+	if ($_GET['p'] != 'up' && $_GET['p'] != 'down') {
+		return false;
+	}
+
+	if ($_GET['p'] == 'up') {
+		$today_day = date('w');
+		$start_time = TIME_S_UP;
+
+		if ($today_day == 0 || $today_day == 6) {
+			$end_time = TIME_E_UP_HOLIDAYS;
+		} else {
+			$end_time = TIME_E_UP_WEEKDAYS;
+		}
+
+		// 祝日なら
+		$today = date('Y-m-d');
+		foreach (HOLIDAYS as $holiday) {
+			if (strtotime($today) == strtotime($holiday)) {
+				$end_time = TIME_E_UP_HOLIDAYS;
+				break;
+			}
+		}
+	}
+
+	if ($_GET['p'] == 'down') {
+		$start_time = TIME_S_DOWN;
+		$end_time = TIME_E_DOWN;
+	}
+
+	// 表示判定
+	$time_now = date('H:i:s');
+	if (strtotime($time_now) >= strtotime($start_time) && strtotime($time_now) < strtotime($end_time)) {
+		return true;
+	}
+
+	return false;
+}
+
 // 回答判定
 if (!isset($_COOKIE['answered'])) {
 	header("location: .");
@@ -41,8 +94,8 @@ if (!isset($_COOKIE['shown_thanks'])) {
 // アンケート回答数取得
 $answer_count = getCntOfCsv();
 
-// 現在時刻取得
-$time_now = date('H:i:s');
+// 粗品メッセージ表示状態取得
+$is_show_present_message = isShowPresentMessage();
 
 // cokkie
 setcookie('shown_thanks', 1, strtotime("+1 days"));
@@ -70,7 +123,7 @@ setcookie('shown_thanks', 1, strtotime("+1 days"));
 				<span id="time" STYLE="font-size: small;"></span>
 			</div></h1>
 
-			<?php if (strtotime($time_now) >= strtotime(TIME_S) && strtotime($time_now) < strtotime(TIME_E) && $answer_count < REGULATION_CNT) : ?>
+			<?php if ($is_show_present_message) : ?>
 				<div class="info py-2">
 					<p>アンケートにご協力いただいたお礼に粗品を用意しております。</p>
 					<p><strong>この画面を閉じずに、</strong>インフォメーションにて係員にご提示ください。</p>
