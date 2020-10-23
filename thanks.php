@@ -2,10 +2,31 @@
 date_default_timezone_set ('Asia/Tokyo');
 
 // アンケート開始時刻
-define('TIME_S', "09:00:00");	// 記入例：09:00:00
+define('TIME_S_UP',	  "09:00:00");	// 記入例：09:00:00
+define('TIME_S_DWN', "08:00:00");
 
 // アンケート終了時刻
-define('TIME_E', "18:00:00");
+define('TIME_E_UP_WEEKDAYS', "18:00:00");
+define('TIME_E_UP_HOLIDAYS', "19:00:00");
+define('TIME_E_DWN',		 "17:00:00");
+
+// 祝日リスト
+define(
+	'HOLIDAYS',
+	array(
+		'2020-11-03',
+		'2020-11-23',
+		'2021-01-01',
+		'2021-01-11',
+		'2021-02-11',
+		'2021-02-23',
+		'2021-03-20',
+		'2021-04-29',
+		'2021-05-03',
+		'2021-05-04',
+		'2021-05-05',
+	)
+);
 
 // アンケート規定回答数
 define('REGULATION_CNT', "1000");
@@ -27,6 +48,54 @@ function getCntOfCsv()
     return count($files);
 }
 
+// 上りSAの終了時間取得
+function getEndTimeOfUp($date)
+{
+	$day = date('Y-m-d', strtotime($date));
+	$day_type = date('w', strtotime($date));
+
+	// 祝日判定
+	foreach (HOLIDAYS as $holiday) {
+		if (strtotime($day) == strtotime($holiday)) {
+			return TIME_E_UP_HOLIDAYS;
+		}
+	}
+
+	// 土日判定
+	if ($day_type == 0 || $day_type == 6) {
+		return TIME_E_UP_HOLIDAYS;
+	}
+
+	// 平日
+	return TIME_E_UP_WEEKDAYS;
+}
+
+// 営業時間内判定
+function isJudgeOpen($time_s, $time_e, $date)
+{
+	$day = date('Y-m-d', strtotime($date));
+
+	if (strtotime($date) >= strtotime($day . $time_s) && strtotime($date) < strtotime($day . $time_e)) {
+		return true;
+	}
+
+	return false;
+}
+
+// 進呈メッセージ表示判定
+function isShowPresentMessage($p, $date)
+{
+	if ($p == 'up') {
+		return isJudgeOpen(TIME_S_UP, getEndTimeOfUp($date), $date);
+	}
+
+	if ($p == 'dwn') {
+		return isJudgeOpen(TIME_S_DWN, TIME_E_DWN, $date);
+	}
+
+	return false;
+}
+
 // 回答判定
 if (!isset($_COOKIE['answered'])) {
 	header("location: .");
@@ -41,11 +110,15 @@ if (!isset($_COOKIE['shown_thanks'])) {
 // アンケート回答数取得
 $answer_count = getCntOfCsv();
 
-// 現在時刻取得
-$time_now = date('H:i:s');
+// 粗品メッセージ表示状態取得
+$is_show_present_message = isShowPresentMessage($_GET["p"], date('Y-m-d H:i:s'));
 
 // cokkie
 setcookie('shown_thanks', 1, strtotime("+1 days"));
+
+// テスト
+// echo isShowPresentMessage('up', "2020-11-03 19:00:00");
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -70,7 +143,7 @@ setcookie('shown_thanks', 1, strtotime("+1 days"));
 				<span id="time" STYLE="font-size: small;"></span>
 			</div></h1>
 
-			<?php if (strtotime($time_now) >= strtotime(TIME_S) && strtotime($time_now) < strtotime(TIME_E) && $answer_count < REGULATION_CNT) : ?>
+			<?php if ($is_show_present_message) : ?>
 				<div class="info py-2">
 					<p>アンケートにご協力いただいたお礼に粗品を用意しております。</p>
 					<p><strong>この画面を閉じずに、</strong>インフォメーションにて係員にご提示ください。</p>
