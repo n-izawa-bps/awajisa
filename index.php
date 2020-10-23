@@ -173,6 +173,19 @@ function getStartTime()
     return START_ETC;
 }
 
+// 場所取得
+function getPlace()
+{
+    if ($_GET['p'] == 'up') {
+        return "上り線SA";
+    }
+
+    if ($_GET['p'] == 'dwn') {
+        return "下り線SA";
+    }
+
+    return "－";
+}
 
 // アンケート出力
 if (!empty($_POST) && !$_COOKIE['answered']) {
@@ -193,7 +206,11 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
     setcookie('answered', 1, strtotime("+1 days"));
 
     // ページ遷移
-    header("location: thanks.php");
+    if ($_GET["p"] == "up" || $_GET["p"] == "dwn") {
+        header("location: thanks.php?p=" . $_GET["p"]);
+    } else {
+        header("location: thanks.php");
+    }
 }
 
 // アンケート表示ステート取得
@@ -225,8 +242,13 @@ $start_time = getStartTime();
 
     <!----- main ----->
     <div class="main_bk">
+<<<<<<< HEAD
         <h1 class="p-4">淡路サービスエリアに関する<br>ＷＥＢアンケート</h1>
         <?php if ($is_show_state == BEFORE) : ?>
+=======
+        <h1 class="p-4">淡路サービスエリアに関する<br>ＷＥＢアンケート（<?php echo getPlace() ?>）</h1>
+        <?php if (strtotime($date_now) < strtotime(DAY_S)) : ?>
+>>>>>>> master
             <div class="info">
                 <p class="my-2"><?php echo date('Y年m月d日 H時', strtotime($start_time)) ?>よりアンケート開始</p>
             </div>
