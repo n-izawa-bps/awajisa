@@ -159,6 +159,20 @@ function isShowQuestion()
     return NOW;
 }
 
+// 開始時刻取得
+function getStartTime()
+{
+    if ($_GET['p'] == "up") {
+        return START_UP;
+    }
+
+    if ($_GET['p'] == "down") {
+        return START_DOWN;
+    }
+
+    return START_ETC;
+}
+
 
 // アンケート出力
 if (!empty($_POST) && !$_COOKIE['answered']) {
@@ -185,6 +199,8 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
 // アンケート表示ステート取得
 $is_show_state = isShowQuestion();
 
+// スタートタイム取得
+$start_time = getStartTime();
 
 ?>
 <!DOCTYPE html>
@@ -212,7 +228,7 @@ $is_show_state = isShowQuestion();
         <h1 class="p-4">淡路サービスエリアに関する<br>ＷＥＢアンケート</h1>
         <?php if ($is_show_state == BEFORE) : ?>
             <div class="info">
-                <p class="my-2"><?php echo date('Y年m月d日 H時', strtotime(DAY_S)) ?>よりアンケート開始</p>
+                <p class="my-2"><?php echo date('Y年m月d日 H時', strtotime($start_time)) ?>よりアンケート開始</p>
             </div>
         <?php elseif ($is_show_state == AFTER) : ?>
             <div class="info">
