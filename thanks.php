@@ -48,42 +48,49 @@ function getCntOfCsv()
     return count($files);
 }
 
-// 進呈メッセージ表示判定
-function isShowPresentMessage()
+// 上りSAの終了時間取得
+function getEndTimeOfUp($date)
 {
-	if ($_GET['p'] != 'up' && $_GET['p'] != 'down') {
-		return false;
-	}
+	$day = date('Y-m-d', strtotime($date));
+	$day_type = date('w', strtotime($date));
 
-	if ($_GET['p'] == 'up') {
-		$today_day = date('w');
-		$start_time = TIME_S_UP;
-
-		if ($today_day == 0 || $today_day == 6) {
-			$end_time = TIME_E_UP_HOLIDAYS;
-		} else {
-			$end_time = TIME_E_UP_WEEKDAYS;
-		}
-
-		// 祝日なら
-		$today = date('Y-m-d');
-		foreach (HOLIDAYS as $holiday) {
-			if (strtotime($today) == strtotime($holiday)) {
-				$end_time = TIME_E_UP_HOLIDAYS;
-				break;
-			}
+	// 祝日判定
+	foreach (HOLIDAYS as $holiday) {
+		if (strtotime($day) == strtotime($holiday)) {
+			return TIME_E_UP_HOLIDAYS;
 		}
 	}
 
-	if ($_GET['p'] == 'down') {
-		$start_time = TIME_S_DOWN;
-		$end_time = TIME_E_DOWN;
+	// 土日判定
+	if ($day_type == 0 || $day_type == 6) {
+		return TIME_E_UP_HOLIDAYS;
 	}
 
-	// 表示判定
-	$time_now = date('H:i:s');
-	if (strtotime($time_now) >= strtotime($start_time) && strtotime($time_now) < strtotime($end_time)) {
+	// 平日
+	return TIME_E_UP_WEEKDAYS;
+}
+
+// 営業時間内判定
+function isJudgeOpen($time_s, $time_e, $date)
+{
+	$day = date('Y-m-d', strtotime($date));
+
+	if (strtotime($date) >= strtotime($day . $time_s) && strtotime($date) < strtotime($day . $time_e)) {
 		return true;
+	}
+
+	return false;
+}
+
+// 進呈メッセージ表示判定
+function isShowPresentMessage($p, $date)
+{
+	if ($p == 'up') {
+		return isJudgeOpen(TIME_S_UP, getEndTimeOfUp($date), $date);
+	}
+
+	if ($p == 'down') {
+		return isJudgeOpen(TIME_S_DOWN, TIME_E_DOWN, $date);
 	}
 
 	return false;
@@ -104,7 +111,7 @@ if (!isset($_COOKIE['shown_thanks'])) {
 $answer_count = getCntOfCsv();
 
 // 粗品メッセージ表示状態取得
-$is_show_present_message = isShowPresentMessage();
+$is_show_present_message = isShowPresentMessage($_GET["p"], date('Y-m-d H:i:s'));
 
 // cokkie
 setcookie('shown_thanks', 1, strtotime("+1 days"));
