@@ -116,7 +116,7 @@ function getPlace()
         return "上り線SA";
     }
 
-    if ($_GET['p'] == 'down') {
+    if ($_GET['p'] == 'dwn') {
         return "下り線SA";
     }
 
@@ -147,9 +147,6 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
 // 現在日付取得
 $date_now = date('Y-m-d H:i:s');
 
-// アンケート場所取得
-$place = getPlace();
-
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -173,7 +170,7 @@ $place = getPlace();
 
     <!----- main ----->
     <div class="main_bk">
-        <h1 class="p-4">淡路サービスエリアに関する<br>ＷＥＢアンケート（<?php echo $place ?>）</h1>
+        <h1 class="p-4">淡路サービスエリアに関する<br>ＷＥＢアンケート（<?php echo getPlace() ?>）</h1>
         <?php if (strtotime($date_now) < strtotime(DAY_S)) : ?>
             <div class="info">
                 <p class="my-2"><?php echo date('Y年m月d日 H時', strtotime(DAY_S)) ?>よりアンケート開始</p>
