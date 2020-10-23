@@ -110,6 +110,19 @@ function exportJson($file_option)
     fclose($file);
 }
 
+function getPlace()
+{
+    if ($_GET['p'] == 'up') {
+        return "上り線SA";
+    }
+
+    if ($_GET['p'] == 'down') {
+        return "下り線SA";
+    }
+
+    return "－";
+}
+
 if (!empty($_POST) && !$_COOKIE['answered']) {
     // データ作成
     $header_keys = array_keys(HEADER);
@@ -134,6 +147,9 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
 // 現在日付取得
 $date_now = date('Y-m-d H:i:s');
 
+// アンケート場所取得
+$place = getPlace();
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -157,7 +173,7 @@ $date_now = date('Y-m-d H:i:s');
 
     <!----- main ----->
     <div class="main_bk">
-        <h1 class="p-4">淡路サービスエリアに関する<br>ＷＥＢアンケート</h1>
+        <h1 class="p-4">淡路サービスエリアに関する<br>ＷＥＢアンケート（<?php echo $place ?>）</h1>
         <?php if (strtotime($date_now) < strtotime(DAY_S)) : ?>
             <div class="info">
                 <p class="my-2"><?php echo date('Y年m月d日 H時', strtotime(DAY_S)) ?>よりアンケート開始</p>
