@@ -134,7 +134,7 @@ function isShowQuestion($p, $date)
         return NOW;
     }
 
-    if ($p == 'down') {
+    if ($p == 'dwn') {
         if (strtotime($date) < strtotime(START_DOWN)) {
             return BEFORE;
         }
@@ -164,7 +164,7 @@ function getStartTime($p)
         return START_UP;
     }
 
-    if ($p == "down") {
+    if ($p == "dwn") {
         return START_DOWN;
     }
 
