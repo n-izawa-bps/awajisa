@@ -1,14 +1,14 @@
 <?php
-function getCntOfCsv()
-{
-    $dir = '../csv/';
-    $files = glob($dir . '{*.csv}', GLOB_BRACE);
+    $dir_up = '../out/up/';
+    $dir_dwn = '../out/dwn/';
+    $dir_etc = '../out/etc/';
 
-    if (!$files) {
-        return 0;
-    }
-    return count($files);
-}
+    $files_up = glob($dir_up . '{*.csv}', GLOB_BRACE);
+    $files_dwn = glob($dir_dwn . '{*.csv}', GLOB_BRACE);
+    $files_etc = glob($dir_etc . '{*.csv}', GLOB_BRACE);
 
-    echo "現在の回答数は、" . getCntOfCsv() . " です。";
+    echo "アンケート回答数<br>";
+    echo "上り線：" . count($files_up) . "件<br>";
+    echo "下り線：" . count($files_dwn) . "件<br>";
+    echo "不明：" . count($files_etc) . "件<br>";
 ?>
