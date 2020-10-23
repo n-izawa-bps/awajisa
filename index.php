@@ -88,9 +88,22 @@ function getCsvData($key)
     return $_POST[$key];
 }
 
+function getOutputName($p)
+{
+    if ($p == "up") {
+        return "up";
+    }
+
+    if ($p == "dwn") {
+        return "dwn";
+    }
+
+    return "etc";
+}
+
 function exportCsv($row, $file_option)
 {
-    $file_path = getcwd() . "/csv/" . $file_option . ".csv";
+    $file_path = getcwd() . "/out/" . getOutputName($_GET["p"]) . "/" . $file_option . ".csv";
     $file = fopen($file_path, "w");
 
     // ヘッダーセット
