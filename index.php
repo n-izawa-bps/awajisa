@@ -1,11 +1,20 @@
 <?php
 date_default_timezone_set('Asia/Tokyo');
 
-// アンケート開始日
-define('DAY_S', '2020-10-22 09:00:00'); // 記入例：2020-10-23 09:00:00
+// アンケート開始日程
+define('START_UP',   '2020-10-31 09:00:00');  // 記入例：2020-10-23 09:00:00
+define('START_DOWN', '2020-10-31 08:00:00');
+define('START_ETC',  '2020-10-31 08:00:00');
 
-// アンケート終了日
-define('DAY_E', '2020-10-31 12:00:00');
+// アンケート終了日程
+define('END_UP',   '2020-11-23 19:00:00');
+define('END_DOWN', '2020-11-23 17:00:00');
+define('END_ETC',  '2020-11-23 19:00:00');
+
+// アンケート表示状態
+define('BEFORE', 1);
+define('NOW', 2);
+define('AFTER', 3);
 
 define(
     'HEADER',
@@ -110,6 +119,48 @@ function exportJson($file_option)
     fclose($file);
 }
 
+// アンケート表示判定
+function isShowQuestion()
+{
+    $date_now = date('Y-m-d H:i:s');
+
+    if ($_GET['p'] == 'up') {
+        if (strtotime($date_now) < strtotime(START_UP)) {
+            return BEFORE;
+        }
+
+        if (strtotime($date_now) >= strtotime(END_UP)) {
+            return AFTER;
+        }
+
+        return NOW;
+    }
+
+    if ($_GET['p'] == 'down') {
+        if (strtotime($date_now) < strtotime(START_DOWN)) {
+            return BEFORE;
+        }
+
+        if (strtotime($date_now) >= strtotime(END_DOWN)) {
+            return AFTER;
+        }
+
+        return NOW;
+    }
+
+    if (strtotime($date_now) < strtotime(START_ETC)) {
+        return BEFORE;
+    }
+
+    if (strtotime($date_now) >= strtotime(END_ETC)) {
+        return AFTER;
+    }
+
+    return NOW;
+}
+
+
+// アンケート出力
 if (!empty($_POST) && !$_COOKIE['answered']) {
     // データ作成
     $header_keys = array_keys(HEADER);
@@ -131,8 +182,9 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
     header("location: thanks.php");
 }
 
-// 現在日付取得
-$date_now = date('Y-m-d H:i:s');
+// アンケート表示ステート取得
+$is_show_state = isShowQuestion();
+
 
 ?>
 <!DOCTYPE html>
@@ -158,11 +210,11 @@ $date_now = date('Y-m-d H:i:s');
     <!----- main ----->
     <div class="main_bk">
         <h1 class="p-4">淡路サービスエリアに関する<br>ＷＥＢアンケート</h1>
-        <?php if (strtotime($date_now) < strtotime(DAY_S)) : ?>
+        <?php if ($is_show_state == BEFORE) : ?>
             <div class="info">
                 <p class="my-2"><?php echo date('Y年m月d日 H時', strtotime(DAY_S)) ?>よりアンケート開始</p>
             </div>
-        <?php elseif (strtotime($date_now) > strtotime(DAY_E)) : ?>
+        <?php elseif ($is_show_state == AFTER) : ?>
             <div class="info">
                 <p class="my-2">アンケート終了しました。ご協力ありがとうございました。</p>
             </div>
