@@ -177,11 +177,11 @@ function getStartTime()
 function getPlace()
 {
     if ($_GET['p'] == 'up') {
-        return "上り線SA";
+        return "上り線";
     }
 
     if ($_GET['p'] == 'dwn') {
-        return "下り線SA";
+        return "下り線";
     }
 
     return "－";
