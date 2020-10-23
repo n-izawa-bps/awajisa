@@ -115,6 +115,10 @@ $is_show_present_message = isShowPresentMessage($_GET["p"], date('Y-m-d H:i:s'))
 
 // cokkie
 setcookie('shown_thanks', 1, strtotime("+1 days"));
+
+// テスト
+// echo isShowPresentMessage('up', "2020-11-03 19:00:00");
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
