@@ -59,7 +59,7 @@ function createRandomString($length = 4)
     return $result;
 }
 
-// データを取得
+// CSVデータを取得
 function getCsvData($key)
 {
     // 個別処理
@@ -88,6 +88,7 @@ function getCsvData($key)
     return $_POST[$key];
 }
 
+// パラメータから出力ファイル名を取得
 function getOutputName($p)
 {
     if ($p == "up") {
@@ -101,6 +102,7 @@ function getOutputName($p)
     return "etc";
 }
 
+// CSVファイル出力
 function exportCsv($row, $file_option)
 {
     $file_path = getcwd() . "/out/" . getOutputName($_GET["p"]) . "/" . $file_option . ".csv";
@@ -118,6 +120,7 @@ function exportCsv($row, $file_option)
     fclose($file);
 }
 
+// JSONファイル出力
 function exportJson($file_option)
 {
     $dir_name = getcwd() . "/json/" . date("Ymd") . "/";
@@ -224,7 +227,7 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
     }
 }
 
-// アンケート表示ステート取得
+// アンケート表示状態取得
 $is_show_state = isShowQuestion($_GET['p'], date('Y-m-d H:i:s'));
 ?>
 <!DOCTYPE html>
