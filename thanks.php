@@ -1,32 +1,6 @@
 <?php
+require "config.php";
 date_default_timezone_set ('Asia/Tokyo');
-
-// アンケート開始時刻
-define('TIME_S_UP',	  "09:00:00");	// 記入例：09:00:00
-define('TIME_S_DWN', "08:00:00");
-
-// アンケート終了時刻
-define('TIME_E_UP_WEEKDAYS', "18:00:00");
-define('TIME_E_UP_HOLIDAYS', "19:00:00");
-define('TIME_E_DWN',		 "17:00:00");
-
-// 祝日リスト
-define(
-	'HOLIDAYS',
-	array(
-		'2020-11-03',
-		'2020-11-23',
-		'2021-01-01',
-		'2021-01-11',
-		'2021-02-11',
-		'2021-02-23',
-		'2021-03-20',
-		'2021-04-29',
-		'2021-05-03',
-		'2021-05-04',
-		'2021-05-05',
-	)
-);
 
 // アンケート規定回答数
 define('REGULATION_CNT', "1000");
