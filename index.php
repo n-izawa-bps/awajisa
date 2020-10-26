@@ -44,7 +44,7 @@ function getCsvData($key)
     return $_POST[$key];
 }
 
-// パラメータから出力ファイル名を取得
+// パラメータから出力フォルダ名を取得
 function getOutputName($p)
 {
     if ($p == "up") {
@@ -208,7 +208,7 @@ $is_show_state = isShowQuestion($_GET['p'], date('Y-m-d H:i:s'));
 
     <!----- main ----->
     <div class="main_bk">
-        <h1 class="p-4">淡路サービスエリアに関する<br>ＷＥＢアンケート（<?php echo getPlace($_GET['p']) ?>）</h1>
+        <h1 class="p-3">淡路サービスエリアに関する<br>ＷＥＢアンケート（<?php echo getPlace($_GET['p']) ?>）</h1>
         <?php if ($is_show_state == BEFORE) : ?>
             <div class="info">
                 <p class="my-2"><?php echo date('Y年m月d日 H時', strtotime(getStartTime($_GET['p']))) ?>よりアンケート開始</p>
