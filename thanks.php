@@ -65,7 +65,7 @@ if (!isset($_COOKIE['shown_thanks'])) {
 $is_show_present_message = isShowPresentMessage($_GET["p"], date('Y-m-d H:i:s'));
 
 // cokkie
-setcookie('shown_thanks', 1, strtotime("+1 days"));
+setcookie('shown_thanks', 1, strtotime(date("Y-m-d") . "+1 days"));
 ?>
 <!DOCTYPE html>
 <html lang="ja">

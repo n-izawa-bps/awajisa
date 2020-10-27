@@ -173,7 +173,7 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
 
     // cokkie
     setcookie('shown_thanks', '');
-    setcookie('answered', 1, strtotime("+1 days"));
+    setcookie('answered', 1, strtotime(date("Y-m-d") . "+1 days"));
 
     // ページ遷移
     if ($_GET["p"] == "up" || $_GET["p"] == "dwn") {
