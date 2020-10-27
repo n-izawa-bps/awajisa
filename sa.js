@@ -126,53 +126,59 @@ function check() {
 	});
 
 	// 必須項目
-	const gender = $('#gender');
 	const age = $('#age');
-	const address_level2 = $('#address-level2');
+	const address_level1 = $('#address-level1');
 	const transportation = $('#transportation');
-	const smart_ic = $('#smart-ic');
-	const purpose2 = $('#purpose2');
+	const main_purpose = $('#main-purpose');
+	const destination = $('#destination');
 	const course = $('#course');
-	const highway = $('#highway');
-	const reason = $('#reason');
-	const sa = $('#sa');
-	const purpose = $('#purpose');
+	const known_smartic = $('#known-smartic');
+	const smartic = $('#smartic');
+	const smartic_reason = $('#smartic-reason');
+	const awajisa_purpose = $('#awajisa-purpose');
 	const shop = $('#shop');
-	const timeZone = $('#timeZone');
+	const timezone = $('#timezone');
 	const staying_time = $('#staying-time');
 	const oasis = $('#oasis');
-	const purpose3 = $('#purpose3');
+	const oasis_purpose = $('#oasis-purpose');
 	const facility = $('#facility');
 
 	// 必須チェック
-	checkRequire(gender);
 	checkRequire(age);
-	checkRequire(address_level2);
+	checkRequire(address_level1);
 	checkRequire(transportation);
-	checkRequire(smart_ic);
+	checkRequire(main_purpose);
 
-	if (smart_ic.val() == "" || smart_ic.val() == "yes") {
-		checkRequire(purpose2);
+	if (main_purpose.val() == "1") {
+		checkRequireForCheckbox(destination);
 
-		if (purpose2.val() == "" || purpose2.val() == "1") {
+		if ($('#destination1').prop("checked")) {
 			checkRequireForCheckbox(course);
 		}
-
-		checkRequire(highway);
-		checkRequireForCheckbox(reason);
 	}
 
-		checkRequire(sa);
-		checkRequireForCheckbox(purpose);
+	checkRequire(known_smartic);
+	checkRequire(smartic);
+
+	if (smartic.val() == "yes") {
+		checkRequireForCheckbox(smartic_reason);
+	}
+
+	checkRequireForCheckbox(awajisa_purpose);
+
+	if ($('#awajisa-purpose1').prop("checked") || $('#awajisa-purpose2').prop("checked")) {
 		checkRequireForCheckbox(shop);
-		checkRequire(timeZone);
-		checkRequire(staying_time);
-		checkRequire(oasis);
-
-	if (oasis.val() == "" || oasis.val() == "yes") {
-		checkRequireForCheckbox(purpose3);
-		checkRequireForCheckbox(facility);
 	}
+
+	checkRequire(timezone);
+	checkRequire(staying_time);
+	checkRequire(oasis);
+
+	if (oasis.val() == "yes") {
+		checkRequireForCheckbox(oasis_purpose);
+	}
+
+	checkRequireForCheckbox(facility);
 
 	// 最終チェック
 	if ($('.invalid').length) {
