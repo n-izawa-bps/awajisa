@@ -840,7 +840,7 @@ $is_show_state = isShowQuestion($_GET['p'], date('Y-m-d H:i:s'));
                                     </div>
                                 </div>
                                 <div class="input-box">
-                                    <select name="timeZone" id="timeZone">
+                                    <select name="timezone" id="timezone">
                                         <option value="">選択してください</option>
                                         <option value="1">6時～11時</option>
                                         <option value="2">11時～13時</option>
