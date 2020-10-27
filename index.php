@@ -884,6 +884,7 @@ $is_show_state = isShowQuestion($_GET['p'], date('Y-m-d H:i:s'));
                                         <option value="yes">はい</option>
                                         <option value="no">いいえ</option>
                                         <option value="dunno">淡路SAと淡路ハイウェイオアシスの違いがわからない</option>
+                                        <optgroup label=""></optgroup>
                                     </select>
                                 </div>
                             </div>
