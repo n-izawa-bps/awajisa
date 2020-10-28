@@ -16,6 +16,9 @@ if (!isset($_COOKIE['shown_thanks'])) {
 $is_survey_state = isStartSurvey(date('Y-m-d H:i:s'));
 $is_show_present_message = isShowPresentMessage($_GET["p"], date('Y-m-d H:i:s'));
 
+// 粗品配布状態取得
+$present_state = file_get_contents(__DIR__ . "/present/" . "present.txt");
+
 // cokkie
 setcookie('shown_thanks', 1, strtotime(date("Y-m-d") . "+1 days"));
 ?>
@@ -44,7 +47,7 @@ setcookie('shown_thanks', 1, strtotime(date("Y-m-d") . "+1 days"));
 				</div>
 			</h1>
 
-			<?php if ($is_show_present_message && $is_survey_state == NOW) : ?>
+			<?php if ($is_show_present_message && $is_survey_state == NOW && $present_state == 1) : ?>
 				<div class="info py-2">
 					<p>「コンソメたまねぎ棒（２本セット）」をプレゼントしますので</p>
 					<p>この画面をインフォメーションの係員に提示してください。</p>

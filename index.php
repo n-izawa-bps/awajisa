@@ -31,6 +31,9 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
 // アンケート表示状態取得
 $is_survey_state = isStartSurvey(date('Y-m-d H:i:s'));
 $is_show_present_message = isShowPresentMessage($_GET["p"], date('Y-m-d H:i:s'));
+
+// 粗品配布状態取得
+$present_state = file_get_contents(__DIR__ . "/present/" . "present.txt");
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -84,7 +87,7 @@ $is_show_present_message = isShowPresentMessage($_GET["p"], date('Y-m-d H:i:s'))
                             ご了承ください。
                         </p>
                     </div>
-                <?php elseif ($is_show_present_message) : ?>
+                <?php elseif ($is_show_present_message && $present_state == 1) : ?>
                     <div class="info">
                         <p class="my-2">
                             アンケート完了画面をインフォメーションにてご提示いただいた方に淡路SAインフォメーションにて「コンソメたまねぎ棒（２本セット）」をプレゼント。<br>
