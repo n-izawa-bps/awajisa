@@ -1,54 +1,5 @@
 <?php
-require "config.php";
-date_default_timezone_set ('Asia/Tokyo');
-
-// 上りSAの終了時間取得
-function getEndTimeOfUp($date)
-{
-	$day = date('Y-m-d', strtotime($date));
-	$day_type = date('w', strtotime($date));
-
-	// 祝日判定
-	foreach (HOLIDAYS as $holiday) {
-		if (strtotime($day) == strtotime($holiday)) {
-			return TIME_E_UP_HOLIDAYS;
-		}
-	}
-
-	// 土日判定
-	if ($day_type == 0 || $day_type == 6) {
-		return TIME_E_UP_HOLIDAYS;
-	}
-
-	// 平日
-	return TIME_E_UP_WEEKDAYS;
-}
-
-// 営業時間内判定
-function isJudgeOpen($time_s, $time_e, $date)
-{
-	$day = date('Y-m-d', strtotime($date));
-
-	if (strtotime($date) >= strtotime($day . $time_s) && strtotime($date) < strtotime($day . $time_e)) {
-		return true;
-	}
-
-	return false;
-}
-
-// 進呈メッセージ表示判定
-function isShowPresentMessage($p, $date)
-{
-	if ($p == 'up') {
-		return isJudgeOpen(TIME_S_UP, getEndTimeOfUp($date), $date);
-	}
-
-	if ($p == 'dwn') {
-		return isJudgeOpen(TIME_S_DWN, TIME_E_DWN, $date);
-	}
-
-	return false;
-}
+require "function.php";
 
 // 回答判定
 if (!isset($_COOKIE['answered'])) {
