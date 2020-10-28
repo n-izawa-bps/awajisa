@@ -33,7 +33,7 @@ $is_survey_state = isStartSurvey(date('Y-m-d H:i:s'));
 $is_show_present_message = isShowPresentMessage($_GET["p"], date('Y-m-d H:i:s'));
 
 // 粗品配布状態取得
-$present_state = file_get_contents(__DIR__ . "/present/" . "present.txt");
+$present_state = trim(file_get_contents(__DIR__ . "/present/" . "present.txt"));
 ?>
 <!DOCTYPE html>
 <html lang="ja">
