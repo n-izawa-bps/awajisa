@@ -174,17 +174,17 @@ function getEndTimeOfUp($date)
 	// 祝日判定
 	foreach (HOLIDAYS as $holiday) {
 		if (strtotime($day) == strtotime($holiday)) {
-			return TIME_E_UP_HOLIDAYS;
+			return UP_CLOSE_HOLIDAYS;
 		}
 	}
 
 	// 土日判定
 	if ($day_type == 0 || $day_type == 6) {
-		return TIME_E_UP_HOLIDAYS;
+		return UP_CLOSE_HOLIDAYS;
 	}
 
 	// 平日
-	return TIME_E_UP_WEEKDAYS;
+	return UP_CLOSE_WEEKDAYS;
 }
 
 // 営業時間内判定
@@ -203,11 +203,11 @@ function isJudgeOpen($time_s, $time_e, $date)
 function isShowPresentMessage($p, $date)
 {
 	if ($p == 'up') {
-		return isJudgeOpen(TIME_S_UP, getEndTimeOfUp($date), $date);
+		return isJudgeOpen(UP_OPEN, getEndTimeOfUp($date), $date);
 	}
 
 	if ($p == 'dwn') {
-		return isJudgeOpen(TIME_S_DWN, TIME_E_DWN, $date);
+		return isJudgeOpen(DWN_OPEN, DWN_CLOSE, $date);
 	}
 
 	return false;

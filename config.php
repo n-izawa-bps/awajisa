@@ -6,6 +6,14 @@ define('SURVEY_START',  '2020-10-31 09:00:00');
 // アンケート終了日程
 define('SURVEY_END',    '2020-11-24 00:00:00');
 
+// 営業開始時刻
+define('UP_OPEN',  "09:00:00");	// 記入例：09:00:00
+define('DWN_OPEN', "08:00:00");
+
+// 営業終了時刻
+define('UP_CLOSE_WEEKDAYS', "18:00:00");
+define('UP_CLOSE_HOLIDAYS', "19:00:00");
+define('DWN_CLOSE',		    "17:00:00");
 
 // アンケート表示状態
 define('BEFORE', 1);
@@ -43,15 +51,6 @@ define(
         'user_agent'        => 'user-agent',
     )
 );
-
-// 営業開始時刻
-define('TIME_S_UP',  "09:00:00");	// 記入例：09:00:00
-define('TIME_S_DWN', "08:00:00");
-
-// 営業終了時刻
-define('TIME_E_UP_WEEKDAYS', "18:00:00");
-define('TIME_E_UP_HOLIDAYS', "19:00:00");
-define('TIME_E_DWN',		 "17:00:00");
 
 // 祝日リスト
 define(
