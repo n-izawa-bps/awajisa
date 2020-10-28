@@ -37,10 +37,12 @@ setcookie('shown_thanks', 1, strtotime(date("Y-m-d") . "+1 days"));
 	<div class="main_bk">
 		<?php if ($first_show) : ?>
 			<h1 class="p-4">淡路サービスエリアに関する<br>ＷＥＢアンケート</h1>
-			<h1 class="pt-4">アンケートにご協力いただきありがとうございました。
-			<div class="my-3">
-				<span id="time" STYLE="font-size: small;"></span>
-			</div></h1>
+			<h1 class="pt-4">
+				アンケートにご協力いただきありがとうございました。
+				<div class="my-3">
+					<span id="time" style="font-size: small;"></span>
+				</div>
+			</h1>
 
 			<?php if ($is_show_present_message && $is_survey_state == NOW) : ?>
 				<div class="info py-2">

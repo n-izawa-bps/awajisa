@@ -54,7 +54,7 @@ $is_show_present_message = isShowPresentMessage($_GET["p"], date('Y-m-d H:i:s'))
 
     <!----- main ----->
     <div class="main_bk">
-        <h1 class="p-3">淡路サービスエリア等に関する<br>ＷＥＢアンケート（<?php echo getPlace($_GET['p']) ?>）</h1>
+        <h1 class="p-3">淡路サービスエリア等に関する<br>ＷＥＢアンケート（<?= getPlace($_GET['p']) ?>）</h1>
         <?php if ($is_survey_state == BEFORE) : ?>
             <div class="info">
                 <p class="my-2">淡路SAの利用に関するアンケート準備中</p>
@@ -80,7 +80,7 @@ $is_show_present_message = isShowPresentMessage($_GET["p"], date('Y-m-d H:i:s'))
                     <div class="info">
                         <p class="my-2">
                             淡路SAの利用に関するアンケート実施中<br>
-                            粗品の受け渡しは<?php echo date('Y年m月d日（', strtotime(SURVEY_START)) . WEEK[date('w', strtotime(SURVEY_START))] . date('）G:i', strtotime(SURVEY_START)) ?> からとなります。<br>
+                            粗品の受け渡しは<?= date('Y年m月d日（', strtotime(SURVEY_START)) . WEEK[date('w', strtotime(SURVEY_START))] . date('）G:i', strtotime(SURVEY_START)) ?> からとなります。<br>
                             ご了承ください。
                         </p>
                     </div>
@@ -471,15 +471,15 @@ $is_show_present_message = isShowPresentMessage($_GET["p"], date('Y-m-d H:i:s'))
                                             <span class="question">11</span>
                                         </div>
                                         <div class="pr-0 content-text">
-                                            現在いらっしゃるのは淡路SA<?php echo getNowSA($_GET['p']) ?>です。<?php echo getReverseSA($_GET['p']) ?>SAはご利用になりましたか、またはこれからご利用ですか。
+                                            現在いらっしゃるのは淡路SA<?= getNowSA($_GET['p']) ?>です。<?= getReverseSA($_GET['p']) ?>SAはご利用になりましたか、またはこれからご利用ですか。
                                         </div>
                                     </div>
                                     <div class="input-box">
                                         <select name="both" id="both">
                                             <option value="">選択してください</option>
-                                            <option value="1"><?php echo getReverseSA($_GET['p']) ?>SAを利用した（利用予定）</option>
+                                            <option value="1"><?= getReverseSA($_GET['p']) ?>SAを利用した（利用予定）</option>
                                             <option value="2">両方のSAを行き来した</option>
-                                            <option value="3"><?php echo getReverseSA($_GET['p']) ?>SAは利用しない</option>
+                                            <option value="3"><?= getReverseSA($_GET['p']) ?>SAは利用しない</option>
                                         </select>
                                     </div>
                                 </div>
@@ -600,8 +600,8 @@ $is_show_present_message = isShowPresentMessage($_GET["p"], date('Y-m-d H:i:s'))
                                         <div id="shop">
                                             <? foreach(getShops($_GET['p']) as $key => $shop) : ?>
                                                 <div class="py-2">
-                                                    <label for="shop<?php echo $key + 1 ?>">
-                                                        <input type="checkbox" id="shop<?php echo $key + 1 ?>" name="shop[]" value="<?php echo $key + 1 ?>" class="right-space"><?php echo $shop ?>
+                                                    <label for="shop<?= $key + 1 ?>">
+                                                        <input type="checkbox" id="shop<?= $key + 1 ?>" name="shop[]" value="<?= $key + 1 ?>" class="right-space"><?= $shop ?>
                                                     </label>
                                                 </div>
                                             <? endforeach; ?>

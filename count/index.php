@@ -16,8 +16,8 @@
 </head>
 <body>
     <h1>アンケート回答数</h1>
-    <p>上り線：<?php echo count($files_up) ?>件<br></p>
-    <p>下り線：<?php echo count($files_dwn) ?>件<br></p>
-    <p>不明：<?php echo count($files_etc) ?>件<br></p>
+    <p>上り線：<?= count($files_up) ?>件<br></p>
+    <p>下り線：<?= count($files_dwn) ?>件<br></p>
+    <p>不明：<?= count($files_etc) ?>件<br></p>
 </body>
 </html>
