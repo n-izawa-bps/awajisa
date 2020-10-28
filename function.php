@@ -157,6 +157,48 @@ function getPlace($p)
     return "－";
 }
 
+// 現在のSAを取得
+function getNowSA($p)
+{
+    if ($p == 'up') {
+        return "上り";
+    }
+
+    if ($p == 'dwn') {
+        return "下り";
+    }
+
+    return "";
+}
+
+// 現在と反対のSAを取得
+function getReverseSA($p)
+{
+    if ($p == 'up') {
+        return "下り";
+    }
+
+    if ($p == 'dwn') {
+        return "上り";
+    }
+
+    return "";
+}
+
+// 現在のSAの店名一覧を取得
+function getShops($p)
+{
+    if ($p == 'up') {
+        return UP_SA_SHOPS;
+    }
+
+    if ($p == 'dwn') {
+        return DWN_SA_SHOPS;
+    }
+
+    return array();
+}
+
 // 上りSAの終了時間取得
 function getEndTimeOfUp($date)
 {
