@@ -13,6 +13,7 @@ if (!isset($_COOKIE['shown_thanks'])) {
 }
 
 // 粗品メッセージ表示状態取得
+$is_survey_state = isStartSurvey(date('Y-m-d H:i:s'));
 $is_show_present_message = isShowPresentMessage($_GET["p"], date('Y-m-d H:i:s'));
 
 // cokkie
@@ -36,19 +37,25 @@ setcookie('shown_thanks', 1, strtotime("+1 days"));
 	<div class="main_bk">
 		<?php if ($first_show) : ?>
 			<h1 class="p-4">淡路サービスエリアに関する<br>ＷＥＢアンケート</h1>
-			<h1 class="pt-4">アンケートにご回答頂きまして、誠にありがとうございます。
+			<h1 class="pt-4">アンケートにご協力いただきありがとうございました。
 			<div class="my-3">
 				<span id="time" STYLE="font-size: small;"></span>
 			</div></h1>
 
-			<?php if ($is_show_present_message) : ?>
+			<?php if ($is_show_present_message && $is_survey_state == NOW) : ?>
 				<div class="info py-2">
-					<p>アンケートにご協力いただいたお礼に粗品を用意しております。</p>
-					<p><strong>この画面を閉じずに、</strong>インフォメーションにて係員にご提示ください。</p>
+					<p>「コンソメたまねぎ棒（２本セット）」をプレゼントしますので</p>
+					<p>この画面をインフォメーションの係員に提示してください。</p>
+					<p class="mt-4">この画面を閉じずに提示してください。</p>
 				</div>
+				<input class="d-block mx-auto" type="button" onclick="location.replace('http://www.jb-highway.co.jp/index.php')" value="プレゼントを受け取りました。">
+			<?php else : ?>
+				<div class="info py-2">
+					<p>今後とも本四道路のご利用をお願いいたします。</p>
+				</div>
+				<input class="d-block mx-auto" type="button" onclick="location.replace('http://www.jb-highway.co.jp/index.php')" value="この画面を閉じる">
 			<?php endif; ?>
 
-			<input type="button" onclick="location.replace('http://www.jb-highway.co.jp/index.php')" value="本画面を閉じる">
 		<?php else : ?>
 			<h1 class="p-4">大変申し訳ございません。<br>本ページの再表示は、行えません。</h1>
 		<?php endif; ?>

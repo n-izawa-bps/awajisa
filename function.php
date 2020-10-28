@@ -92,55 +92,21 @@ function exportJson($file_option)
 }
 
 // アンケート表示判定
-function isShowQuestion($p, $date)
+function isStartSurvey($date)
 {
-    if ($p == 'up') {
-        if (strtotime($date) < strtotime(START_UP)) {
-            return BEFORE;
-        }
-
-        if (strtotime($date) >= strtotime(END_UP)) {
-            return AFTER;
-        }
-
-        return NOW;
-    }
-
-    if ($p == 'dwn') {
-        if (strtotime($date) < strtotime(START_DOWN)) {
-            return BEFORE;
-        }
-
-        if (strtotime($date) >= strtotime(END_DOWN)) {
-            return AFTER;
-        }
-
-        return NOW;
-    }
-
-    if (strtotime($date) < strtotime(START_ETC)) {
+    if (strtotime($date) < strtotime(SURVEY_PRE)) {
         return BEFORE;
     }
 
-    if (strtotime($date) >= strtotime(END_ETC)) {
+    if (strtotime($date) < strtotime(SURVEY_START)) {
+        return BEFORE_PRE;
+    }
+
+    if (strtotime($date) >= strtotime(SURVEY_END)) {
         return AFTER;
     }
 
     return NOW;
-}
-
-// 開始時刻取得
-function getStartTime($p)
-{
-    if ($p == "up") {
-        return START_UP;
-    }
-
-    if ($p == "dwn") {
-        return START_DOWN;
-    }
-
-    return START_ETC;
 }
 
 // 場所取得
@@ -157,6 +123,48 @@ function getPlace($p)
     return "－";
 }
 
+// 現在のSAを取得
+function getNowSA($p)
+{
+    if ($p == 'up') {
+        return "上り";
+    }
+
+    if ($p == 'dwn') {
+        return "下り";
+    }
+
+    return "";
+}
+
+// 現在と反対のSAを取得
+function getReverseSA($p)
+{
+    if ($p == 'up') {
+        return "下り";
+    }
+
+    if ($p == 'dwn') {
+        return "上り";
+    }
+
+    return "";
+}
+
+// 現在のSAの店名一覧を取得
+function getShops($p)
+{
+    if ($p == 'up') {
+        return UP_SA_SHOPS;
+    }
+
+    if ($p == 'dwn') {
+        return DWN_SA_SHOPS;
+    }
+
+    return array();
+}
+
 // 上りSAの終了時間取得
 function getEndTimeOfUp($date)
 {
@@ -166,17 +174,17 @@ function getEndTimeOfUp($date)
 	// 祝日判定
 	foreach (HOLIDAYS as $holiday) {
 		if (strtotime($day) == strtotime($holiday)) {
-			return TIME_E_UP_HOLIDAYS;
+			return UP_CLOSE_HOLIDAYS;
 		}
 	}
 
 	// 土日判定
 	if ($day_type == 0 || $day_type == 6) {
-		return TIME_E_UP_HOLIDAYS;
+		return UP_CLOSE_HOLIDAYS;
 	}
 
 	// 平日
-	return TIME_E_UP_WEEKDAYS;
+	return UP_CLOSE_WEEKDAYS;
 }
 
 // 営業時間内判定
@@ -195,11 +203,11 @@ function isJudgeOpen($time_s, $time_e, $date)
 function isShowPresentMessage($p, $date)
 {
 	if ($p == 'up') {
-		return isJudgeOpen(TIME_S_UP, getEndTimeOfUp($date), $date);
+		return isJudgeOpen(UP_OPEN, getEndTimeOfUp($date), $date);
 	}
 
 	if ($p == 'dwn') {
-		return isJudgeOpen(TIME_S_DWN, TIME_E_DWN, $date);
+		return isJudgeOpen(DWN_OPEN, DWN_CLOSE, $date);
 	}
 
 	return false;

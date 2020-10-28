@@ -22,61 +22,77 @@ function getNow() {
 }
 
 // question7
-function entryChange1(){
-	if(document.getElementById('smart-ic')){
-		id = document.getElementById('smart-ic').value;
+function entryChangeMainPurpose(){
+	if($('#main-purpose')){
+		const value = $('#main-purpose').val();
 
-		if(id == 'yes'){
-			document.getElementById('go-out').style.display = "";
-			entryChange2();
-			document.getElementById('awaji-highway').style.display = "";
-			document.getElementById('awaji-reason').style.display = "";
+		if(value == '1'){
+			$('#q-destination').show();
+			entryChangeDestination();
 		}else{
-			document.getElementById('go-out').style.display = "none";
-			document.getElementById('island').style.display = "none";
-			document.getElementById('awaji-highway').style.display = "none";
-			document.getElementById('awaji-reason').style.display = "none";
+			$('#q-destination').hide();
+			$('#q-course').hide();
 		}
 	}
 }
 
-// question7-2
-function entryChange2(){
-	if(document.getElementById('purpose2')){
-		id = document.getElementById('purpose2').value;
+// question7-1
+function entryChangeDestination(){
+	if($('#destination')){
+		const value = $('#destination1').prop("checked");
 
-		if(id == '1'){
-			document.getElementById('island').style.display = "";
+		if(value){
+			$('#q-course').show();
 		}else{
-			document.getElementById('island').style.display = "none";
+			$('#q-course').hide();
 		}
 	}
 }
 
-// question11
-function entryChange3(){
-	if(document.getElementById('price')){
-		id = document.getElementById('price').value;
+// question9
+function entryChangeSmartic(){
+	if($('#smartic')){
+		const value = $('#smartic').val();
 
-		if(id == '' || id == '5'){
-			document.getElementById('from-souvenir').style.display = "none";
+		if(value == 'yes'){
+			$('#q-smartic-reason').show();
 		}else{
-			document.getElementById('from-souvenir').style.display = "";
+			$('#q-smartic-reason').hide();
 		}
 	}
 }
 
-// question14
-function entryChange4(){
-	if(document.getElementById('oasis')){
-		id = document.getElementById('oasis').value;
+// question13
+function entryChangeAwajisaPurpose(){
+	if($('#awajisa-purpose')){
+		const value1 = $('#awajisa-purpose1').prop("checked");
+		const value2 = $('#awajisa-purpose2').prop("checked");
 
-		if(id == 'yes'){
-			document.getElementById('oasis-purpose').style.display = "";
-			document.getElementById('oasis-facility').style.display = "";
+		if(value1 || value2){
+			$('#q-shop').show();
 		}else{
-			document.getElementById('oasis-purpose').style.display = "none";
-			document.getElementById('oasis-facility').style.display = "none";
+			$('#q-shop').hide();
+		}
+
+		if(value1) {
+			$('#q-price').show();
+			$('#q-from-souvenir').show();
+		}else{
+			$('#q-price').hide();
+			$('#q-from-souvenir').hide();
+		}
+	}
+}
+
+// question16
+function entryChangeOasis(){
+	if($('#oasis')){
+		value = $('#oasis').val();
+
+		if(value == 'yes'){
+			$('#q-oasis-purpose').show();
+		}else{
+			$('#q-oasis-purpose').hide();
 		}
 	}
 }
@@ -110,53 +126,59 @@ function check() {
 	});
 
 	// 必須項目
-	const gender = $('#gender');
 	const age = $('#age');
-	const address_level2 = $('#address-level2');
+	const address_level1 = $('#address-level1');
 	const transportation = $('#transportation');
-	const smart_ic = $('#smart-ic');
-	const purpose2 = $('#purpose2');
+	const main_purpose = $('#main-purpose');
+	const destination = $('#destination');
 	const course = $('#course');
-	const highway = $('#highway');
-	const reason = $('#reason');
-	const sa = $('#sa');
-	const purpose = $('#purpose');
+	const known_smartic = $('#known-smartic');
+	const smartic = $('#smartic');
+	const smartic_reason = $('#smartic-reason');
+	const awajisa_purpose = $('#awajisa-purpose');
 	const shop = $('#shop');
-	const timeZone = $('#timeZone');
+	const timezone = $('#timezone');
 	const staying_time = $('#staying-time');
 	const oasis = $('#oasis');
-	const purpose3 = $('#purpose3');
+	const oasis_purpose = $('#oasis-purpose');
 	const facility = $('#facility');
 
 	// 必須チェック
-	checkRequire(gender);
 	checkRequire(age);
-	checkRequire(address_level2);
+	checkRequire(address_level1);
 	checkRequire(transportation);
-	checkRequire(smart_ic);
+	checkRequire(main_purpose);
 
-	if (smart_ic.val() == "" || smart_ic.val() == "yes") {
-		checkRequire(purpose2);
+	if (main_purpose.val() == "1") {
+		checkRequireForCheckbox(destination);
 
-		if (purpose2.val() == "" || purpose2.val() == "1") {
+		if ($('#destination1').prop("checked")) {
 			checkRequireForCheckbox(course);
 		}
-
-		checkRequire(highway);
-		checkRequireForCheckbox(reason);
 	}
 
-		checkRequire(sa);
-		checkRequireForCheckbox(purpose);
+	checkRequire(known_smartic);
+	checkRequire(smartic);
+
+	if (smartic.val() == "yes") {
+		checkRequireForCheckbox(smartic_reason);
+	}
+
+	checkRequireForCheckbox(awajisa_purpose);
+
+	if ($('#awajisa-purpose1').prop("checked") || $('#awajisa-purpose2').prop("checked")) {
 		checkRequireForCheckbox(shop);
-		checkRequire(timeZone);
-		checkRequire(staying_time);
-		checkRequire(oasis);
-
-	if (oasis.val() == "" || oasis.val() == "yes") {
-		checkRequireForCheckbox(purpose3);
-		checkRequireForCheckbox(facility);
 	}
+
+	checkRequire(timezone);
+	checkRequire(staying_time);
+	checkRequire(oasis);
+
+	if (oasis.val() == "yes") {
+		checkRequireForCheckbox(oasis_purpose);
+	}
+
+	checkRequireForCheckbox(facility);
 
 	// 最終チェック
 	if ($('.invalid').length) {
@@ -172,10 +194,11 @@ function check() {
 
 window.addEventListener('load', (event) => {
 	setTimer();
-	entryChange1();
-	entryChange2();
-	entryChange3();
-	entryChange4();
+	entryChangeMainPurpose();
+	entryChangeDestination();
+	entryChangeSmartic();
+	entryChangeAwajisaPurpose();
+	entryChangeOasis();
 });
 
 window.addEventListener('pageshow', (event) => {
