@@ -1,18 +1,17 @@
 <?php
 // アンケート開始日程
-define('START_UP',   '2020-10-26 09:00:00');  // 記入例：2020-10-23 09:00:00
-define('START_DOWN', '2020-10-26 08:00:00');
-define('START_ETC',  '2020-10-26 08:00:00');
+define('SURVEY_PRE',    '2020-10-31 06:00:00'); // 記入例：2020-10-23 09:00:00
+define('SURVEY_START',  '2020-10-31 09:00:00');
 
 // アンケート終了日程
-define('END_UP',   '2020-11-23 19:00:00');
-define('END_DOWN', '2020-11-23 17:00:00');
-define('END_ETC',  '2020-11-23 19:00:00');
+define('SURVEY_END',    '2020-11-24 00:00:00');
+
 
 // アンケート表示状態
 define('BEFORE', 1);
-define('NOW', 2);
-define('AFTER', 3);
+define('BEFORE_PRE', 2);
+define('NOW', 3);
+define('AFTER', 4);
 
 // CSV情報
 define(
@@ -70,6 +69,20 @@ define(
 		'2021-05-04',
 		'2021-05-05',
 	)
+);
+
+// 曜日リスト
+define(
+    'WEEK',
+    array(
+        "日",
+        "月",
+        "火",
+        "水",
+        "木",
+        "金",
+        "土",
+    )
 );
 
 // アンケート情報

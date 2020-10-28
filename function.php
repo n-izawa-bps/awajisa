@@ -92,55 +92,21 @@ function exportJson($file_option)
 }
 
 // アンケート表示判定
-function isShowQuestion($p, $date)
+function isStartSurvey($date)
 {
-    if ($p == 'up') {
-        if (strtotime($date) < strtotime(START_UP)) {
-            return BEFORE;
-        }
-
-        if (strtotime($date) >= strtotime(END_UP)) {
-            return AFTER;
-        }
-
-        return NOW;
-    }
-
-    if ($p == 'dwn') {
-        if (strtotime($date) < strtotime(START_DOWN)) {
-            return BEFORE;
-        }
-
-        if (strtotime($date) >= strtotime(END_DOWN)) {
-            return AFTER;
-        }
-
-        return NOW;
-    }
-
-    if (strtotime($date) < strtotime(START_ETC)) {
+    if (strtotime($date) < strtotime(SURVEY_PRE)) {
         return BEFORE;
     }
 
-    if (strtotime($date) >= strtotime(END_ETC)) {
+    if (strtotime($date) < strtotime(SURVEY_START)) {
+        return BEFORE_PRE;
+    }
+
+    if (strtotime($date) >= strtotime(SURVEY_END)) {
         return AFTER;
     }
 
     return NOW;
-}
-
-// 開始時刻取得
-function getStartTime($p)
-{
-    if ($p == "up") {
-        return START_UP;
-    }
-
-    if ($p == "dwn") {
-        return START_DOWN;
-    }
-
-    return START_ETC;
 }
 
 // 場所取得

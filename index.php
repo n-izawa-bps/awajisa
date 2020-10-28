@@ -29,7 +29,7 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
 }
 
 // アンケート表示状態取得
-$is_show_state = isShowQuestion($_GET['p'], date('Y-m-d H:i:s'));
+$is_survey_state = isStartSurvey(date('Y-m-d H:i:s'));
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -54,13 +54,17 @@ $is_show_state = isShowQuestion($_GET['p'], date('Y-m-d H:i:s'));
     <!----- main ----->
     <div class="main_bk">
         <h1 class="p-3">淡路サービスエリア等に関する<br>ＷＥＢアンケート（<?php echo getPlace($_GET['p']) ?>）</h1>
-        <?php if ($is_show_state == BEFORE) : ?>
+        <?php if ($is_survey_state == BEFORE) : ?>
             <div class="info">
-                <p class="my-2"><?php echo date('Y年m月d日 H時', strtotime(getStartTime($_GET['p']))) ?>よりアンケート開始</p>
+                <p class="my-2">淡路SAの利用に関するアンケート準備中</p>
             </div>
-        <?php elseif ($is_show_state == AFTER) : ?>
+        <?php elseif ($is_survey_state == AFTER) : ?>
             <div class="info">
-                <p class="my-2">アンケート終了しました。ご協力ありがとうございました。</p>
+                <p class="my-2">
+                    アンケートは、終了しました。<br>
+                    ご回答いただいた内容をもとに今後ともサービスの向上に努めてまいります。<br>
+                    ご協力ありがとうございました。
+                </p>
             </div>
         <?php else : ?>
             <?php if (isset($_COOKIE['answered'])) : ?>
@@ -71,9 +75,15 @@ $is_show_state = isShowQuestion($_GET['p'], date('Y-m-d H:i:s'));
             <?php else : ?>
                 <div class="info">
                     <p>
-                        アンケート完了画面をインフォメーションにてご提示いただいた方に淡路SA（上り・下り）インフォメーションにて「コンソメたまねぎ棒（２本セット）」をプレゼント。<br>
-                        ※プレゼントのお渡しはインフォメーション営業時間中のみで、お一人様１回限りとさせていただきます。<br>
-                        （アンケートは３分程度で終わります）
+                        <?php if ($is_survey_state == BEFORE_PRE) : ?>
+                            淡路SAの利用に関するアンケート実施中<br>
+                            粗品の受け渡しは<?php echo date('Y年m月d日（', strtotime(SURVEY_START)) . WEEK[date('w', strtotime(SURVEY_START))] . date('）G:i', strtotime(SURVEY_START)) ?> からとなります。<br>
+                            ご了承ください。
+                        <?php else : ?>
+                            アンケート完了画面をインフォメーションにてご提示いただいた方に淡路SA（上り・下り）インフォメーションにて「コンソメたまねぎ棒（２本セット）」をプレゼント。<br>
+                            ※プレゼントのお渡しはインフォメーション営業時間中のみで、お一人様１回限りとさせていただきます。<br>
+                            （アンケートは３分程度で終わります）
+                        <?php endif; ?>
                     </p>
                 </div>
                 <div class="container_bk">
