@@ -80,7 +80,7 @@ $is_show_present_message = isShowPresentMessage($_GET["p"], date('Y-m-d H:i:s'))
                     <div class="info">
                         <p class="my-2">
                             淡路SAの利用に関するアンケート実施中<br>
-                            粗品の受け渡しは<?= date('Y年m月d日（', strtotime(SURVEY_START)) . WEEK[date('w', strtotime(SURVEY_START))] . date('）G:i', strtotime(SURVEY_START)) ?> からとなります。<br>
+                            粗品の受け渡しは<?php printf(date('Y年m月d日（%\s）G:i', strtotime(SURVEY_START)), WEEK[date('w', strtotime(SURVEY_START))]); ?> からとなります。<br>
                             ご了承ください。
                         </p>
                     </div>
