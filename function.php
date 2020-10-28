@@ -45,23 +45,31 @@ function getCsvData($key)
 }
 
 // パラメータから出力フォルダ名を取得
-function getOutputName($p)
+function getOutputName($p, $is_open)
 {
     if ($p == "up") {
-        return "up";
+        if ($is_open) {
+            return "up/open";
+        }
+
+        return "up/close";
     }
 
     if ($p == "dwn") {
-        return "dwn";
+        if ($is_open) {
+            return "dwn/open";
+        }
+
+        return "dwn/close";
     }
 
     return "etc";
 }
 
 // CSVファイル出力
-function exportCsv($row, $file_option)
+function exportCsv($row, $file_option, $is_open)
 {
-    $file_path = getcwd() . "/out/" . getOutputName($_GET["p"]) . "/" . $file_option . ".csv";
+    $file_path = getcwd() . "/out/" . getOutputName($_GET["p"], $is_open) . "/" . $file_option . ".csv";
     $file = fopen($file_path, "w");
 
     // ヘッダーセット
