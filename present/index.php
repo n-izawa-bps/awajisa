@@ -1,5 +1,6 @@
 <?php
 if ($_POST["present"]) {
+    $_POST["present"] == "1" ? "1" : "2";
     $f = fopen("present.txt", "w");
     @fwrite($f, $_POST["present"]);
     fclose($f);
@@ -24,8 +25,8 @@ $present = file_get_contents(__DIR__ . "/" . "present.txt");
     <form action="index.php" method="POST">
         <div class="input-box">
             <select name="present">
-                <option value="1" <?= $present == 1 ? "selected" : "" ?>>粗品配布</option>
-                <option value="2" <?= $present == 2 ? "selected" : "" ?>>粗品配布の終了</option>
+                <option value="1" <?= $present == "1" ? "selected" : "" ?>>粗品配布</option>
+                <option value="2" <?= $present == "2" ? "selected" : "" ?>>粗品配布の終了</option>
             </select>
         </div>
         <button type="submit" class="btn btn-info w-50 mt-2 d-block mx-auto">切替</button>

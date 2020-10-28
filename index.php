@@ -87,7 +87,7 @@ $present_state = trim(file_get_contents(__DIR__ . "/present/" . "present.txt"));
                             ご了承ください。
                         </p>
                     </div>
-                <?php elseif ($is_show_present_message && $present_state == 1) : ?>
+                <?php elseif ($is_show_present_message && $present_state == "1") : ?>
                     <div class="info">
                         <p class="my-2">
                             アンケート完了画面をインフォメーションにてご提示いただいた方に淡路SAインフォメーションにて「コンソメたまねぎ棒（２本セット）」をプレゼント。<br>

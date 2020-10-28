@@ -47,7 +47,7 @@ setcookie('shown_thanks', 1, strtotime(date("Y-m-d") . "+1 days"));
 				</div>
 			</h1>
 
-			<?php if ($is_show_present_message && $is_survey_state == NOW && $present_state == 1) : ?>
+			<?php if ($is_show_present_message && $is_survey_state == NOW && $present_state == "1") : ?>
 				<div class="info py-2">
 					<p>「コンソメたまねぎ棒（２本セット）」をプレゼントしますので</p>
 					<p>この画面をインフォメーションの係員に提示してください。</p>
