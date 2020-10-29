@@ -68,6 +68,9 @@ setcookie('shown_thanks', 1, strtotime(date("Y-m-d") . "+1 days"));
 		<?php endif; ?>
         <p class="my-3 text-right"><img src="./img/head_img01.gif" alt=""></p>
 	</div>
+	<div class="mt-5 text-center">
+		<a href="./privacy.html" style="color: #808080; background-color: #DCDCDC;">プライバシーポリシーについて</a>
+	</div>
 </body>
 
 </html>
