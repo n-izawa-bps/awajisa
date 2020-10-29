@@ -62,7 +62,10 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
     <!----- main ----->
     <div class="main_bk">
         <p class="mt-3"><img src="./img/jb_logo.gif" alt=""></p>
-        <h1 class="p-3">淡路サービスエリア等に関する<br>ＷＥＢアンケート（<?= getPlace($_GET['p']) ?>）</h1>
+        <div class="d-flex justify-content-center align-items-center title">
+            <h1 class="p-3">淡路サービスエリア等に関する<br>ＷＥＢアンケート（<?= getPlace($_GET['p']) ?>）</h1>
+            <p class="d-block"><img src="./img/head_img01.gif" alt=""></p>
+        </div>
         <?php if ($is_survey_state == BEFORE) : ?>
             <div class="info">
                 <p class="my-2">淡路SAの利用に関するアンケート準備中</p>
@@ -852,7 +855,6 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                 </div>
             <?php endif; ?>
         <?php endif; ?>
-        <p class="mb-3 text-right"><img src="./img/head_img01.gif" alt=""></p>
     </div>
     <!----- /main ----->
 

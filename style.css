@@ -1,10 +1,14 @@
 h1{
-	font-size: 20px;
+	font-size: 18px;
 	margin: 10px 0 5px 0;
 	text-align: center;
-	border-bottom: dashed 1px;
 	font-weight: bold;
 }
+
+.title {
+	border-bottom: dashed 1px;
+}
+
 .main_bk{
 	padding: 0 10px;
 	max-width: 700px;
@@ -16,6 +20,10 @@ h1{
 	line-height:20px;
 	border-bottom: dashed 1px;
 	padding-bottom: 5px;
+}
+
+.main_bk .container_bk{
+	margin-top: 10px;
 }
 
 .main_bk .container_bk .box{
