@@ -107,3 +107,9 @@ input[type='text']:first-child{
 label, input[type='checkbox'] {
 	cursor: pointer;
 }
+
+.privacy {
+	color: #808080;
+	background-color: #DCDCDC;
+	font-size: 10px;
+}

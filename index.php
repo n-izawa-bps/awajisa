@@ -855,7 +855,7 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
         <p class="mb-3 text-right"><img src="./img/head_img01.gif" alt=""></p>
     </div>
     <div class="my-5 text-center">
-        <a href="./privacy.html" style="color: #808080; background-color: #DCDCDC;">プライバシーポリシーについて</a>
+        <a href="./privacy.html" class="privacy">プライバシーポリシーについて</a>
     </div>
     <!----- /main ----->
 
