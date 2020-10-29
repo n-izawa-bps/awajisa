@@ -4,6 +4,7 @@ require "function.php";
 // 回答判定
 if (!isset($_COOKIE['answered'])) {
 	header("location: .");
+	exit();
 }
 
 // 初回表示判定
@@ -21,8 +22,7 @@ $present_state = trim(file_get_contents(__DIR__ . "/present/" . "present.txt"));
 
 // cokkie
 setcookie('shown_thanks', 1, strtotime(date("Y-m-d") . "+1 days"));
-?>
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html lang="ja">
 
 <head>
@@ -33,6 +33,7 @@ setcookie('shown_thanks', 1, strtotime(date("Y-m-d") . "+1 days"));
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="sa.js"></script>
 </head>
 
