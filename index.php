@@ -606,13 +606,13 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                                     </div>
                                     <div class="input-box">
                                         <div id="shop">
-                                            <? foreach(getShops($_GET['p']) as $key => $shop) : ?>
+                                            <?php foreach(getShops($_GET['p']) as $key => $shop) : ?>
                                                 <div class="py-2">
                                                     <label for="shop<?= $key + 1 ?>">
                                                         <input type="checkbox" id="shop<?= $key + 1 ?>" name="shop[]" value="<?= $key + 1 ?>" class="right-space"><?= $shop ?>
                                                     </label>
                                                 </div>
-                                            <? endforeach; ?>
+                                            <?php endforeach; ?>
                                         </div>
                                     </div>
                                 </div>
