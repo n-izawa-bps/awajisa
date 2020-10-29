@@ -627,7 +627,7 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                                     </div>
                                 </div>
                                 <div class="input-box">
-                                    <select name="price" id="price" onchange="entryChange3();">
+                                    <select name="price" id="price">
                                         <option value="">選択してください</option>
                                         <option value="1">1,000円未満</option>
                                         <option value="2">1,000円以上2,000円未満</option>
@@ -841,7 +841,7 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                                     </div>
                                 </div>
                                 <div class="input-box">
-                                    <textarea name="request" maxlength="400" rows="5"></textarea>
+                                    <textarea name="opinion" maxlength="400" rows="5"></textarea>
                                 </div>
                             </div>
                             <div class="form-group text-center">
