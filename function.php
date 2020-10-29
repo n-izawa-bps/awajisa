@@ -31,6 +31,14 @@ function getCsvData($key)
         return $_GET[$key];
     }
 
+    if ($key == "date") {
+        return date('Ymd');
+    }
+
+    if ($key == "time") {
+        return date('His');
+    }
+
     // POSTデータ処理
     if (!isset($_POST[$key])) {
         return "";

@@ -91,8 +91,10 @@ function entryChangeOasis(){
 
 		if(value == 'yes'){
 			$('#q-oasis-purpose').show();
+			$('#q-facility').show();
 		}else{
 			$('#q-oasis-purpose').hide();
+			$('#q-facility').hide();
 		}
 	}
 }
@@ -176,9 +178,9 @@ function check() {
 
 	if (oasis.val() == "yes") {
 		checkRequireForCheckbox(oasis_purpose);
+		checkRequireForCheckbox(facility);
 	}
 
-	checkRequireForCheckbox(facility);
 
 	// 最終チェック
 	if ($('.invalid').length) {

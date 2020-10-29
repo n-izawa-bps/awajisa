@@ -618,13 +618,13 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                                     </div>
                                     <div class="input-box">
                                         <div id="shop">
-                                            <? foreach(getShops($_GET['p']) as $key => $shop) : ?>
+                                            <?php foreach(getShops($_GET['p']) as $key => $shop) : ?>
                                                 <div class="py-2">
                                                     <label for="shop<?= $key + 1 ?>">
                                                         <input type="checkbox" id="shop<?= $key + 1 ?>" name="shop[]" value="<?= $key + 1 ?>" class="right-space"><?= $shop ?>
                                                     </label>
                                                 </div>
-                                            <? endforeach; ?>
+                                            <?php endforeach; ?>
                                         </div>
                                     </div>
                                 </div>
@@ -639,7 +639,7 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                                     </div>
                                 </div>
                                 <div class="input-box">
-                                    <select name="price" id="price" onchange="entryChange3();">
+                                    <select name="price" id="price">
                                         <option value="">選択してください</option>
                                         <option value="1">1,000円未満</option>
                                         <option value="2">1,000円以上2,000円未満</option>
@@ -771,10 +771,10 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" id="q-facility">
                                 <div class="mb-2 title-box">
                                     <div class="content-title">
-                                        <span class="question">17</span>
+                                        <span class="question">16-2</span>
                                     </div>
                                     <div class="pr-0 content-text">
                                         淡路ハイウェイオアシスでご利用になった、またはご利用予定の施設を教えてください。<br>（複数回答可）<span class="required-box">※必須</span>
@@ -833,7 +833,7 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                             <div class="form-group">
                                 <div class="mb-2 title-box">
                                     <div class="content-title">
-                                        <span class="question">18</span>
+                                        <span class="question">17</span>
                                     </div>
                                     <div class="pr-0 content-text">
                                         今後、どんな施設やサービス、商品・メニューがあれば、また淡路SAを訪れたいと思いますか。
@@ -846,14 +846,14 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                             <div class="form-group">
                                 <div class="mb-2 title-box">
                                     <div class="content-title">
-                                        <span class="question">19</span>
+                                        <span class="question">18</span>
                                     </div>
                                     <div class="pr-0 content-text">
                                         その他、ご意見・ご感想等がありましたらお聞かせください。
                                     </div>
                                 </div>
                                 <div class="input-box">
-                                    <textarea name="request" maxlength="400" rows="5"></textarea>
+                                    <textarea name="opinion" maxlength="400" rows="5"></textarea>
                                 </div>
                             </div>
                             <div class="form-group text-center">
