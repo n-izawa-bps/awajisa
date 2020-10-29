@@ -2,11 +2,11 @@
 require "function.php";
 
 // アンケート表示状態取得
-$is_survey_state = isStartSurvey(date('Y-m-d H:i:s'));
-$is_show_present_message = isShowPresentMessage($_GET["p"], date('Y-m-d H:i:s'));
+$is_survey_state = NOW;
+$is_show_present_message = true;
 
 // 粗品配布状態取得
-$present_state = trim(file_get_contents(__DIR__ . "/present/" . "present.txt"));
+$present_state = 1;
 
 // 営業時間判定
 $is_open = false;
