@@ -759,10 +759,10 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" id="q-facility">
                                 <div class="mb-2 title-box">
                                     <div class="content-title">
-                                        <span class="question">17</span>
+                                        <span class="question">16-2</span>
                                     </div>
                                     <div class="pr-0 content-text">
                                         淡路ハイウェイオアシスでご利用になった、またはご利用予定の施設を教えてください。<br>（複数回答可）<span class="required-box">※必須</span>
@@ -821,7 +821,7 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                             <div class="form-group">
                                 <div class="mb-2 title-box">
                                     <div class="content-title">
-                                        <span class="question">18</span>
+                                        <span class="question">17</span>
                                     </div>
                                     <div class="pr-0 content-text">
                                         今後、どんな施設やサービス、商品・メニューがあれば、また淡路SAを訪れたいと思いますか。
@@ -834,7 +834,7 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                             <div class="form-group">
                                 <div class="mb-2 title-box">
                                     <div class="content-title">
-                                        <span class="question">19</span>
+                                        <span class="question">18</span>
                                     </div>
                                     <div class="pr-0 content-text">
                                         その他、ご意見・ご感想等がありましたらお聞かせください。
