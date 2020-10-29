@@ -1,17 +1,28 @@
 <?php
 require "function.php";
 
+// アンケート表示状態取得
+$is_survey_state = isStartSurvey(date('Y-m-d H:i:s'));
+$is_show_present_message = isShowPresentMessage($_GET["p"], date('Y-m-d H:i:s'));
+
+// 粗品配布状態取得
+$present_state = trim(file_get_contents(__DIR__ . "/present/" . "present.txt"));
+
+// 営業時間判定
+$is_open = false;
+if ($is_survey_state == NOW && $is_show_present_message) {
+    $is_open = true;
+}
 
 // アンケート出力
 if (!empty($_POST) && !$_COOKIE['answered']) {
     // データ作成
     $header_keys = array_keys(HEADER);
     $data = array_map('getCsvData', $header_keys);
-
     $file_option = date('YmdHis') . createRandomString(4);
 
     // CSV出力
-    exportCsv($data, $file_option);
+    exportCsv($data, $file_option, $is_open);
 
     // Json出力（予備）
     exportJson($file_option);
@@ -28,12 +39,6 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
     }
 }
 
-// アンケート表示状態取得
-$is_survey_state = isStartSurvey(date('Y-m-d H:i:s'));
-$is_show_present_message = isShowPresentMessage($_GET["p"], date('Y-m-d H:i:s'));
-
-// 粗品配布状態取得
-$present_state = trim(file_get_contents(__DIR__ . "/present/" . "present.txt"));
 ?>
 <!DOCTYPE html>
 <html lang="ja">
