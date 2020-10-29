@@ -1,13 +1,17 @@
 h1{
-	font-size: 20px;
+	font-size: 18px;
 	margin: 10px 0 5px 0;
 	text-align: center;
-	border-bottom: dashed 1px;
 	font-weight: bold;
 }
+
+.title {
+	border-bottom: dashed 1px;
+}
+
 .main_bk{
 	padding: 0 10px;
-	max-width: 800px;
+	max-width: 700px;
 	margin: 0 auto;
 }
 
@@ -18,8 +22,11 @@ h1{
 	padding-bottom: 5px;
 }
 
+.main_bk .container_bk{
+	margin-top: 10px;
+}
+
 .main_bk .container_bk .box{
-    padding-bottom: 35px;
 	line-height:25px;
 }
 .container_bk .box .form-group{
@@ -93,6 +100,7 @@ textarea{
 
 select,
 input[type='text']{
+	width: 100%;
     height: auto;
     padding: 7px;
     box-sizing: border-box;
@@ -100,11 +108,16 @@ input[type='text']{
 }
 select:first-child,
 input[type='text']:first-child{
-    margin-right: 28px;
 	border-radius: 10px;
 	background-color:#fff;
 }
 
 label, input[type='checkbox'] {
 	cursor: pointer;
+}
+
+.privacy {
+	color: #808080;
+	background-color: #DCDCDC;
+	font-size: 10px;
 }
