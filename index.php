@@ -39,8 +39,7 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
     }
 }
 
-?>
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html lang="ja">
 
 <head>

@@ -9,8 +9,7 @@ if ($_POST["present"]) {
 // 制御ファイル読み込み
 $present = file_get_contents(__DIR__ . "/" . "present.txt");
 
-?>
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">

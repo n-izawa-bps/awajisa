@@ -22,8 +22,7 @@
     $sum_up = $cnt_up_open + $cnt_up_close;
     $sum_dwn = $cnt_dwn_open + $cnt_dwn_close;
     $sum_all = $sum_up + $sum_dwn;
-?>
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
