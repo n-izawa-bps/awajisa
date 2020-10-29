@@ -39,6 +39,7 @@ setcookie('shown_thanks', 1, strtotime(date("Y-m-d") . "+1 days"));
 
 <body>
 	<div class="main_bk">
+        <p class="mt-3"><img src="./img/jb_logo.gif" alt=""></p>
 		<?php if ($first_show) : ?>
 			<h1 class="p-4">淡路サービスエリアに関する<br>ＷＥＢアンケート</h1>
 			<h1 class="pt-4">
@@ -65,6 +66,7 @@ setcookie('shown_thanks', 1, strtotime(date("Y-m-d") . "+1 days"));
 		<?php else : ?>
 			<h1 class="p-4">大変申し訳ございません。<br>本ページの再表示は、行えません。</h1>
 		<?php endif; ?>
+        <p class="my-3 text-right"><img src="./img/head_img01.gif" alt=""></p>
 	</div>
 </body>
 
