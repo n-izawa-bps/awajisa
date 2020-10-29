@@ -70,6 +70,9 @@ setcookie('shown_thanks', 1, strtotime(date("Y-m-d") . "+1 days"));
 			<h1 class="p-4">大変申し訳ございません。<br>本ページの再表示は、行えません。</h1>
 		<?php endif; ?>
 	</div>
+	<div class="mt-5 text-center">
+		<a href="./privacy.html" class="privacy">プライバシーポリシーについて</a>
+	</div>
 </body>
 
 </html>
