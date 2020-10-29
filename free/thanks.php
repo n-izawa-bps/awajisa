@@ -2,10 +2,10 @@
 require "function.php";
 
 // 回答判定
-if (!isset($_COOKIE['answered'])) {
-	header("location: .");
-	exit();
-}
+// if (!isset($_COOKIE['answered'])) {
+// 	header("location: .");
+// 	exit();
+// }
 
 // 初回表示判定
 $first_show = false;

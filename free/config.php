@@ -7,13 +7,13 @@ define('SURVEY_START',  '2020-10-22 09:00:00');
 define('SURVEY_END',    '2020-11-24 00:00:00');
 
 // 営業開始時刻
-define('UP_OPEN',  "06:00:00");	// 記入例：09:00:00
-define('DWN_OPEN', "06:00:00");
+define('UP_OPEN',  "00:00:00");	// 記入例：09:00:00
+define('DWN_OPEN', "00:00:00");
 
 // 営業終了時刻
-define('UP_CLOSE_WEEKDAYS', "23:00:00");
-define('UP_CLOSE_HOLIDAYS', "23:00:00");
-define('DWN_CLOSE',		    "23:00:00");
+define('UP_CLOSE_WEEKDAYS', "23:59:59");
+define('UP_CLOSE_HOLIDAYS', "23:59:59");
+define('DWN_CLOSE',		    "23:59:59");
 
 // 祝日リスト
 define(
