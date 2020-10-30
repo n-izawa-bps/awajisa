@@ -196,7 +196,7 @@ function check() {
 
 function reloadToHref() {
 	document.cookie = "transition=1";
-	window.location.reload();
+	window.location.href='http://www.jb-highway.co.jp/index.php';
 }
 
 function getCookie(key) {
@@ -215,10 +215,9 @@ function getCookie(key) {
 
 function checkTransition() {
 	if (getCookie("transition")) {
-		setTimeout(function () {
 		document.cookie = "transition=; max-age=0";
-		window.location.href='http://www.jb-highway.co.jp/index.php';
-		}, 0);
+		$('#first').hide();
+		$('#second').show();
 	}
 }
 

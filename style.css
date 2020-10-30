@@ -121,3 +121,7 @@ label, input[type='checkbox'] {
 	background-color: #DCDCDC;
 	font-size: 10px;
 }
+
+#second {
+	display: none;
+}
