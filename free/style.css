@@ -1,0 +1,140 @@
+h1{
+	font-size: 17px;
+	margin: 10px 0 5px 0;
+	text-align: center;
+	font-weight: bold;
+}
+
+.title {
+	border-bottom: dashed 1px;
+}
+
+.main_bk{
+	padding: 0 10px;
+	max-width: 700px;
+	margin: 0 auto;
+}
+
+.main_bk .info{
+	margin-bottom:10px;
+	line-height:20px;
+	border-bottom: dashed 1px;
+	padding-bottom: 5px;
+}
+
+.main_bk .container_bk{
+	margin-top: 10px;
+}
+
+.main_bk .container_bk .box{
+	line-height:25px;
+}
+.container_bk .box .form-group{
+    padding-bottom: 14px;
+}
+.container_bk .box .form-group .title-box{
+	border: solid 1px #e6e6e6;
+    padding: 10px;
+    box-sizing: border-box;
+	margin-bottom: 10px;
+	background-color: #f5f5f5;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.container_bk .box .form-group .title-box.invalid {
+	background-color: #F06060;
+}
+
+.container_bk .box .form-group .input-box{
+    flex-basis: 0;
+    flex-grow: 1;
+}
+.container_bk .box .form-group .input-box-sub{
+	flex-basis: 50%;
+}
+.container_bk .box .form-group .title-box .content-title{
+    font-size: 16px;
+	padding:0;
+	flex-basis: 100%;
+}
+
+.container_bk .box .form-group .title-box .content-title .question{
+	background-color:#d3d3d3;
+	border-radius: 25px;
+	color:#fff;
+	padding:0 10px 0 10px;
+}
+
+.content-text {
+	flex-basis: 100%;
+}
+
+@media screen and (min-width: 768px) {
+	.container_bk .box .form-group .title-box .content-title {
+		flex-basis: 10%;
+	}
+
+	.content-text {
+		flex-basis: 90%;
+	}
+}
+
+.container_bk .box .form-group .title-box .required-box{
+    color: #FFFFFF;
+    box-sizing: border-box;
+    background: #FF0000;
+    border: 1px solid #FF0000;
+    border-radius: 4px;
+}
+
+.container_bk .box .form-group .input-box .space{
+	margin-left: 10px;
+}
+
+.container_bk .box .form-group .input-box .right-space{
+	margin-right: 5px;
+}
+
+textarea{
+	width: 100%;
+	border-radius: 10px;
+}
+
+select,
+input[type='text']{
+	width: 100%;
+    height: auto;
+    padding: 7px;
+    box-sizing: border-box;
+    box-sizing: border-box;
+}
+select:first-child,
+input[type='text']:first-child{
+	border-radius: 10px;
+	background-color:#fff;
+}
+
+label, input[type='checkbox'] {
+	cursor: pointer;
+}
+
+.privacy {
+	color: #808080;
+	background-color: #DCDCDC;
+	font-size: 10px;
+}
+
+#second {
+	display: none;
+}
+
+.img-header {
+	width: auto;
+	height: 20px;
+}
+
+.img-logo {
+	width: auto;
+	height: 40px;
+}
