@@ -32,11 +32,11 @@ function getCsvData($key)
     }
 
     if ($key == "date") {
-        return date('Ymd');
+        return date('Y-m-d');
     }
 
     if ($key == "time") {
-        return date('His');
+        return date('H:i:s');
     }
 
     // POSTデータ処理
