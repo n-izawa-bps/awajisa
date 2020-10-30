@@ -49,38 +49,34 @@ setcookie('shown_thanks', 1, strtotime(date("Y-m-d") . "+1 days"));
 <body>
 	<div class="main_bk">
 		<p class="mt-3"><img src="./img/jb_logo.gif" alt=""></p>
-		<?php if (!checkParameter($_GET["p"])) : ?>
-			<h1 class="p-4">大変申し訳ありません。<br>本ページは表示できません。</h1>
-		<?php else : ?>
-			<?php if ($first_show) : ?>
-				<div class="d-flex justify-content-center align-items-center title">
-					<h1 class="p-3">淡路サービスエリア等に関する<br>ＷＥＢアンケート（<?= getPlace($_GET['p']) ?>）</h1>
-					<p class="d-block"><img src="./img/head_img01.gif" alt=""></p>
+		<?php if ($first_show) : ?>
+			<div class="d-flex justify-content-center align-items-center title">
+				<h1 class="p-3">淡路サービスエリア等に関する<br>ＷＥＢアンケート（<?= getPlace($_GET['p']) ?>）</h1>
+				<p class="d-block"><img src="./img/head_img01.gif" alt=""></p>
+			</div>
+			<h1 class="pt-4 title">
+				アンケートにご協力いただきありがとうございました。
+				<div class="my-3">
+					<span id="time" style="font-size: small;"></span>
 				</div>
-				<h1 class="pt-4 title">
-					アンケートにご協力いただきありがとうございました。
-					<div class="my-3">
-						<span id="time" style="font-size: small;"></span>
-					</div>
-				</h1>
+			</h1>
 
-				<?php if ($is_show_present_message && $is_survey_state == NOW && $present_state == "1") : ?>
-					<div class="info py-2">
-						<p>「コンソメたまねぎ棒（２本セット）」をプレゼントしますので</p>
-						<p>この画面をインフォメーションの係員に提示してください。</p>
-						<p class="mt-4">この画面を閉じずに提示してください。</p>
-					</div>
-					<input class="d-block mx-auto" type="button" onclick="location.replace('http://www.jb-highway.co.jp/index.php')" value="プレゼントを受け取りました。">
-				<?php else : ?>
-					<div class="info py-2">
-						<p>今後とも本四道路のご利用をお願いいたします。</p>
-					</div>
-					<input class="d-block mx-auto" type="button" onclick="location.replace('http://www.jb-highway.co.jp/index.php')" value="この画面を閉じる">
-				<?php endif; ?>
-
+			<?php if ($is_show_present_message && $is_survey_state == NOW && $present_state == "1") : ?>
+				<div class="info py-2">
+					<p>「コンソメたまねぎ棒（２本セット）」をプレゼントしますので</p>
+					<p>この画面をインフォメーションの係員に提示してください。</p>
+					<p class="mt-4">この画面を閉じずに提示してください。</p>
+				</div>
+				<input class="d-block mx-auto" type="button" onclick="location.replace('http://www.jb-highway.co.jp/index.php')" value="プレゼントを受け取りました。">
 			<?php else : ?>
-				<h1 class="p-4">大変申し訳ありません。<br>本ページの再表示は、行えません。</h1>
+				<div class="info py-2">
+					<p>今後とも本四道路のご利用をお願いいたします。</p>
+				</div>
+				<input class="d-block mx-auto" type="button" onclick="location.replace('http://www.jb-highway.co.jp/index.php')" value="この画面を閉じる">
 			<?php endif; ?>
+
+		<?php else : ?>
+			<h1 class="p-4">大変申し訳ありません。<br>本ページの再表示は、行えません。</h1>
 		<?php endif; ?>
 	</div>
 	<div class="mt-5 text-center">
