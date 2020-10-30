@@ -8,10 +8,10 @@ require "function.php";
 // }
 
 // 初回表示判定
-$first_show = false;
-if (!isset($_COOKIE['shown_thanks'])) {
-	$first_show = true;
-}
+$first_show = true;
+// if (!isset($_COOKIE['shown_thanks'])) {
+// 	$first_show = true;
+// }
 
 // 粗品メッセージ表示状態取得
 $is_survey_state = isStartSurvey(date('Y-m-d H:i:s'));
@@ -21,7 +21,7 @@ $is_show_present_message = isShowPresentMessage($_GET["p"], date('Y-m-d H:i:s'))
 $present_state = 1;
 
 // cokkie
-setcookie('shown_thanks', 1, strtotime(date("Y-m-d") . "+1 days"));
+// setcookie('shown_thanks', 1, strtotime(date("Y-m-d") . "+1 days"));
 ?><!DOCTYPE html>
 <html lang="ja">
 
