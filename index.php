@@ -345,10 +345,15 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                                                 <input type="checkbox" id="destination3" name="destination[]" value="3" class="right-space">四国地方
                                             </label>
                                         </div>
-                                        <div class="py-2">
-                                            <label for="destination4">
-                                                <input type="checkbox" id="destination4" name="destination[]" value="4" class="right-space">その他の地方
-                                            </label>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="py-2">
+                                                <label for="destination4">
+                                                    <input type="checkbox" id="destination4" name="destination[]" value="4" class="right-space">その他の地方
+                                                </label>
+                                            </div>
+                                            <div class="input-box-sub">
+                                                <input type="text" name="destination-etc" placeholder="その他" maxlength="50">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -399,10 +404,15 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                                                 <input type="checkbox" id="course7" name="course[]" value="7" class="right-space">イングランドの丘
                                             </label>
                                         </div>
-                                        <div class="py-2">
-                                            <label for="course8">
-                                                <input type="checkbox" id="course8" name="course[]" value="8" class="right-space">その他
-                                            </label>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="py-2">
+                                                <label for="course8">
+                                                    <input type="checkbox" id="course8" name="course[]" value="8" class="right-space">その他
+                                                </label>
+                                            </div>
+                                            <div class="input-box-sub">
+                                                <input type="text" name="course-etc" placeholder="その他" maxlength="50">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -467,10 +477,15 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                                                 <input type="checkbox" id="smartic-reason3" name="smartic-reason[]" value="3" class="right-space">最寄りのインターチェンジだったため
                                             </label>
                                         </div>
-                                        <div class="py-2">
-                                            <label for="smartic-reason4">
-                                                <input type="checkbox" id="reason4" name="reason[]" value="4" class="right-space">その他
-                                            </label>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="py-2">
+                                                <label for="smartic-reason4">
+                                                    <input type="checkbox" id="smartic-reason4" name="smartic-reason[]" value="4" class="right-space">その他
+                                                </label>
+                                            </div>
+                                            <div class="input-box-sub">
+                                                <input type="text" name="smartic-reason-etc" placeholder="その他" maxlength="50">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -607,10 +622,15 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                                                 <input type="checkbox" id="awajisa-purpose13" name="awajisa-purpose[]" value="13" class="right-space">観光情報の入手
                                             </label>
                                         </div>
-                                        <div class="py-2">
-                                            <label for="awajisa-purpose14">
-                                                <input type="checkbox" id="awajisa-purpose14" name="awajisa-purpose[]" value="14" class="right-space">その他
-                                            </label>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="py-2">
+                                                <label for="awajisa-purpose14">
+                                                    <input type="checkbox" id="awajisa-purpose14" name="awajisa-purpose[]" value="14" class="right-space">その他
+                                                </label>
+                                            </div>
+                                            <div class="input-box-sub">
+                                                <input type="text" name="awajisa-purpose-etc" placeholder="その他" maxlength="50">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -772,10 +792,15 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                                                 <input type="checkbox" id="oasis-purpose5" name="oasis-purpose[]" value="5" class="right-space">トイレ
                                             </label>
                                         </div>
-                                        <div class="py-2">
-                                            <label for="oasis-purpose6">
-                                                <input type="checkbox" id="oasis-purpose6" name="oasis-purpose[]" value="6" class="right-space">その他
-                                            </label>
+                                        <div class="d-flex justify-content-between">
+                                            <div class="py-2">
+                                                <label for="oasis-purpose6">
+                                                    <input type="checkbox" id="oasis-purpose6" name="oasis-purpose[]" value="6" class="right-space">その他
+                                                </label>
+                                            </div>
+                                            <div class="input-box-sub">
+                                                <input type="text" name="oasis-purpose-etc" placeholder="その他" maxlength="50">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
