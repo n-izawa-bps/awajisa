@@ -13,6 +13,7 @@ $is_open = false;
 if ($is_survey_state == NOW && $is_show_present_message) {
     $is_open = true;
 }
+setcookie('is_open', $is_open);
 
 // アンケート出力
 if (!empty($_POST) && !$_COOKIE['answered']) {
