@@ -46,7 +46,7 @@ setcookie('shown_thanks', 1, strtotime(date("Y-m-d") . "+1 days"));
     </script>
 </head>
 
-<body>
+<body onload="checkTransition()">
 	<div class="main_bk">
         <p class="mt-3"><img src="./img/jb_logo.gif" alt=""></p>
 		<?php if ($first_show) : ?>
@@ -67,12 +67,12 @@ setcookie('shown_thanks', 1, strtotime(date("Y-m-d") . "+1 days"));
 					<p>この画面をインフォメーションの係員に提示してください。</p>
 					<p class="mt-4">この画面を閉じずに提示してください。</p>
 				</div>
-				<input class="d-block mx-auto" type="button" onclick="location.replace('http://www.jb-highway.co.jp/index.php')" value="プレゼントを受け取りました。">
+				<input class="d-block mx-auto" type="button" onclick="reloadToHref()" value="プレゼントを受け取りました。">
 			<?php else : ?>
 				<div class="info py-2">
 					<p>今後とも本四道路のご利用をお願いいたします。</p>
 				</div>
-				<input class="d-block mx-auto" type="button" onclick="location.replace('http://www.jb-highway.co.jp/index.php')" value="この画面を閉じる">
+				<input class="d-block mx-auto" type="button" onclick="reloadToHref()" value="この画面を閉じる">
 			<?php endif; ?>
 
 		<?php else : ?>
