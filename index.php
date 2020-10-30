@@ -100,17 +100,17 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                     <div class="info">
                         <p class="my-2">
                             淡路SAの利用に関するアンケート実施中<br>
-                            （アンケートは３分程度で終わります）<br>
                             粗品の受け渡しは<?php printf(date('Y年m月d日（%\s）G:i', strtotime(SURVEY_START)), WEEK[date('w', strtotime(SURVEY_START))]); ?> からとなります。<br>
-                            ご了承ください。
+                            ご了承ください。<br>
+                            （アンケートは３分程度で終わります）
                         </p>
                     </div>
                 <?php elseif ($is_show_present_message && $present_state == "1") : ?>
                     <div class="info">
                         <p class="my-2">
                             アンケート完了画面をインフォメーションにてご提示いただいた方に淡路SAインフォメーションにて「コンソメたまねぎ棒（２本セット）」をプレゼント。<br>
-                            （アンケートは３分程度で終わります）<br>
-                            ※プレゼントのお渡しはインフォメーション営業時間中のみで、お一人様１回限りとさせていただきます。
+                            ※プレゼントのお渡しはインフォメーション営業時間中のみで、お一人様１回限りとさせていただきます。<br>
+                            （アンケートは３分程度で終わります）
                         </p>
                     </div>
                 <?php else : ?>
