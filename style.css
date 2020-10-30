@@ -1,5 +1,5 @@
 h1{
-	font-size: 18px;
+	font-size: 17px;
 	margin: 10px 0 5px 0;
 	text-align: center;
 	font-weight: bold;
@@ -123,4 +123,14 @@ label, input[type='checkbox'] {
 	color: #808080;
 	background-color: #DCDCDC;
 	font-size: 10px;
+}
+
+.img-header {
+	width: auto;
+	height: 20px;
+}
+
+.img-logo {
+	width: auto;
+	height: 40px;
 }
