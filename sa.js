@@ -194,6 +194,33 @@ function check() {
 	return true;
 }
 
+function reloadToHref() {
+	document.cookie = "transition=1";
+	window.location.href='http://www.jb-highway.co.jp/index.php';
+}
+
+function getCookie(key) {
+	let cookies = document.cookie;
+	let cookie_list = cookies.split(';');
+
+	for (let cookie_set of cookie_list) {
+		let cookie = cookie_set.split('=');
+		if (cookie[0].trim() == key) {
+			return cookie[1].trim();
+		}
+	}
+
+	return null;
+}
+
+function checkTransition() {
+	if (getCookie("transition")) {
+		document.cookie = "transition=; max-age=0";
+		$('#first').hide();
+		$('#second').show();
+	}
+}
+
 window.addEventListener('load', (event) => {
 	setTimer();
 	entryChangeMainPurpose();
