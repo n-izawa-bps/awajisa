@@ -16,6 +16,7 @@ $is_open = false;
 if ($is_survey_state == NOW && $is_show_present_message) {
     $is_open = true;
 }
+setcookie('is_open', $is_open);
 
 // アンケート出力
 if (!empty($_POST)) {
@@ -268,7 +269,7 @@ if (!empty($_POST)) {
                                     <div class="input-box">
                                         <select name="transportation" id="transportation">
                                             <option value="">選択してください</option>
-                                            <option value="bicycle">自動車</option>
+                                            <option value="car">自動車</option>
                                             <option value="bike">バイク</option>
                                             <option value="bus">観光バス</option>
                                             <option value="other">その他</option>

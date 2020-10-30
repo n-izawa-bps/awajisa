@@ -39,6 +39,10 @@ function getCsvData($key)
         return date('H:i:s');
     }
 
+    if ($key == "open") {
+        return $_COOKIE['is_open'] ?? 0;
+    }
+
     // POSTデータ処理
     if (!isset($_POST[$key])) {
         return "";

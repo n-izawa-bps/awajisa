@@ -109,6 +109,7 @@ define(
         'opinion'           => '18.意見',
         'date'              => '日付',
         'time'              => '時間',
+        'open'              => '営業時間内',
         'p'                 => 'アクセス元',
         'user_agent'        => 'user-agent',
     ]
