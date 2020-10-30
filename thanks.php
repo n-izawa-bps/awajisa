@@ -80,7 +80,7 @@ setcookie('shown_thanks', 1, strtotime(date("Y-m-d") . "+1 days"));
 		<?php endif; ?>
 	</div>
 	<div class="mt-5 text-center">
-		<a href="./privacy.html" class="privacy">プライバシーポリシーについて</a>
+        <a href="./privacy.html" target="_blank" class="privacy">プライバシーポリシーについて</a>
 	</div>
 </body>
 

@@ -904,7 +904,7 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
         <?php endif; ?>
     </div>
     <div class="my-5 text-center">
-        <a href="./privacy.html" class="privacy">プライバシーポリシーについて</a>
+        <a href="./privacy.html" target="_blank" class="privacy">プライバシーポリシーについて</a>
     </div>
     <!----- /main ----->
 
