@@ -48,12 +48,12 @@ setcookie('shown_thanks', 1, strtotime(date("Y-m-d") . "+1 days"));
 
 <body onload="checkTransition()">
 	<div class="main_bk">
-        <p class="mt-3"><img class="img-header" src="./img/jbh4.png" alt=""></p>
+        <p class="mt-3"><img class="img-header" src="./img/jbh4.png" alt="JB本四高速"></p>
 		<?php if ($first_show) : ?>
 			<div id="first">
 				<div class="d-flex justify-content-center align-items-center title">
 					<h1 class="p-3">淡路サービスエリア等に関する<br>ＷＥＢアンケート（<?= getPlace($_GET['p']) ?>）</h1>
-					<p class="d-block"><img class="img-logo" src="./img/wataru.png" alt=""></p>
+					<p class="d-block"><img class="img-logo" src="./img/wataru.png" alt="わたる君"></p>
 				</div>
 				<h1 class="pt-4 title">
 					アンケートにご協力いただきありがとうございました。
