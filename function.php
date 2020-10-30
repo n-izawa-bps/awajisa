@@ -228,4 +228,18 @@ function isShowPresentMessage($p, $date)
 
 	return false;
 }
+
+// パラメータチェック
+function checkParameter($p)
+{
+    if ($p == 'up') {
+        return true;
+    }
+
+    if ($p == 'dwn') {
+        return true;
+    }
+
+    return false;
+}
 ?>

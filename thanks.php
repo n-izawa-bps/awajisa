@@ -48,12 +48,12 @@ setcookie('shown_thanks', 1, strtotime(date("Y-m-d") . "+1 days"));
 
 <body onload="checkTransition()">
 	<div class="main_bk">
-        <p class="mt-3"><img src="./img/jb_logo.gif" alt=""></p>
+        <p class="mt-3"><img class="img-header" src="./img/jbh4.png" alt=""></p>
 		<?php if ($first_show) : ?>
 			<div id="first">
 				<div class="d-flex justify-content-center align-items-center title">
 					<h1 class="p-3">淡路サービスエリア等に関する<br>ＷＥＢアンケート（<?= getPlace($_GET['p']) ?>）</h1>
-					<p class="d-block"><img src="./img/head_img01.gif" alt=""></p>
+					<p class="d-block"><img class="img-logo" src="./img/wataru.png" alt=""></p>
 				</div>
 				<h1 class="pt-4 title">
 					アンケートにご協力いただきありがとうございました。
@@ -80,11 +80,11 @@ setcookie('shown_thanks', 1, strtotime(date("Y-m-d") . "+1 days"));
 				<h1 class="p-4">大変申し訳ございません。<br>本ページの再表示は、行えません。</h1>
 			</div>
 		<?php else : ?>
-			<h1 class="p-4">大変申し訳ございません。<br>本ページの再表示は、行えません。</h1>
+			<h1 class="p-4">大変申し訳ありません。<br>本ページの再表示は、行えません。</h1>
 		<?php endif; ?>
 	</div>
 	<div class="mt-5 text-center">
-		<a href="./privacy.html" class="privacy">プライバシーポリシーについて</a>
+        <a href="./privacy.html" target="_blank" class="privacy">プライバシーポリシーについて</a>
 	</div>
 </body>
 
