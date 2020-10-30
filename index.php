@@ -274,7 +274,7 @@ if (!empty($_POST) && !$_COOKIE['answered']) {
                                     <div class="input-box">
                                         <select name="transportation" id="transportation">
                                             <option value="">選択してください</option>
-                                            <option value="bicycle">自動車</option>
+                                            <option value="car">自動車</option>
                                             <option value="bike">バイク</option>
                                             <option value="bus">観光バス</option>
                                             <option value="other">その他</option>
