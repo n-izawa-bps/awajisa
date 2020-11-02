@@ -1,0 +1,4 @@
+AuthType Basic
+AuthUserFile C:\MAMP\htdocs\hp\test\.htpasswd
+AuthName "Please enter your ID and password"
+Require valid-user
